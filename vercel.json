@@ -1,20 +1,19 @@
 {
   "version": 2,
   "name": "dashboard-disciplinar-atletas",
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
-    }
-  ],
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
   "routes": [
+    {
+      "src": "/assets/(.*)",
+      "headers": {
+        "cache-control": "max-age=31536000, immutable"
+      }
+    },
     {
       "src": "/(.*)",
       "dest": "/index.html"
     }
   ]
 }
-
