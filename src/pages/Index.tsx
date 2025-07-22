@@ -218,7 +218,6 @@ const Index = () => {
       {selectedAthlete && (
         <AthleteProfile
           athleteName={selectedAthlete}
-          occurrences={athleteOccurrences}
           onClose={() => setSelectedAthlete(null)}
         />
       )}
