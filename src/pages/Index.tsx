@@ -130,7 +130,7 @@ const Index = () => {
           <div className="flex-1">
             <h1 className="text-3xl font-bold text-red-600 flex items-center space-x-3">
               <Shield className="h-8 w-8" />
-              <span>Painel de Controle Disciplinar</span>
+              <span>Controle Disciplinar Alojamento</span>
             </h1>
             <p className="inter-text-secondary mt-1">
               Monitoramento e análise de ocorrências disciplinares dos atletas alojados
