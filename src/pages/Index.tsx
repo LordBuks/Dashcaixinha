@@ -7,6 +7,7 @@ import { StatCard } from "@/components/dashboard/StatCard";
 import { AthleteCard } from "@/components/dashboard/AthleteCard";
 import { OccurrenceChart } from "@/components/dashboard/OccurrenceChart";
 import { AthleteProfile } from "@/components/dashboard/AthleteProfile";
+import { AthleteListModal } from "@/components/dashboard/AthleteListModal";
 import { athleteOccurrences, extractSchool, categorizeOccurrence } from "@/data/athleteData";
 import { 
   Users, 
@@ -15,13 +16,17 @@ import {
   GraduationCap,
   Search,
   Filter,
-  TrendingUp
+  TrendingUp,
+  Shield,
+  BarChart3,
+  PieChart
 } from "lucide-react";
 
 const Index = () => {
   const [selectedAthlete, setSelectedAthlete] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("all");
+  const [selectedSchool, setSelectedSchool] = useState<string | null>(null);
 
   // Processar dados dos atletas
   const athleteStats = useMemo(() => {
@@ -102,117 +107,168 @@ const Index = () => {
 
   const categories = [...new Set(athleteStats.map(athlete => athlete.category))];
 
+  // Handlers para os modais
+  const handleSchoolClick = (schoolName: string) => {
+    setSelectedSchool(schoolName);
+  };
+
+  const handleAthleteClickFromModal = (athleteName: string) => {
+    setSelectedSchool(null); // Fecha o modal de escola
+    setSelectedAthlete(athleteName); // Abre o perfil do atleta
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-background/80 p-6">
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-foreground mb-2">
-          Painel de Controle Disciplinar
-        </h1>
-        <p className="text-muted-foreground">
-          Monitoramento e análise de ocorrências disciplinares dos atletas alojados
-        </p>
-      </div>
-
-      {/* Cards de Estatísticas */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        <StatCard
-          title="Total de Atletas"
-          value={totalAthletes}
-          icon={Users}
-          description="Atletas com ocorrências"
-        />
-        <StatCard
-          title="Total de Ocorrências"
-          value={totalOccurrences}
-          icon={AlertTriangle}
-          description="Registradas no período"
-        />
-        <StatCard
-          title="Valor Total"
-          value={`R$ ${totalValue.toLocaleString()}`}
-          icon={DollarSign}
-          description="Em multas aplicadas"
-        />
-        <StatCard
-          title="Média por Atleta"
-          value={`R$ ${averagePerAthlete}`}
-          icon={TrendingUp}
-          description="Valor médio de multas"
-        />
-      </div>
-
-      {/* Gráficos */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-        <OccurrenceChart
-          data={occurrenceByCategory}
-          title="Ocorrências por Categoria"
-          type="pie"
-        />
-        <OccurrenceChart
-          data={schoolStats}
-          title="Ocorrências por Local/Escola"
-          type="bar"
-        />
-      </div>
-
-      {/* Filtros e Lista de Atletas */}
-      <Card className="bg-gradient-to-br from-card to-card/80 border-border/50">
-        <CardHeader>
-          <CardTitle className="flex items-center space-x-2">
-            <GraduationCap className="h-5 w-5 text-primary" />
-            <span>Ranking de Atletas</span>
-          </CardTitle>
-          
-          {/* Filtros */}
-          <div className="flex flex-col sm:flex-row gap-4 mt-4">
-            <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <Input
-                placeholder="Buscar atleta..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10"
-              />
-            </div>
-            <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-              <SelectTrigger className="w-full sm:w-48">
-                <SelectValue placeholder="Filtrar por categoria" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">Todas as categorias</SelectItem>
-                {categories.map(category => (
-                  <SelectItem key={category} value={category}>
-                    {category}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+    <div className="min-h-screen inter-gradient-bg">
+      {/* Header com Logo do Internacional */}
+      <div className="px-6 py-4 mb-8 bg-white shadow-md rounded-b-lg">
+        <div className="flex items-center space-x-4">
+          <img 
+            src="/inter-logo.png" 
+            alt="Sport Club Internacional" 
+            className="h-12 w-12 object-contain"
+          />
+          <div className="flex-1">
+            <h1 className="text-3xl font-bold text-red-600 flex items-center space-x-3">
+              <Shield className="h-8 w-8" />
+              <span>Painel de Controle Disciplinar</span>
+            </h1>
+            <p className="inter-text-secondary mt-1">
+              Monitoramento e análise de ocorrências disciplinares dos atletas alojados
+            </p>
           </div>
-        </CardHeader>
-        
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {filteredAthletes.map((athlete, index) => (
-              <AthleteCard
-                key={athlete.name}
-                name={athlete.name}
-                category={athlete.category}
-                occurrenceCount={athlete.occurrenceCount}
-                totalValue={athlete.totalValue}
-                isSelected={selectedAthlete === athlete.name}
-                onClick={() => setSelectedAthlete(athlete.name)}
+        </div>
+      </div>
+
+      <div className="px-6">
+        {/* Cards de Estatísticas */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <StatCard
+            title="Total de Atletas"
+            value={totalAthletes}
+            icon={Users}
+            description="Atletas com ocorrências"
+            className="inter-card animate-fade-in"
+          />
+          <StatCard
+            title="Total de Ocorrências"
+            value={totalOccurrences}
+            icon={AlertTriangle}
+            description="Registradas no período"
+            className="inter-card animate-fade-in"
+          />
+          <StatCard
+            title="Valor Total"
+            value={`R$ ${totalValue.toLocaleString()}`}
+            icon={DollarSign}
+            description="Em multas aplicadas"
+            className="inter-card animate-fade-in"
+          />
+          <StatCard
+            title="Média por Atleta"
+            value={`R$ ${averagePerAthlete}`}
+            icon={TrendingUp}
+            description="Valor médio de multas"
+            className="inter-card animate-fade-in"
+          />
+        </div>
+
+        {/* Gráficos */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          <Card className="inter-card-float animate-slide-up">
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2 text-red-600">
+                <PieChart className="h-5 w-5" />
+                <span>Ocorrências por Categoria</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <OccurrenceChart
+                data={occurrenceByCategory}
+                title="Ocorrências por Categoria"
+                type="pie"
               />
-            ))}
-          </div>
+            </CardContent>
+          </Card>
           
-          {filteredAthletes.length === 0 && (
-            <div className="text-center py-8 text-muted-foreground">
-              Nenhum atleta encontrado com os filtros aplicados.
+          <Card className="inter-card-float animate-slide-up">
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2 text-red-600">
+                <BarChart3 className="h-5 w-5" />
+                <span>Ocorrências por Local/Escola</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <OccurrenceChart
+                data={schoolStats}
+                title="Ocorrências por Local/Escola"
+                type="bar"
+                onBarClick={handleSchoolClick}
+              />
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Filtros e Lista de Atletas */}
+        <Card className="inter-card-float animate-slide-up">
+          <CardHeader>
+            <CardTitle className="flex items-center space-x-2 text-red-600">
+              <GraduationCap className="h-6 w-6" />
+              <span>Ranking de Atletas</span>
+            </CardTitle>
+            
+            {/* Filtros */}
+            <div className="flex flex-col sm:flex-row gap-4 mt-6">
+              <div className="relative flex-1">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 inter-text-secondary" />
+                <Input
+                  placeholder="Buscar atleta..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="pl-10 border-red-100 focus:border-red-300 focus:ring-red-200"
+                />
+              </div>
+              <Select value={categoryFilter} onValueChange={setCategoryFilter}>
+                <SelectTrigger className="w-full sm:w-48 border-red-100 focus:border-red-300 focus:ring-red-200">
+                  <Filter className="h-4 w-4 mr-2 inter-text-secondary" />
+                  <SelectValue placeholder="Filtrar por categoria" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">Todas as categorias</SelectItem>
+                  {categories.map(category => (
+                    <SelectItem key={category} value={category}>
+                      {category}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
-          )}
-        </CardContent>
-      </Card>
+          </CardHeader>
+          
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {filteredAthletes.map((athlete, index) => (
+                <AthleteCard
+                  key={athlete.name}
+                  name={athlete.name}
+                  category={athlete.category}
+                  occurrenceCount={athlete.occurrenceCount}
+                  totalValue={athlete.totalValue}
+                  isSelected={selectedAthlete === athlete.name}
+                  onClick={() => setSelectedAthlete(athlete.name)}
+                  className="inter-hover-effect"
+                />
+              ))}
+            </div>
+            
+            {filteredAthletes.length === 0 && (
+              <div className="text-center py-12 inter-text-secondary">
+                <AlertTriangle className="h-12 w-12 mx-auto mb-4 opacity-50" />
+                <p className="text-lg">Nenhum atleta encontrado com os filtros aplicados.</p>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      </div>
 
       {/* Profile Modal */}
       {selectedAthlete && (
@@ -221,8 +277,18 @@ const Index = () => {
           onClose={() => setSelectedAthlete(null)}
         />
       )}
+
+      {/* School Athletes Modal */}
+      {selectedSchool && (
+        <AthleteListModal
+          schoolName={selectedSchool}
+          onClose={() => setSelectedSchool(null)}
+          onAthleteClick={handleAthleteClickFromModal}
+        />
+      )}
     </div>
   );
 };
 
 export default Index;
+

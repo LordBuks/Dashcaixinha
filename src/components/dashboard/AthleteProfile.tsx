@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { AthleteOccurrence, categorizeOccurrence, athleteOccurrences } from "@/data/athleteData";
 import { useMemo } from "react";
+import { X, User, AlertTriangle, DollarSign, Calendar, FileText } from "lucide-react";
 
 interface AthleteProfileProps {
   athleteName: string;
@@ -32,7 +33,7 @@ export function AthleteProfile({ athleteName, onClose }: AthleteProfileProps) {
   }, [athleteName]);
 
   if (!athlete) {
-    return null; // Ou um componente de carregamento/erro
+    return null;
   }
 
   const initials = athlete.name.split(" ").map(n => n[0]).join("").slice(0, 2);
@@ -44,60 +45,95 @@ export function AthleteProfile({ athleteName, onClose }: AthleteProfileProps) {
   }, {} as Record<string, number>);
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <Card className="bg-gradient-to-br from-card to-card/80 border-border/50 w-full max-w-2xl max-h-[90vh] overflow-y-auto relative">
-        <CardHeader>
+    <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4 animate-fade-in">
+      <Card className="bg-white border border-red-200 w-full max-w-3xl max-h-[90vh] overflow-y-auto relative shadow-2xl animate-slide-up">
+        <CardHeader className="bg-gradient-to-r from-red-50 to-white border-b border-red-100">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <Avatar className="h-16 w-16 border-2 border-primary/20">
-                <AvatarFallback className="bg-primary/10 text-primary font-bold text-lg">
+              <Avatar className="h-20 w-20 border-3 border-red-200 shadow-lg">
+                <AvatarFallback className="bg-red-100 text-red-700 font-bold text-2xl">
                   {initials}
                 </AvatarFallback>
               </Avatar>
               <div>
-                <CardTitle className="text-xl text-foreground">{athlete.name}</CardTitle>
-                <Badge variant="secondary" className="mt-1">
+                <CardTitle className="text-2xl text-gray-900 flex items-center space-x-2">
+                  <User className="h-6 w-6 text-red-600" />
+                  <span>{athlete.name}</span>
+                </CardTitle>
+                <Badge variant="secondary" className="mt-2 bg-red-100 text-red-700 hover:bg-red-200">
                   {athlete.category}
                 </Badge>
               </div>
             </div>
-            <button onClick={onClose} className="text-muted-foreground hover:text-foreground">
-              &times;
+            <button 
+              onClick={onClose} 
+              className="p-2 hover:bg-red-50 rounded-full transition-colors group"
+            >
+              <X className="h-6 w-6 text-gray-500 group-hover:text-red-600" />
             </button>
           </div>
         </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-2 gap-4 mb-4">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-destructive">{athlete.occurrenceCount}</div>
-              <div className="text-sm text-muted-foreground">Ocorrências</div>
+        
+        <CardContent className="p-6">
+          {/* Estatísticas Principais */}
+          <div className="grid grid-cols-2 gap-6 mb-8">
+            <div className="text-center p-4 bg-red-50 rounded-xl border border-red-100">
+              <div className="flex items-center justify-center mb-2">
+                <AlertTriangle className="h-6 w-6 text-red-600 mr-2" />
+                <div className="text-3xl font-bold text-red-600">{athlete.occurrenceCount}</div>
+              </div>
+              <div className="text-sm font-medium text-gray-600">Total de Ocorrências</div>
             </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-accent">R$ {athlete.totalValue}</div>
-              <div className="text-sm text-muted-foreground">Total em Multas</div>
+            <div className="text-center p-4 bg-gray-50 rounded-xl border border-gray-200">
+              <div className="flex items-center justify-center mb-2">
+                <DollarSign className="h-6 w-6 text-gray-600 mr-2" />
+                <div className="text-3xl font-bold text-gray-700">R$ {athlete.totalValue.toLocaleString()}</div>
+              </div>
+              <div className="text-sm font-medium text-gray-600">Total em Multas</div>
             </div>
           </div>
           
-          <div className="space-y-2">
-            <h4 className="font-semibold text-foreground">Categorias de Ocorrências:</h4>
-            {Object.entries(occurrencesByCategory).map(([category, count]) => (
-              <div key={category} className="flex justify-between items-center">
-                <span className="text-sm text-muted-foreground">{category}</span>
-                <Badge variant="outline">{count}</Badge>
-              </div>
-            ))}
+          {/* Categorias de Ocorrências */}
+          <div className="mb-8">
+            <h4 className="font-bold text-lg text-gray-900 mb-4 flex items-center">
+              <FileText className="h-5 w-5 text-red-600 mr-2" />
+              Categorias de Ocorrências
+            </h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {Object.entries(occurrencesByCategory).map(([category, count]) => (
+                <div key={category} className="flex justify-between items-center p-3 bg-gray-50 rounded-lg border border-gray-200 hover:bg-red-50 hover:border-red-200 transition-colors">
+                  <span className="text-sm font-medium text-gray-700">{category}</span>
+                  <Badge variant="outline" className="bg-white border-red-200 text-red-700 font-bold">
+                    {count}
+                  </Badge>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div className="mt-4 space-y-2">
-            <h4 className="font-semibold text-foreground">Últimas Ocorrências:</h4>
-            <div className="max-h-32 overflow-y-auto space-y-1">
-              {athlete.occurrences.slice(0, 5).map((occ, index) => (
-                <div key={index} className="text-xs text-muted-foreground p-2 bg-muted/50 rounded">
-                  <div className="font-medium">{categorizeOccurrence(occ.OCORRÊNCIA)}</div>
-                  <div className="truncate">{occ.OCORRÊNCIA}</div>
-                  <div className="flex justify-between mt-1">
+          {/* Últimas Ocorrências */}
+          <div>
+            <h4 className="font-bold text-lg text-gray-900 mb-4 flex items-center">
+              <Calendar className="h-5 w-5 text-red-600 mr-2" />
+              Últimas Ocorrências
+            </h4>
+            <div className="max-h-64 overflow-y-auto space-y-3">
+              {athlete.occurrences.slice(0, 8).map((occ, index) => (
+                <div key={index} className="p-4 bg-white border border-gray-200 rounded-lg hover:border-red-200 hover:shadow-sm transition-all">
+                  <div className="flex justify-between items-start mb-2">
+                    <div className="font-semibold text-red-600 text-sm">
+                      {categorizeOccurrence(occ.OCORRÊNCIA)}
+                    </div>
+                    <Badge variant="outline" className="text-xs bg-red-50 border-red-200 text-red-700">
+                      R$ {occ.Valor}
+                    </Badge>
+                  </div>
+                  <div className="text-sm text-gray-700 mb-2 leading-relaxed">
+                    {occ.OCORRÊNCIA}
+                  </div>
+                  <div className="flex items-center text-xs text-gray-500">
+                    <Calendar className="h-3 w-3 mr-1" />
                     <span>Data: {occ.DATA}</span>
-                    <span className="text-accent">R$ {occ.Valor}</span>
                   </div>
                 </div>
               ))}

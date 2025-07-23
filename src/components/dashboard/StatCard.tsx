@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { LucideIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface StatCardProps {
   title: string;
@@ -8,6 +9,7 @@ interface StatCardProps {
   icon: LucideIcon;
   trend?: "up" | "down" | "neutral";
   trendValue?: string;
+  className?: string;
 }
 
 export function StatCard({ 
@@ -16,33 +18,52 @@ export function StatCard({
   description, 
   icon: Icon, 
   trend = "neutral", 
-  trendValue 
+  trendValue,
+  className
 }: StatCardProps) {
   const getTrendColor = () => {
     switch (trend) {
-      case "up": return "text-green-500";
-      case "down": return "text-red-500";
-      default: return "text-muted-foreground";
+      case "up": return "text-green-600";
+      case "down": return "text-red-600";
+      default: return "text-gray-500";
     }
   };
 
   return (
-    <Card className="bg-gradient-to-br from-card to-card/80 border-border/50 hover:border-primary/50 transition-all duration-300">
-      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-        <CardTitle className="text-sm font-medium text-muted-foreground">
+    <Card className={cn(
+      "bg-white border border-red-100 transition-all duration-300 group",
+      "shadow-lg hover:shadow-2xl",
+      className
+    )}
+    style={{
+      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)',
+    }}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.boxShadow = '0 16px 48px rgba(0, 0, 0, 0.18)';
+      e.currentTarget.style.transform = 'translateY(-4px)';
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.12)';
+      e.currentTarget.style.transform = 'translateY(0)';
+    }}
+    >
+      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
+        <CardTitle className="text-sm font-semibold text-gray-600 group-hover:text-gray-700 transition-colors">
           {title}
         </CardTitle>
-        <Icon className="h-4 w-4 text-primary" />
+        <div className="p-2 bg-red-50 rounded-lg group-hover:bg-red-100 transition-colors">
+          <Icon className="h-5 w-5 text-red-600" />
+        </div>
       </CardHeader>
       <CardContent>
-        <div className="text-2xl font-bold text-foreground">{value}</div>
+        <div className="text-3xl font-bold text-gray-900 mb-1">{value}</div>
         {description && (
-          <p className="text-xs text-muted-foreground mt-1">
+          <p className="text-sm text-gray-500 leading-relaxed">
             {description}
           </p>
         )}
         {trendValue && (
-          <p className={`text-xs mt-1 ${getTrendColor()}`}>
+          <p className={`text-sm mt-2 font-medium ${getTrendColor()}`}>
             {trendValue}
           </p>
         )}
