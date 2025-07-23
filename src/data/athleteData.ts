@@ -495,7 +495,7 @@ export const athleteOccurrences: AthleteOccurrence[] = [
     "NOME": "Marcos Neves",
     "Cat": "Sub-14",
     "DATA": "45811",
-    "OCORRÊNCIA": "Em ronda às 15h15 ar condiconado ligado e ninguém no quarto",
+    "OCORRÊNCIA": "Em ronda às 15h15 ar condicionado ligado e ninguém no quarto",
     "Valor": "50"
   },
   {
@@ -898,9 +898,8 @@ export const categorizeOccurrence = (occurrence: string): string => {
   if (occurrence.includes("Falta escolar")) return "Falta Escolar";
   if (occurrence.includes("chocolate") || occurrence.includes("doces") || occurrence.includes("salgado")) return "Alimentação Irregular";
   if (occurrence.includes("uniforme")) return "Vestimenta";
-  if (occurrence.includes("cama") || occurrence.includes("toalhas")) return "Organização";
-  if (occurrence.includes("algazarra") || occurrence.includes("som alto")) return "Comportamento";
-  if (occurrence.includes("ar condicionado")) return "Economia";
-  if (occurrence.includes("dormiu fora") || occurrence.includes("horário")) return "Horário/Local";
+  if (occurrence.includes("cama") || occurrence.includes("toalhas") || occurrence.includes("ar condicionado")) return "Desorganização";
+  if (occurrence.includes("algazarra") || occurrence.includes("som alto") || occurrence.includes("fora do quarto")|| occurrence.includes("fora do quarto")) return "Comportamento";
+  if (occurrence.includes("dormiu fora") || occurrence.includes("horário")) return "Atrasos/Sair sem autorização";
   return "Outras";
 };
