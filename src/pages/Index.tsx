@@ -178,7 +178,7 @@ const Index = () => {
             <CardHeader>
               <CardTitle className="flex items-center space-x-2 text-red-600">
                 <PieChart className="h-5 w-5" />
-                <span>Ocorrências por Categoria</span>
+                <span>Tipos de ocorrências</span>
               </CardTitle>
             </CardHeader>
             <CardContent>
