@@ -194,7 +194,7 @@ const Index = () => {
             <CardHeader>
               <CardTitle className="flex items-center space-x-2 text-red-600">
                 <BarChart3 className="h-5 w-5" />
-                <span>Ocorrências por Local/Escola</span>
+                <span>Faltas Escolares</span>
               </CardTitle>
             </CardHeader>
             <CardContent>
