@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { AthleteOccurrence, categorizeOccurrence, athleteOccurrences } from "@/data/athleteData";
 import { useMemo } from "react";
 import { X, User, AlertTriangle, DollarSign, Calendar, FileText } from "lucide-react";
@@ -21,13 +21,18 @@ export function AthleteProfile({ athleteName, onClose }: AthleteProfileProps) {
           category: occ.Cat,
           occurrences: [],
           totalValue: 0,
-          occurrenceCount: 0
+          occurrenceCount: 0,
+          fotoUrl: occ.fotoUrl
         });
       }
       const currentAthlete = stats.get(key);
       currentAthlete.occurrences.push(occ);
       currentAthlete.totalValue += parseInt(occ.Valor);
       currentAthlete.occurrenceCount += 1;
+      // Atualiza fotoUrl se não existir ainda
+      if (!currentAthlete.fotoUrl && occ.fotoUrl) {
+        currentAthlete.fotoUrl = occ.fotoUrl;
+      }
     });
     return Array.from(stats.values()).find(a => a.name === athleteName);
   }, [athleteName]);
@@ -49,9 +54,16 @@ export function AthleteProfile({ athleteName, onClose }: AthleteProfileProps) {
       <Card className="bg-white border border-red-200 w-full max-w-3xl max-h-[90vh] overflow-y-auto relative shadow-2xl animate-slide-up">
         <CardHeader className="bg-gradient-to-r from-red-50 to-white border-b border-red-100">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <Avatar className="h-20 w-20 border-3 border-red-200 shadow-lg">
-                <AvatarFallback className="bg-red-100 text-red-700 font-bold text-2xl">
+            <div className="flex items-center space-x-6">
+              <Avatar className="h-24 w-24 rounded-lg border-3 border-red-200 shadow-lg">
+                {athlete.fotoUrl ? (
+                  <AvatarImage 
+                    src={athlete.fotoUrl} 
+                    alt={`Foto de ${athlete.name}`}
+                    className="object-cover"
+                  />
+                ) : null}
+                <AvatarFallback className="bg-red-100 text-red-700 font-bold text-3xl">
                   {initials}
                 </AvatarFallback>
               </Avatar>

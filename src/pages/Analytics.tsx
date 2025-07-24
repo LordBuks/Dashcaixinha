@@ -304,24 +304,52 @@ const Analytics = () => {
           <div className="bg-white rounded-lg shadow p-6">
             <h2 className="text-xl font-semibold mb-4">Top Atletas Reincidentes</h2>
             <div className="space-y-3 max-h-80 overflow-y-auto">
-              {topRecurrentAthletes.map((athlete, index) => (
-                <div key={athlete.name} className="flex items-center justify-between p-3 bg-gray-50 rounded">
-                  <div className="flex-1">
-                    <div className="flex items-center space-x-2">
-                      <span className="font-medium text-sm">{index + 1}º</span>
-                      <span className="font-medium">{athlete.name}</span>
-                      <span className="text-sm text-gray-500">({athlete.category})</span>
+              {topRecurrentAthletes.map((athlete, index) => {
+                // Buscar a foto do atleta nos dados mensais
+                const athleteOccurrence = monthlyData
+                  .flatMap(monthData => monthData.data)
+                  .find(occ => occ.NOME === athlete.name);
+                const fotoUrl = athleteOccurrence?.fotoUrl;
+                const initials = athlete.name.split(' ').map(n => n[0]).join('').slice(0, 2);
+
+                return (
+                  <div key={athlete.name} className="flex items-center justify-between p-3 bg-gray-50 rounded hover:bg-gray-100 transition-colors">
+                    <div className="flex items-center space-x-3 flex-1">
+                      <div className="flex items-center space-x-2">
+                        <span className="font-bold text-lg text-gray-700 w-6">{index + 1}º</span>
+                        <div className="relative">
+                          {fotoUrl ? (
+                          <img 
+                              src={fotoUrl} 
+                              alt={`Foto de ${athlete.name}`}
+                              className="w-14 h-14 rounded-lg object-cover border-2 border-red-200"
+                            />
+                          ) : (
+                            <div className="w-14 h-14 rounded-lg bg-red-100 border-2 border-red-200 flex items-center justify-center">
+                              <span className="text-red-700 font-bold text-sm">{initials}</span>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center space-x-2">
+                          <span className="font-medium">{athlete.name}</span>
+                          <span className="text-sm text-gray-500 bg-gray-200 px-2 py-1 rounded">
+                            {athlete.category}
+                          </span>
+                        </div>
+                        <div className="text-sm text-gray-600 mt-1">
+                          {athlete.months.size} meses • {athlete.totalOccurrences} ocorrências
+                        </div>
+                      </div>
                     </div>
-                    <div className="text-sm text-gray-600 mt-1">
-                      {athlete.months.size} meses • {athlete.totalOccurrences} ocorrências
+                    <div className="text-right">
+                      <div className="font-medium text-sm">R$ {athlete.totalValue.toLocaleString()}</div>
+                      <div className="text-xs text-gray-500">Total</div>
                     </div>
                   </div>
-                  <div className="text-right">
-                    <div className="font-medium text-sm">R$ {athlete.totalValue.toLocaleString()}</div>
-                    <div className="text-xs text-gray-500">Total</div>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>

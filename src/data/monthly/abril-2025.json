@@ -1,835 +1,835 @@
 [
   {
-    "nome": "Alexandre Pablo",
-    "cat": "Sub-16",
-    "data": "45761",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Alexandre Pablo",
+    "Cat": "Sub-16",
+    "DATA": "45761",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Alexandre Pablo",
-    "cat": "Sub-16",
-    "data": "45756",
-    "ocorrencia": "Estava fora de seu quarto após 23h, não acatou orientação do monitor",
-    "valor": "R$ 100,00"
+    "NOME": "Alexandre Pablo",
+    "Cat": "Sub-16",
+    "DATA": "45756",
+    "OCORRÊNCIA": "Estava fora de seu quarto após 23h, não acatou orientação do monitor",
+    "Valor": 100.0
   },
   {
-    "nome": "Arhim Benjamim",
-    "cat": "Sub-20",
-    "data": "45763",
-    "ocorrencia": "Comeu o Kit Café da tarde no quarto",
-    "valor": "R$ 100,00"
+    "NOME": "Arhim Benjamim",
+    "Cat": "Sub-20",
+    "DATA": "45763",
+    "OCORRÊNCIA": "Comeu o Kit Café da tarde no quarto",
+    "Valor": 100.0
   },
   {
-    "nome": "Bernardo Natário",
-    "cat": "Sub-14",
-    "data": "45748",
-    "ocorrencia": "Ar condicionado ligado quarto vazio",
-    "valor": "R$ 50,00"
+    "NOME": "Bernardo Natário",
+    "Cat": "Sub-14",
+    "DATA": "45748",
+    "OCORRÊNCIA": "Ar condicionado ligado quarto vazio",
+    "Valor": 50.0
   },
   {
-    "nome": "Danilo Fortunato",
-    "cat": "Sub-16",
-    "data": "45776",
-    "ocorrencia": "Sem uniforme no refeitório foi orientado e não acatou",
-    "valor": "R$ 100,00"
+    "NOME": "Danilo Fortunato",
+    "Cat": "Sub-16",
+    "DATA": "45776",
+    "OCORRÊNCIA": "Sem uniforme no refeitório foi orientado e não acatou",
+    "Valor": 100.0
   },
   {
-    "nome": "Davi David",
-    "cat": "Sub-17",
-    "data": "45772",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Davi David",
+    "Cat": "Sub-17",
+    "DATA": "45772",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Davi David",
-    "cat": "Sub-17",
-    "data": "45770",
-    "ocorrencia": "Excesso de toalhas no quarto",
-    "valor": "R$ 50,00"
+    "NOME": "Davi David",
+    "Cat": "Sub-17",
+    "DATA": "45770",
+    "OCORRÊNCIA": "Excesso de toalhas no quarto",
+    "Valor": 50.0
   },
   {
-    "nome": "Davi David",
-    "cat": "Sub-17",
-    "data": "45775",
-    "ocorrencia": "Ar condicionado ligado sem ninguém no quarto",
-    "valor": "R$ 50,00"
+    "NOME": "Davi David",
+    "Cat": "Sub-17",
+    "DATA": "45775",
+    "OCORRÊNCIA": "Ar condicionado ligado sem ninguém no quarto",
+    "Valor": 50.0
   },
   {
-    "nome": "Esley Ezequiel",
-    "cat": "Sub-20",
-    "data": "45751",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Esley Ezequiel",
+    "Cat": "Sub-20",
+    "DATA": "45751",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Esley Ezequiel",
-    "cat": "Sub-20",
-    "data": "45753",
-    "ocorrencia": "Excesso de toalhas no banheiro",
-    "valor": "R$ 50,00"
+    "NOME": "Esley Ezequiel",
+    "Cat": "Sub-20",
+    "DATA": "45753",
+    "OCORRÊNCIA": "Excesso de toalhas no banheiro",
+    "Valor": 50.0
   },
   {
-    "nome": "Esley Ezequiel",
-    "cat": "Sub-20",
-    "data": "45754",
-    "ocorrencia": "Em ronda no quarto várias embalagens de salgadinhos, doce e garrafa de suco",
-    "valor": "R$ 100,00"
+    "NOME": "Esley Ezequiel",
+    "Cat": "Sub-20",
+    "DATA": "45754",
+    "OCORRÊNCIA": "Em ronda no quarto várias embalagens de salgadinhos, doce e garrafa de suco",
+    "Valor": 100.0
   },
   {
-    "nome": "Everaldo Ponciano",
-    "cat": "Sub-17",
-    "data": "45753",
-    "ocorrencia": "Excesso de toalhas no banheiro",
-    "valor": "R$ 50,00"
+    "NOME": "Everaldo Ponciano",
+    "Cat": "Sub-17",
+    "DATA": "45753",
+    "OCORRÊNCIA": "Excesso de toalhas no banheiro",
+    "Valor": 50.0
   },
   {
-    "nome": "Everaldo Ponciano",
-    "cat": "Sub-17",
-    "data": "45771",
-    "ocorrencia": "Entrou com chocolate no alojamento",
-    "valor": "R$ 100,00"
+    "NOME": "Everaldo Ponciano",
+    "Cat": "Sub-17",
+    "DATA": "45771",
+    "OCORRÊNCIA": "Entrou com chocolate no alojamento",
+    "Valor": 100.0
   },
   {
-    "nome": "Gabriel Baggio",
-    "cat": "Sub-16",
-    "data": "45751",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Gabriel Baggio",
+    "Cat": "Sub-16",
+    "DATA": "45751",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Gabriel Baggio",
-    "cat": "Sub-17",
-    "data": "45770",
-    "ocorrencia": "Quarto desorganizado",
-    "valor": "R$ 50,00"
+    "NOME": "Gabriel Baggio",
+    "Cat": "Sub-17",
+    "DATA": "45770",
+    "OCORRÊNCIA": "Quarto desorganizado",
+    "Valor": 50.0
   },
   {
-    "nome": "Gabriel Lara",
-    "cat": "Sub-20",
-    "data": "45762",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Gabriel Lara",
+    "Cat": "Sub-20",
+    "DATA": "45762",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Gabriel Lara",
-    "cat": "Sub-20",
-    "data": "45769",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Gabriel Lara",
+    "Cat": "Sub-20",
+    "DATA": "45769",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Gabriel Palma",
-    "cat": "Sub-20",
-    "data": "45754",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Gabriel Palma",
+    "Cat": "Sub-20",
+    "DATA": "45754",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Gabriel Palma",
-    "cat": "Sub-20",
-    "data": "45771",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Gabriel Palma",
+    "Cat": "Sub-20",
+    "DATA": "45771",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Gabriel Ryan",
-    "cat": "Sub-20",
-    "data": "45752",
-    "ocorrencia": "Algazarra, som alto e gritaria no quarto, foi chamada",
-    "valor": "R$ 100,00"
+    "NOME": "Gabriel Ryan",
+    "Cat": "Sub-20",
+    "DATA": "45752",
+    "OCORRÊNCIA": "Algazarra, som alto e gritaria no quarto, foi chamada",
+    "Valor": 100.0
   },
   {
-    "nome": "Gabriel Ryan",
-    "cat": "Sub-20",
-    "data": "45763",
-    "ocorrencia": "Estavam tumultuando a ceia, pedindo lanche dos outros",
-    "valor": "R$ 100,00"
+    "NOME": "Gabriel Ryan",
+    "Cat": "Sub-20",
+    "DATA": "45763",
+    "OCORRÊNCIA": "Estavam tumultuando a ceia, pedindo lanche dos outros",
+    "Valor": 100.0
   },
   {
-    "nome": "Jackson Teixeira",
-    "cat": "Sub-20",
-    "data": "45753",
-    "ocorrencia": "Excesso de toalhas no banheiro",
-    "valor": "R$ 50,00"
+    "NOME": "Jackson Teixeira",
+    "Cat": "Sub-20",
+    "DATA": "45753",
+    "OCORRÊNCIA": "Excesso de toalhas no banheiro",
+    "Valor": 50.0
   },
   {
-    "nome": "Jackson Teixeira",
-    "cat": "Sub-20",
-    "data": "45754",
-    "ocorrencia": "Em ronda no quarto várias embalagens de salgadinhos, doce e garrafa de suco",
-    "valor": "R$ 100,00"
+    "NOME": "Jackson Teixeira",
+    "Cat": "Sub-20",
+    "DATA": "45754",
+    "OCORRÊNCIA": "Em ronda no quarto várias embalagens de salgadinhos, doce e garrafa de suco",
+    "Valor": 100.0
   },
   {
-    "nome": "Jackson Teixeira",
-    "cat": "Sub-20",
-    "data": "45761",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Jackson Teixeira",
+    "Cat": "Sub-20",
+    "DATA": "45761",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Jackson Teixeira",
-    "cat": "Sub-20",
-    "data": "45771",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Jackson Teixeira",
+    "Cat": "Sub-20",
+    "DATA": "45771",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Jackson Teixeira",
-    "cat": "Sub-20",
-    "data": "45777",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Jackson Teixeira",
+    "Cat": "Sub-20",
+    "DATA": "45777",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Jackson Teixeira",
-    "cat": "Sub-20",
-    "data": "45772",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Jackson Teixeira",
+    "Cat": "Sub-20",
+    "DATA": "45772",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Jheimison Henrique",
-    "cat": "Sub-16",
-    "data": "45748",
-    "ocorrencia": "07h54 estava tomando café fora do refeitório",
-    "valor": "R$ 100,00"
+    "NOME": "Jheimison Henrique",
+    "Cat": "Sub-16",
+    "DATA": "45748",
+    "OCORRÊNCIA": "07h54 estava tomando café fora do refeitório",
+    "Valor": 100.0
   },
   {
-    "nome": "João Cruvinel",
-    "cat": "Sub-17",
-    "data": "45750",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "João Cruvinel",
+    "Cat": "Sub-17",
+    "DATA": "45750",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "João Lucas Bezerra",
-    "cat": "Sub-17",
-    "data": "45753",
-    "ocorrencia": "Excesso de toalhas no banheiro",
-    "valor": "R$ 50,00"
+    "NOME": "João Lucas Bezerra",
+    "Cat": "Sub-17",
+    "DATA": "45753",
+    "OCORRÊNCIA": "Excesso de toalhas no banheiro",
+    "Valor": 50.0
   },
   {
-    "nome": "João Lucas Bezerra",
-    "cat": "Sub-17",
-    "data": "45771",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "João Lucas Bezerra",
+    "Cat": "Sub-17",
+    "DATA": "45771",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "João Lucas Bezerra",
-    "cat": "Sub-17",
-    "data": "45777",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "João Lucas Bezerra",
+    "Cat": "Sub-17",
+    "DATA": "45777",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "João Lucas Bezerra",
-    "cat": "Sub-17",
-    "data": "45772",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "João Lucas Bezerra",
+    "Cat": "Sub-17",
+    "DATA": "45772",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "João Pedro Leite",
-    "cat": "Sub-17",
-    "data": "45770",
-    "ocorrencia": "Quarto desorganizado",
-    "valor": "R$ 50,00"
+    "NOME": "João Pedro Leite",
+    "Cat": "Sub-17",
+    "DATA": "45770",
+    "OCORRÊNCIA": "Quarto desorganizado",
+    "Valor": 50.0
   },
   {
-    "nome": "João Pedro Leite",
-    "cat": "Sub-17",
-    "data": "45771",
-    "ocorrencia": "Entrou com chocolate no alojamento e não quis entregar",
-    "valor": "R$ 100,00"
+    "NOME": "João Pedro Leite",
+    "Cat": "Sub-17",
+    "DATA": "45771",
+    "OCORRÊNCIA": "Entrou com chocolate no alojamento e não quis entregar",
+    "Valor": 100.0
   },
   {
-    "nome": "João Pedro Leite",
-    "cat": "Sub-17",
-    "data": "45750",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "João Pedro Leite",
+    "Cat": "Sub-17",
+    "DATA": "45750",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "João Pedro Leite",
-    "cat": "Sub-17",
-    "data": "45758",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "João Pedro Leite",
+    "Cat": "Sub-17",
+    "DATA": "45758",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "João Pedro Leite",
-    "cat": "Sub-17",
-    "data": "45776",
-    "ocorrencia": "Sem uniforme no refeitório, parte de baixo, 17h23",
-    "valor": "R$ 100,00"
+    "NOME": "João Pedro Leite",
+    "Cat": "Sub-17",
+    "DATA": "45776",
+    "OCORRÊNCIA": "Sem uniforme no refeitório, parte de baixo, 17h23",
+    "Valor": 100.0
   },
   {
-    "nome": "João Pedro Leite",
-    "cat": "Sub-17",
-    "data": "45763",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "João Pedro Leite",
+    "Cat": "Sub-17",
+    "DATA": "45763",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "João Pedro Leite",
-    "cat": "Sub-17",
-    "data": "45777",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "João Pedro Leite",
+    "Cat": "Sub-17",
+    "DATA": "45777",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "João Pedro Leite",
-    "cat": "Sub-17",
-    "data": "45772",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "João Pedro Leite",
+    "Cat": "Sub-17",
+    "DATA": "45772",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "João Pedro Stevanelli",
-    "cat": "Sub-17",
-    "data": "45748",
-    "ocorrencia": "Ar condicionado ligado quarto vazio",
-    "valor": "R$ 50,00"
+    "NOME": "João Pedro Stevanelli",
+    "Cat": "Sub-17",
+    "DATA": "45748",
+    "OCORRÊNCIA": "Ar condicionado ligado quarto vazio",
+    "Valor": 50.0
   },
   {
-    "nome": "João Pedro Stevanelli",
-    "cat": "Sub-17",
-    "data": "45755",
-    "ocorrencia": "Ar condicionado ligado quarto vazio",
-    "valor": "R$ 50,00"
+    "NOME": "João Pedro Stevanelli",
+    "Cat": "Sub-17",
+    "DATA": "45755",
+    "OCORRÊNCIA": "Ar condicionado ligado quarto vazio",
+    "Valor": 50.0
   },
   {
-    "nome": "João Pedro Stevanelli",
-    "cat": "Sub-17",
-    "data": "45770",
-    "ocorrencia": "Excesso de toalhas no quarto",
-    "valor": "R$ 50,00"
+    "NOME": "João Pedro Stevanelli",
+    "Cat": "Sub-17",
+    "DATA": "45770",
+    "OCORRÊNCIA": "Excesso de toalhas no quarto",
+    "Valor": 50.0
   },
   {
-    "nome": "João Pedro Stevanelli",
-    "cat": "Sub-17",
-    "data": "45750",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "João Pedro Stevanelli",
+    "Cat": "Sub-17",
+    "DATA": "45750",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "João Pedro Stevanelli",
-    "cat": "Sub-17",
-    "data": "45755",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "João Pedro Stevanelli",
+    "Cat": "Sub-17",
+    "DATA": "45755",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "João Pedro Stevanelli",
-    "cat": "Sub-17",
-    "data": "45758",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "João Pedro Stevanelli",
+    "Cat": "Sub-17",
+    "DATA": "45758",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "João Pedro Stevanelli",
-    "cat": "Sub-17",
-    "data": "45769",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "João Pedro Stevanelli",
+    "Cat": "Sub-17",
+    "DATA": "45769",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "João Pedro Stevanelli",
-    "cat": "Sub-17",
-    "data": "45777",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "João Pedro Stevanelli",
+    "Cat": "Sub-17",
+    "DATA": "45777",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "João Victor Alves",
-    "cat": "Sub-20",
-    "data": "45750",
-    "ocorrencia": "Chegou após o horário permitido sem autorização 20h40",
-    "valor": "R$ 100,00"
+    "NOME": "João Victor Alves",
+    "Cat": "Sub-20",
+    "DATA": "45750",
+    "OCORRÊNCIA": "Chegou após o horário permitido sem autorização 20h40",
+    "Valor": 100.0
   },
   {
-    "nome": "João Victor Alves",
-    "cat": "Sub-20",
-    "data": "45750",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "João Victor Alves",
+    "Cat": "Sub-20",
+    "DATA": "45750",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "João Victor Alves",
-    "cat": "Sub-20",
-    "data": "45755",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "João Victor Alves",
+    "Cat": "Sub-20",
+    "DATA": "45755",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "João Victor Alves",
-    "cat": "Sub-20",
-    "data": "45762",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "João Victor Alves",
+    "Cat": "Sub-20",
+    "DATA": "45762",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "João Vitor Cruvinel",
-    "cat": "Sub-17",
-    "data": "45748",
-    "ocorrencia": "Ar condicionado ligado quarto vazio",
-    "valor": "R$ 50,00"
+    "NOME": "João Vitor Cruvinel",
+    "Cat": "Sub-17",
+    "DATA": "45748",
+    "OCORRÊNCIA": "Ar condicionado ligado quarto vazio",
+    "Valor": 50.0
   },
   {
-    "nome": "João Vitor Cruvinel",
-    "cat": "Sub-17",
-    "data": "45756",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "João Vitor Cruvinel",
+    "Cat": "Sub-17",
+    "DATA": "45756",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "João Vitor Cruvinel",
-    "cat": "Sub-17",
-    "data": "45769",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "João Vitor Cruvinel",
+    "Cat": "Sub-17",
+    "DATA": "45769",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "João Vitor Cruvinel",
-    "cat": "Sub-17",
-    "data": "45772",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "João Vitor Cruvinel",
+    "Cat": "Sub-17",
+    "DATA": "45772",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "João Vitor Miranda",
-    "cat": "Sub-20",
-    "data": "45751",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "João Vitor Miranda",
+    "Cat": "Sub-20",
+    "DATA": "45751",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Jhonatan Almeida",
-    "cat": "Sub-20",
-    "data": "45750",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Jhonatan Almeida",
+    "Cat": "Sub-20",
+    "DATA": "45750",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Jhonatan Almeida",
-    "cat": "Sub-20",
-    "data": "45755",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Jhonatan Almeida",
+    "Cat": "Sub-20",
+    "DATA": "45755",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Jhonatan Almeida",
-    "cat": "Sub-20",
-    "data": "45762",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Jhonatan Almeida",
+    "Cat": "Sub-20",
+    "DATA": "45762",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Jhonatan Almeida",
-    "cat": "Sub-20",
-    "data": "45777",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Jhonatan Almeida",
+    "Cat": "Sub-20",
+    "DATA": "45777",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Jhonatan Almeida",
-    "cat": "Sub-20",
-    "data": "45772",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Jhonatan Almeida",
+    "Cat": "Sub-20",
+    "DATA": "45772",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Julio Cesar",
-    "cat": "Sub-17",
-    "data": "45752",
-    "ocorrencia": "Algazarra, som alto e gritaria no quarto, foi chamada",
-    "valor": "R$ 100,00"
+    "NOME": "Julio Cesar",
+    "Cat": "Sub-17",
+    "DATA": "45752",
+    "OCORRÊNCIA": "Algazarra, som alto e gritaria no quarto, foi chamada",
+    "Valor": 100.0
   },
   {
-    "nome": "Julio Cesar",
-    "cat": "Sub-17",
-    "data": "45770",
-    "ocorrencia": "Excesso de toalhas no quarto",
-    "valor": "R$ 50,00"
+    "NOME": "Julio Cesar",
+    "Cat": "Sub-17",
+    "DATA": "45770",
+    "OCORRÊNCIA": "Excesso de toalhas no quarto",
+    "Valor": 50.0
   },
   {
-    "nome": "Julio Cesar",
-    "cat": "Sub-17",
-    "data": "45775",
-    "ocorrencia": "Ar condicionado ligado quarto vazio",
-    "valor": "R$ 50,00"
+    "NOME": "Julio Cesar",
+    "Cat": "Sub-17",
+    "DATA": "45775",
+    "OCORRÊNCIA": "Ar condicionado ligado quarto vazio",
+    "Valor": 50.0
   },
   {
-    "nome": "Julio Cesar",
-    "cat": "Sub-17",
-    "data": "45772",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Julio Cesar",
+    "Cat": "Sub-17",
+    "DATA": "45772",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Kauã Cavalcanti",
-    "cat": "Sub-17",
-    "data": "45770",
-    "ocorrencia": "Quarto desorganizado",
-    "valor": "R$ 50,00"
+    "NOME": "Kauã Cavalcanti",
+    "Cat": "Sub-17",
+    "DATA": "45770",
+    "OCORRÊNCIA": "Quarto desorganizado",
+    "Valor": 50.0
   },
   {
-    "nome": "Kauã Cavalcanti",
-    "cat": "Sub-17",
-    "data": "45750",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Kauã Cavalcanti",
+    "Cat": "Sub-17",
+    "DATA": "45750",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Kauã Pio",
-    "cat": "Sub-14",
-    "data": "45748",
-    "ocorrencia": "Ar condicionado ligado quarto vazio",
-    "valor": "R$ 50,00"
+    "NOME": "Kauã Pio",
+    "Cat": "Sub-14",
+    "DATA": "45748",
+    "OCORRÊNCIA": "Ar condicionado ligado quarto vazio",
+    "Valor": 50.0
   },
   {
-    "nome": "Lázaro Gonçalves",
-    "cat": "Sub-20",
-    "data": "45753",
-    "ocorrencia": "Excesso de toalhas no banheiro",
-    "valor": "R$ 50,00"
+    "NOME": "Lázaro Gonçalves",
+    "Cat": "Sub-20",
+    "DATA": "45753",
+    "OCORRÊNCIA": "Excesso de toalhas no banheiro",
+    "Valor": 50.0
   },
   {
-    "nome": "Lázaro Gonçalves",
-    "cat": "Sub-20",
-    "data": "45754",
-    "ocorrencia": "Em ronda no quarto várias embalagens de salgadinhos, doce e garrafa de suco",
-    "valor": "R$ 100,00"
+    "NOME": "Lázaro Gonçalves",
+    "Cat": "Sub-20",
+    "DATA": "45754",
+    "OCORRÊNCIA": "Em ronda no quarto várias embalagens de salgadinhos, doce e garrafa de suco",
+    "Valor": 100.0
   },
   {
-    "nome": "Lázaro Gonçalves",
-    "cat": "Sub-20",
-    "data": "45750",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Lázaro Gonçalves",
+    "Cat": "Sub-20",
+    "DATA": "45750",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Lázaro Gonçalves",
-    "cat": "Sub-20",
-    "data": "45751",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Lázaro Gonçalves",
+    "Cat": "Sub-20",
+    "DATA": "45751",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Lázaro Gonçalves",
-    "cat": "Sub-20",
-    "data": "45771",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Lázaro Gonçalves",
+    "Cat": "Sub-20",
+    "DATA": "45771",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Lázaro Gonçalves",
-    "cat": "Sub-20",
-    "data": "45777",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Lázaro Gonçalves",
+    "Cat": "Sub-20",
+    "DATA": "45777",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Luan Paim",
-    "cat": "Sub-20",
-    "data": "45757",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Luan Paim",
+    "Cat": "Sub-20",
+    "DATA": "45757",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Lucas Andrew",
-    "cat": "Sub-16",
-    "data": "45749",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Lucas Andrew",
+    "Cat": "Sub-16",
+    "DATA": "45749",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Luis Gustavo",
-    "cat": "Sub-16",
-    "data": "45748",
-    "ocorrencia": "12h06 levou alimento do refeitório para o quarto",
-    "valor": "R$ 100,00"
+    "NOME": "Luis Gustavo",
+    "Cat": "Sub-16",
+    "DATA": "45748",
+    "OCORRÊNCIA": "12h06 levou alimento do refeitório para o quarto",
+    "Valor": 100.0
   },
   {
-    "nome": "Luis Gustavo",
-    "cat": "Sub-16",
-    "data": "45752",
-    "ocorrencia": "Algazarra, som alto e gritaria no quarto, foi chamada",
-    "valor": "R$ 100,00"
+    "NOME": "Luis Gustavo",
+    "Cat": "Sub-16",
+    "DATA": "45752",
+    "OCORRÊNCIA": "Algazarra, som alto e gritaria no quarto, foi chamada",
+    "Valor": 100.0
   },
   {
-    "nome": "Marcos Vinicius",
-    "cat": "Sub-14",
-    "data": "45771",
-    "ocorrencia": "Entrou com chocolate no alojamento",
-    "valor": "R$ 100,00"
+    "NOME": "Marcos Vinicius",
+    "Cat": "Sub-14",
+    "DATA": "45771",
+    "OCORRÊNCIA": "Entrou com chocolate no alojamento",
+    "Valor": 100.0
   },
   {
-    "nome": "Pedro Henrique Inocente",
-    "cat": "Sub-14",
-    "data": "45748",
-    "ocorrencia": "Ar condicionado ligado quarto vazio",
-    "valor": "R$ 50,00"
+    "NOME": "Pedro Henrique Inocente",
+    "Cat": "Sub-14",
+    "DATA": "45748",
+    "OCORRÊNCIA": "Ar condicionado ligado quarto vazio",
+    "Valor": 50.0
   },
   {
-    "nome": "Pedro Santos Martins",
-    "cat": "Sub-17",
-    "data": "45750",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Pedro Santos Martins",
+    "Cat": "Sub-17",
+    "DATA": "45750",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Pedro Santos Martins",
-    "cat": "Sub-17",
-    "data": "45772",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Pedro Santos Martins",
+    "Cat": "Sub-17",
+    "DATA": "45772",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Pedro Santos Martins",
-    "cat": "Sub-17",
-    "data": "45753",
-    "ocorrencia": "Excesso de toalhas no banheiro",
-    "valor": "R$ 50,00"
+    "NOME": "Pedro Santos Martins",
+    "Cat": "Sub-17",
+    "DATA": "45753",
+    "OCORRÊNCIA": "Excesso de toalhas no banheiro",
+    "Valor": 50.0
   },
   {
-    "nome": "Pietro Zucchi",
-    "cat": "Sub-17",
-    "data": "45748",
-    "ocorrencia": "Ar condicionado ligado quarto vazio",
-    "valor": "R$ 50,00"
+    "NOME": "Pietro Zucchi",
+    "Cat": "Sub-17",
+    "DATA": "45748",
+    "OCORRÊNCIA": "Ar condicionado ligado quarto vazio",
+    "Valor": 50.0
   },
   {
-    "nome": "Pietro Zucchi",
-    "cat": "Sub-17",
-    "data": "45760",
-    "ocorrencia": "Comendo no quarto lanche que trouxe do refeitório",
-    "valor": "R$ 100,00"
+    "NOME": "Pietro Zucchi",
+    "Cat": "Sub-17",
+    "DATA": "45760",
+    "OCORRÊNCIA": "Comendo no quarto lanche que trouxe do refeitório",
+    "Valor": 100.0
   },
   {
-    "nome": "Pietro Zucchi",
-    "cat": "Sub-17",
-    "data": "45750",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Pietro Zucchi",
+    "Cat": "Sub-17",
+    "DATA": "45750",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Pietro Zucchi",
-    "cat": "Sub-17",
-    "data": "45751",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Pietro Zucchi",
+    "Cat": "Sub-17",
+    "DATA": "45751",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Pietro Zucchi",
-    "cat": "Sub-17",
-    "data": "45756",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Pietro Zucchi",
+    "Cat": "Sub-17",
+    "DATA": "45756",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Pietro Zucchi",
-    "cat": "Sub-17",
-    "data": "45758",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Pietro Zucchi",
+    "Cat": "Sub-17",
+    "DATA": "45758",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Pietro Zucchi",
-    "cat": "Sub-17",
-    "data": "45763",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Pietro Zucchi",
+    "Cat": "Sub-17",
+    "DATA": "45763",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Pietro Zucchi",
-    "cat": "Sub-17",
-    "data": "45777",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Pietro Zucchi",
+    "Cat": "Sub-17",
+    "DATA": "45777",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Raykkonen Pereira",
-    "cat": "Sub-17",
-    "data": "45748",
-    "ocorrencia": "Ar condicionado ligado quarto vazio",
-    "valor": "R$ 50,00"
+    "NOME": "Raykkonen Pereira",
+    "Cat": "Sub-17",
+    "DATA": "45748",
+    "OCORRÊNCIA": "Ar condicionado ligado quarto vazio",
+    "Valor": 50.0
   },
   {
-    "nome": "Raykkonen Pereira",
-    "cat": "Sub-17",
-    "data": "45755",
-    "ocorrencia": "Ar condicionado ligado quarto vazio",
-    "valor": "R$ 50,00"
+    "NOME": "Raykkonen Pereira",
+    "Cat": "Sub-17",
+    "DATA": "45755",
+    "OCORRÊNCIA": "Ar condicionado ligado quarto vazio",
+    "Valor": 50.0
   },
   {
-    "nome": "Raykkonen Pereira",
-    "cat": "Sub-17",
-    "data": "45770",
-    "ocorrencia": "Excesso de toalhas no quarto",
-    "valor": "R$ 50,00"
+    "NOME": "Raykkonen Pereira",
+    "Cat": "Sub-17",
+    "DATA": "45770",
+    "OCORRÊNCIA": "Excesso de toalhas no quarto",
+    "Valor": 50.0
   },
   {
-    "nome": "Raykkonen Pereira",
-    "cat": "Sub-17",
-    "data": "45750",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Raykkonen Pereira",
+    "Cat": "Sub-17",
+    "DATA": "45750",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Raykkonen Pereira",
-    "cat": "Sub-17",
-    "data": "45772",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Raykkonen Pereira",
+    "Cat": "Sub-17",
+    "DATA": "45772",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Richard Rodrigues",
-    "cat": "Sub-17",
-    "data": "45752",
-    "ocorrencia": "Algazarra, som alto e gritaria no quarto, foi chamada",
-    "valor": "R$ 100,00"
+    "NOME": "Richard Rodrigues",
+    "Cat": "Sub-17",
+    "DATA": "45752",
+    "OCORRÊNCIA": "Algazarra, som alto e gritaria no quarto, foi chamada",
+    "Valor": 100.0
   },
   {
-    "nome": "Richard Rodrigues",
-    "cat": "Sub-16",
-    "data": "45763",
-    "ocorrencia": "Estavam tumultuando a ceia, pedindo lanche dos outros",
-    "valor": "R$ 100,00"
+    "NOME": "Richard Rodrigues",
+    "Cat": "Sub-16",
+    "DATA": "45763",
+    "OCORRÊNCIA": "Estavam tumultuando a ceia, pedindo lanche dos outros",
+    "Valor": 100.0
   },
   {
-    "nome": "Richard Rodrigues",
-    "cat": "Sub-17",
-    "data": "45770",
-    "ocorrencia": "Excesso de toalhas no quarto",
-    "valor": "R$ 50,00"
+    "NOME": "Richard Rodrigues",
+    "Cat": "Sub-17",
+    "DATA": "45770",
+    "OCORRÊNCIA": "Excesso de toalhas no quarto",
+    "Valor": 50.0
   },
   {
-    "nome": "Richard Rodrigues",
-    "cat": "Sub-17",
-    "data": "45775",
-    "ocorrencia": "Ar condicionado ligado quarto vazio",
-    "valor": "R$ 50,00"
+    "NOME": "Richard Rodrigues",
+    "Cat": "Sub-17",
+    "DATA": "45775",
+    "OCORRÊNCIA": "Ar condicionado ligado quarto vazio",
+    "Valor": 50.0
   },
   {
-    "nome": "Richarlysson Tosta",
-    "cat": "Sub-17",
-    "data": "45748",
-    "ocorrencia": "Ar condicionado ligado quarto vazio",
-    "valor": "R$ 50,00"
+    "NOME": "Richarlysson Tosta",
+    "Cat": "Sub-17",
+    "DATA": "45748",
+    "OCORRÊNCIA": "Ar condicionado ligado quarto vazio",
+    "Valor": 50.0
   },
   {
-    "nome": "Richarlysson Tosta",
-    "cat": "Sub-17",
-    "data": "45752",
-    "ocorrencia": "Comeu o Kit Café da tarde no quarto",
-    "valor": "R$ 100,00"
+    "NOME": "Richarlysson Tosta",
+    "Cat": "Sub-17",
+    "DATA": "45752",
+    "OCORRÊNCIA": "Comeu o Kit Café da tarde no quarto",
+    "Valor": 100.0
   },
   {
-    "nome": "Richarlysson Tosta",
-    "cat": "Sub-17",
-    "data": "45772",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Richarlysson Tosta",
+    "Cat": "Sub-17",
+    "DATA": "45772",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Thiago Luiz",
-    "cat": "Sub-16",
-    "data": "45752",
-    "ocorrencia": "Algazarra, som alto e gritaria no quarto, foi chamada",
-    "valor": "R$ 100,00"
+    "NOME": "Thiago Luiz",
+    "Cat": "Sub-16",
+    "DATA": "45752",
+    "OCORRÊNCIA": "Algazarra, som alto e gritaria no quarto, foi chamada",
+    "Valor": 100.0
   },
   {
-    "nome": "Thiago Luiz",
-    "cat": "Sub-16",
-    "data": "45748",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Thiago Luiz",
+    "Cat": "Sub-16",
+    "DATA": "45748",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Thiago Luiz",
-    "cat": "Sub-16",
-    "data": "45761",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Thiago Luiz",
+    "Cat": "Sub-16",
+    "DATA": "45761",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Vitor Hugo",
-    "cat": "Sub-17",
-    "data": "45748",
-    "ocorrencia": "12h06 levou alimento do refeitório para o quarto",
-    "valor": "R$ 100,00"
+    "NOME": "Vitor Hugo",
+    "Cat": "Sub-17",
+    "DATA": "45748",
+    "OCORRÊNCIA": "12h06 levou alimento do refeitório para o quarto",
+    "Valor": 100.0
   },
   {
-    "nome": "Vitor Hugo",
-    "cat": "Sub-17",
-    "data": "45748",
-    "ocorrencia": "Ar condicionado ligado quarto vazio",
-    "valor": "R$ 50,00"
+    "NOME": "Vitor Hugo",
+    "Cat": "Sub-17",
+    "DATA": "45748",
+    "OCORRÊNCIA": "Ar condicionado ligado quarto vazio",
+    "Valor": 50.0
   },
   {
-    "nome": "Vitor Hugo",
-    "cat": "Sub-17",
-    "data": "45755",
-    "ocorrencia": "Ar condicionado ligado quarto vazio",
-    "valor": "R$ 50,00"
+    "NOME": "Vitor Hugo",
+    "Cat": "Sub-17",
+    "DATA": "45755",
+    "OCORRÊNCIA": "Ar condicionado ligado quarto vazio",
+    "Valor": 50.0
   },
   {
-    "nome": "Vitor Hugo",
-    "cat": "Sub-17",
-    "data": "45770",
-    "ocorrencia": "Excesso de toalhas no quarto",
-    "valor": "R$ 50,00"
+    "NOME": "Vitor Hugo",
+    "Cat": "Sub-17",
+    "DATA": "45770",
+    "OCORRÊNCIA": "Excesso de toalhas no quarto",
+    "Valor": 50.0
   },
   {
-    "nome": "Vitor Hugo",
-    "cat": "Sub-17",
-    "data": "45755",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Vitor Hugo",
+    "Cat": "Sub-17",
+    "DATA": "45755",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Vitor Hugo",
-    "cat": "Sub-17",
-    "data": "45758",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Vitor Hugo",
+    "Cat": "Sub-17",
+    "DATA": "45758",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Vitor Hugo",
-    "cat": "Sub-17",
-    "data": "45763",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Vitor Hugo",
+    "Cat": "Sub-17",
+    "DATA": "45763",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Vitor Hugo",
-    "cat": "Sub-17",
-    "data": "45769",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Vitor Hugo",
+    "Cat": "Sub-17",
+    "DATA": "45769",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Vitor Hugo",
-    "cat": "Sub-17",
-    "data": "45777",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Vitor Hugo",
+    "Cat": "Sub-17",
+    "DATA": "45777",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Vitor Hugo",
-    "cat": "Sub-17",
-    "data": "45772",
-    "ocorrencia": "Faltas escolares sem justificativa",
-    "valor": "R$ 100,00"
+    "NOME": "Vitor Hugo",
+    "Cat": "Sub-17",
+    "DATA": "45772",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa",
+    "Valor": 100.0
   },
   {
-    "nome": "Vitor Gabriel Rossi",
-    "cat": "Sub-15",
-    "data": "45756",
-    "ocorrencia": "Estava fora de seu quarto após 23h, não acatou",
-    "valor": "R$ 100,00"
+    "NOME": "Vitor Gabriel Rossi",
+    "Cat": "Sub-15",
+    "DATA": "45756",
+    "OCORRÊNCIA": "Estava fora de seu quarto após 23h, não acatou",
+    "Valor": 100.0
   }
 ]

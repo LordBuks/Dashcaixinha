@@ -12,6 +12,7 @@ interface AthleteCardProps {
   isSelected?: boolean;
   onClick?: () => void;
   className?: string;
+  fotoUrl?: string;
 }
 
 export function AthleteCard({ 
@@ -21,7 +22,8 @@ export function AthleteCard({
   totalValue, 
   isSelected = false,
   onClick,
-  className
+  className,
+  fotoUrl
 }: AthleteCardProps) {
   const initials = name.split(' ').map(n => n[0]).join('').slice(0, 2);
   
@@ -54,8 +56,15 @@ export function AthleteCard({
       onClick={onClick}
     >
       <CardContent className="p-5">
-        <div className="flex items-center space-x-4">
-          <Avatar className="h-14 w-14 border-2 border-red-100 group-hover:border-red-200 transition-colors">
+        <div className="flex items-center space-x-6">
+          <Avatar className="h-20 w-20 rounded-lg border-2 border-red-100 group-hover:border-red-200 transition-colors">
+            {fotoUrl ? (
+              <AvatarImage 
+                src={fotoUrl} 
+                alt={`Foto de ${name}`}
+                className="object-cover"
+              />
+            ) : null}
             <AvatarFallback className="bg-red-50 text-red-700 font-bold text-lg group-hover:bg-red-100 transition-colors">
               {initials}
             </AvatarFallback>

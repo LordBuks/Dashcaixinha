@@ -5,6 +5,7 @@ export interface AthleteOccurrence {
   DATA: string;
   OCORRÊNCIA: string;
   Valor: string;
+  fotoUrl?: string;
 }
 
 // Dados de exemplo (junho 2024) - serão substituídos pelo carregamento dinâmico

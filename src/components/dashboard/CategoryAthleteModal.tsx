@@ -32,7 +32,8 @@ export function CategoryAthleteModal({ categoryName, occurrences, onClose }: Cat
             category: occ.Cat,
             occurrences: [],
             totalValue: 0,
-            occurrenceCount: 0
+            occurrenceCount: 0,
+            fotoUrl: occ.fotoUrl
           });
         }
         
@@ -40,6 +41,10 @@ export function CategoryAthleteModal({ categoryName, occurrences, onClose }: Cat
         athlete.occurrences.push(occ);
         athlete.totalValue += parseInt(occ.Valor);
         athlete.occurrenceCount += 1;
+        // Atualiza fotoUrl se não existir ainda
+        if (!athlete.fotoUrl && occ.fotoUrl) {
+          athlete.fotoUrl = occ.fotoUrl;
+        }
       }
     });
     
@@ -108,6 +113,7 @@ export function CategoryAthleteModal({ categoryName, occurrences, onClose }: Cat
                     isSelected={false}
                     onClick={() => handleAthleteClick(athlete.name)}
                     className="inter-hover-effect cursor-pointer"
+                    fotoUrl={athlete.fotoUrl}
                   />
                 ))}
               </div>
