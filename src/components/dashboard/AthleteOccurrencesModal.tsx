@@ -38,5 +38,3 @@ export const AthleteOccurrencesModal: React.FC<AthleteOccurrencesModalProps> = (
     </div>
   );
 };
-
-
