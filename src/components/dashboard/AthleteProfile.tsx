@@ -1,41 +1,32 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { AthleteOccurrence, categorizeOccurrence, athleteOccurrences } from "@/data/athleteData";
+import { AthleteOccurrence } from "@/data/athleteData";
 import { useMemo } from "react";
 import { X, User, AlertTriangle, DollarSign, Calendar, FileText } from "lucide-react";
 
 interface AthleteProfileProps {
   athleteName: string;
+  occurrences: AthleteOccurrence[];
   onClose: () => void;
 }
 
-export function AthleteProfile({ athleteName, onClose }: AthleteProfileProps) {
+export function AthleteProfile({ athleteName, occurrences, onClose }: AthleteProfileProps) {
   const athlete = useMemo(() => {
-    const stats = new Map();
-    athleteOccurrences.forEach(occ => {
-      const key = occ.NOME;
-      if (!stats.has(key)) {
-        stats.set(key, {
-          name: occ.NOME,
-          category: occ.Cat,
-          occurrences: [],
-          totalValue: 0,
-          occurrenceCount: 0,
-          fotoUrl: occ.fotoUrl
-        });
-      }
-      const currentAthlete = stats.get(key);
-      currentAthlete.occurrences.push(occ);
-      currentAthlete.totalValue += parseInt(occ.Valor);
-      currentAthlete.occurrenceCount += 1;
-      // Atualiza fotoUrl se não existir ainda
-      if (!currentAthlete.fotoUrl && occ.fotoUrl) {
-        currentAthlete.fotoUrl = occ.fotoUrl;
-      }
-    });
-    return Array.from(stats.values()).find(a => a.name === athleteName);
-  }, [athleteName]);
+    const athleteOccurrences = occurrences.filter(occ => occ.NOME === athleteName);
+    
+    if (athleteOccurrences.length === 0) return null;
+    
+    const firstOcc = athleteOccurrences[0];
+    return {
+      name: firstOcc.NOME,
+      category: firstOcc.CAT,
+      occurrences: athleteOccurrences,
+      totalValue: athleteOccurrences.reduce((sum, occ) => sum + Number(occ.VALOR), 0),
+      occurrenceCount: athleteOccurrences.length,
+      fotoUrl: firstOcc.fotoUrl
+    };
+  }, [athleteName, occurrences]);
 
   if (!athlete) {
     return null;
@@ -44,7 +35,7 @@ export function AthleteProfile({ athleteName, onClose }: AthleteProfileProps) {
   const initials = athlete.name.split(" ").map(n => n[0]).join("").slice(0, 2);
   
   const occurrencesByCategory = athlete.occurrences.reduce((acc, occ) => {
-    const category = categorizeOccurrence(occ.OCORRÊNCIA);
+    const category = occ.TIPO;
     acc[category] = (acc[category] || 0) + 1;
     return acc;
   }, {} as Record<string, number>);
@@ -134,7 +125,7 @@ export function AthleteProfile({ athleteName, onClose }: AthleteProfileProps) {
                 <div key={index} className="p-4 bg-white border border-gray-200 rounded-lg hover:border-red-200 hover:shadow-sm transition-all">
                   <div className="flex justify-between items-start mb-2">
                     <div className="font-semibold text-red-600 text-sm">
-                      {categorizeOccurrence(occ.OCORRÊNCIA)}
+                      {occ.TIPO}
                     </div>
                     <Badge variant="outline" className="text-xs bg-red-50 border-red-200 text-red-700">
                       R$ {occ.Valor}

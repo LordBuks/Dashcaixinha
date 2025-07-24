@@ -3,7 +3,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { AthleteCard } from "./AthleteCard";
-import { AthleteOccurrence, categorizeOccurrence } from "@/data/athleteData";
+import { AthleteOccurrence } from "@/data/athleteData";
 import { Search, X } from "lucide-react";
 import { AthleteOccurrencesModal } from "./AthleteOccurrencesModal";
 
@@ -23,7 +23,7 @@ export function CategoryAthleteModal({ categoryName, occurrences, onClose }: Cat
     const athleteStats = new Map();
     
     occurrences.forEach(occ => {
-      const category = categorizeOccurrence(occ.OCORRÊNCIA);
+      const category = occ.TIPO;
       if (category === categoryName) {
         const key = occ.NOME;
         if (!athleteStats.has(key)) {

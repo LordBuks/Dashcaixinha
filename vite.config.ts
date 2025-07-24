@@ -15,7 +15,7 @@ export default defineConfig({
       usePolling: true,
     },
     allowedHosts: [
-      "8080-i3gl141g35uyi96nrdstn-2811ca38.manusvm.computer",
+      "8080-i75v2nd834mqmztgrm2dz-0cf01204.manusvm.computer",
       "localhost",
       "127.0.0.1",
     ],

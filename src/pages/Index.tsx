@@ -8,7 +8,7 @@ import { CategoryAthleteModal } from '../components/dashboard/CategoryAthleteMod
 import { AthleteOccurrencesModal } from '../components/dashboard/AthleteOccurrencesModal'; // Importar o novo modal
 import MonthSelector from '../components/MonthSelector';
 import { getAllOccurrences, getMonthData, getAvailableMonths } from '../data/dataLoader';
-import { AthleteOccurrence, extractSchool, categorizeOccurrence } from '../data/athleteData';
+import { AthleteOccurrence } from '../data/athleteData';
 
 const Index = () => {
   const [selectedAthlete, setSelectedAthlete] = useState<string | null>(null);
@@ -98,7 +98,7 @@ const Index = () => {
   const occurrenceTypes = useMemo(() => {
     const types = new Map();
     currentData.forEach(occ => {
-      const category = categorizeOccurrence(occ.OCORRÊNCIA);
+      const category = occ.TIPO;
       types.set(category, (types.get(category) || 0) + 1);
     });
     
@@ -109,9 +109,13 @@ const Index = () => {
   const schoolAbsences = useMemo(() => {
     const schools = new Map();
     currentData
-      .filter(occ => occ.OCORRÊNCIA.includes("Falta escolar"))
+      .filter(occ => occ.TIPO === "Falta Escolar")
       .forEach(occ => {
-        const school = extractSchool(occ.OCORRÊNCIA);
+        let school = "Alojamento";
+        if (occ.OCORRÊNCIA.includes("Gentil")) school = "Escola Gentil";
+        else if (occ.OCORRÊNCIA.includes("Julio Cesar")) school = "Escola Julio Cesar";
+        else if (occ.OCORRÊNCIA.includes("Padre Léo")) school = "Escola Padre Léo";
+        
         if (school !== "Alojamento") {
           schools.set(school, (schools.get(school) || 0) + 1);
         }
@@ -340,10 +344,14 @@ const Index = () => {
         {selectedSchool && (
           <AthleteListModal
             athleteName={`Atletas da ${selectedSchool}`}
-            occurrences={currentData.filter(occ => 
-              occ.OCORRÊNCIA.includes("Falta escolar") && 
-              extractSchool(occ.OCORRÊNCIA) === selectedSchool
-            )}
+            occurrences={currentData.filter(occ => {
+              if (occ.TIPO !== "Falta Escolar") return false;
+              let school = "Alojamento";
+              if (occ.OCORRÊNCIA.includes("Gentil")) school = "Escola Gentil";
+              else if (occ.OCORRÊNCIA.includes("Julio Cesar")) school = "Escola Julio Cesar";
+              else if (occ.OCORRÊNCIA.includes("Padre Léo")) school = "Escola Padre Léo";
+              return school === selectedSchool;
+            })}
             onClose={() => setSelectedSchool(null)}
           />
         )}
@@ -352,7 +360,7 @@ const Index = () => {
           <CategoryAthleteModal
             categoryName={selectedCategory}
             occurrences={currentData.filter(occ => 
-              categorizeOccurrence(occ.OCORRÊNCIA) === selectedCategory
+              occ.TIPO === selectedCategory
             )}
             onClose={() => setSelectedCategory(null)}
           />

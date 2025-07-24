@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { AthleteOccurrence, extractSchool } from "@/data/athleteData";
+import { AthleteOccurrence } from "@/data/athleteData";
 import { useMemo, useState } from "react";
 import { X, User, Calendar, AlertTriangle } from "lucide-react";
 import { AthleteOccurrencesModal } from "./AthleteOccurrencesModal";

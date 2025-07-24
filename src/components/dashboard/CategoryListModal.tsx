@@ -1,12 +1,13 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { AthleteOccurrence, athleteOccurrences, categorizeOccurrence } from "@/data/athleteData";
+import { AthleteOccurrence } from "@/data/athleteData";
 import { useMemo } from "react";
 import { X, User, Calendar, AlertTriangle } from "lucide-react";
 
 interface CategoryListModalProps {
   categoryName: string;
+  occurrences: AthleteOccurrence[];
   onClose: () => void;
   onAthleteClick: (athleteName: string) => void;
 }
@@ -19,12 +20,11 @@ interface AthleteOccurrencesByCategory {
   lastOccurrenceDate: string;
 }
 
-export function CategoryListModal({ categoryName, onClose, onAthleteClick }: CategoryListModalProps) {
+export function CategoryListModal({ categoryName, occurrences, onClose, onAthleteClick }: CategoryListModalProps) {
   const athletesWithOccurrences = useMemo(() => {
     // Filtrar ocorrências por categoria
-    const filteredOccurrences = athleteOccurrences.filter(occ => {
-      const occurrenceCategory = categorizeOccurrence(occ.OCORRÊNCIA);
-      return occurrenceCategory === categoryName;
+    const filteredOccurrences = occurrences.filter(occ => {
+      return occ.TIPO === categoryName;
     });
 
     // Agrupar por atleta

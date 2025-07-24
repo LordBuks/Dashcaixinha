@@ -2,7 +2,6 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { TrendingUp, TrendingDown, Users, AlertTriangle, Calendar, BarChart3, PieChart as PieChartIcon, Activity } from 'lucide-react';
 import { loadMonthlyData, getAvailableMonths } from '../data/dataLoader';
-import { categorizeOccurrence, extractSchool } from '../data/athleteData';
 import { MonthlyData } from '../data/dataLoader';
 
 const Analytics = () => {
@@ -85,7 +84,7 @@ const Analytics = () => {
       categories.forEach(cat => categoryCounts[cat] = 0);
       
       monthData.data.forEach(occ => {
-        const category = categorizeOccurrence(occ.OCORRÊNCIA);
+        const category = occ.TIPO;
         categoryCounts[category] = (categoryCounts[category] || 0) + 1;
       });
 
