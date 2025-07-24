@@ -23,6 +23,7 @@ interface OccurrenceChartProps {
   title: string;
   type: "bar" | "pie";
   onBarClick?: (schoolName: string) => void;
+  onPieClick?: (categoryName: string) => void;
 }
 
 // Paleta de cores completamente distintas para o gráfico de pizza
@@ -41,7 +42,7 @@ const INTER_COLORS = [
   '#A0522D', // Sienna
 ];
 
-export function OccurrenceChart({ data, title, type, onBarClick }: OccurrenceChartProps) {
+export function OccurrenceChart({ data, title, type, onBarClick, onPieClick }: OccurrenceChartProps) {
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
       return (
@@ -77,6 +78,12 @@ export function OccurrenceChart({ data, title, type, onBarClick }: OccurrenceCha
   const handleBarClick = (data: any) => {
     if (onBarClick && data && data.name) {
       onBarClick(data.name);
+    }
+  };
+
+  const handlePieClick = (data: any) => {
+    if (onPieClick && data && data.name) {
+      onPieClick(data.name);
     }
   };
 
@@ -148,6 +155,8 @@ export function OccurrenceChart({ data, title, type, onBarClick }: OccurrenceCha
             dataKey="value"
             stroke="#ffffff"
             strokeWidth={2}
+            onClick={handlePieClick}
+            style={{ cursor: 'pointer' }}
           >
             {data.map((entry, index) => (
               <Cell 
@@ -163,7 +172,7 @@ export function OccurrenceChart({ data, title, type, onBarClick }: OccurrenceCha
               fontSize: '14px',
               color: '#374151'
             }}
-            iconType="circle"
+            iconType="rect"
           />
         </PieChart>
       </ResponsiveContainer>

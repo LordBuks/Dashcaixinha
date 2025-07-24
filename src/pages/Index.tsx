@@ -8,6 +8,7 @@ import { AthleteCard } from "@/components/dashboard/AthleteCard";
 import { OccurrenceChart } from "@/components/dashboard/OccurrenceChart";
 import { AthleteProfile } from "@/components/dashboard/AthleteProfile";
 import { AthleteListModal } from "@/components/dashboard/AthleteListModal";
+import { CategoryAthleteModal } from "@/components/dashboard/CategoryAthleteModal";
 import { athleteOccurrences, extractSchool, categorizeOccurrence } from "@/data/athleteData";
 import { 
   Users, 
@@ -27,6 +28,7 @@ const Index = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("all");
   const [selectedSchool, setSelectedSchool] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   // Processar dados dos atletas
   const athleteStats = useMemo(() => {
@@ -115,8 +117,13 @@ const Index = () => {
     setSelectedSchool(schoolName);
   };
 
+  const handleCategoryClick = (categoryName: string) => {
+    setSelectedCategory(categoryName);
+  };
+
   const handleAthleteClickFromModal = (athleteName: string) => {
     setSelectedSchool(null); // Fecha o modal de escola
+    setSelectedCategory(null); // Fecha o modal de categoria
     setSelectedAthlete(athleteName); // Abre o perfil do atleta
   };
 
@@ -189,6 +196,7 @@ const Index = () => {
                 data={occurrenceByCategory}
                 title="Ocorrências por Categoria"
                 type="pie"
+                onPieClick={handleCategoryClick}
               />
             </CardContent>
           </Card>
@@ -286,6 +294,15 @@ const Index = () => {
         <AthleteListModal
           schoolName={selectedSchool}
           onClose={() => setSelectedSchool(null)}
+          onAthleteClick={handleAthleteClickFromModal}
+        />
+      )}
+
+      {/* Category Athletes Modal */}
+      {selectedCategory && (
+        <CategoryAthleteModal
+          categoryName={selectedCategory}
+          onClose={() => setSelectedCategory(null)}
           onAthleteClick={handleAthleteClickFromModal}
         />
       )}
