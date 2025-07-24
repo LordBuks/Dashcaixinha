@@ -57,21 +57,20 @@ export function AthleteCard({
     >
       <CardContent className="p-5">
         <div className="flex items-center space-x-6">
-          <Avatar className="h-20 w-20 rounded-lg border-2 border-red-100 group-hover:border-red-200 transition-colors">
-            {fotoUrl ? (
+          <Avatar className="h-20 w-20 rounded-lg border-2 border-red-100 group-hover:border-red-200 transiti       {fotoUrl ? (
               <AvatarImage 
                 src={fotoUrl} 
                 alt={`Foto de ${name}`}
                 className="object-cover"
               />
             ) : null}
-            <AvatarFallback className="bg-red-50 text-red-700 font-bold text-lg group-hover:bg-red-100 transition-colors">
+            <AvatarFallback className="bg-red-50 text-red-700 font-bold text-lg group-hover:bg-red-100 transiti
               {initials}
             </AvatarFallback>
           </Avatar>
           
           <div className="flex-1 min-w-0">
-            <h3 className="font-bold text-gray-900 truncate text-lg group-hover:text-red-700 transition-colors">
+            <h3 className="font-bold text-gray-900 truncate text-lg group-hover:text-red-700 transiti
               {name}
             </h3>
             <div className="flex items-center space-x-2 mt-2">
