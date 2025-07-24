@@ -1,7 +1,5 @@
 import { AthleteOccurrence } from '../data/athleteData';
 
-import { AthleteOccurrence } from '../data/athleteData';
-
 // Função para normalizar os dados para o formato esperado
 export const normalizeData = (data: any[]): AthleteOccurrence[] => {
   if (!data || data.length === 0) return [];
@@ -30,3 +28,4 @@ export const normalizeData = (data: any[]): AthleteOccurrence[] => {
     };
   });
 };
+

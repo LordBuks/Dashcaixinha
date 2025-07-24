@@ -12,7 +12,6 @@ export const loadMonthlyData = async (): Promise<MonthlyData[]> => {
   const monthlyDataList: MonthlyData[] = [];
   
   const monthlyFiles = [
-    { file: 'abril-2025.json', month: 'Abril', year: 2025 },
     { file: 'maio-2025.json', month: 'Maio', year: 2025 },
     { file: 'junho-2025.json', month: 'Junho', year: 2025 }
   ];
@@ -77,5 +76,4 @@ export const getAvailableMonths = async (): Promise<{month: string, year: number
       return monthOrder[b.month] - monthOrder[a.month];
     });
 };
-
 
