@@ -6,6 +6,13 @@
   "framework": "vite",
   "routes": [
     {
+      "src": "/data/(.*)",
+      "headers": {
+        "cache-control": "max-age=0, must-revalidate"
+      },
+      "dest": "/public/data/$1"
+    },
+    {
       "src": "/assets/(.*)",
       "headers": {
         "cache-control": "max-age=31536000, immutable"
@@ -17,4 +24,5 @@
     }
   ]
 }
+
 
