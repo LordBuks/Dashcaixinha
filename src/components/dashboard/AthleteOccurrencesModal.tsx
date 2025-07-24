@@ -86,7 +86,6 @@ export const AthleteOccurrencesModal: React.FC<AthleteOccurrencesModalProps> = (
               </div>
             </div>
           </div>
-        </div>
         
         {occurrences.length === 0 ? (
           <p className="text-gray-600">Nenhuma ocorrência encontrada para este atleta.</p>
