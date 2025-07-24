@@ -1,14 +1,4 @@
-// Dados dos atletas com ocorrências disciplinares
-export interface AthleteOccurrence {
-  NOME: string;
-  Cat: string;
-  DATA: string;
-  OCORRÊNCIA: string;
-  Valor: string;
-}
-
-// Dados de exemplo (junho 2024) - serão substituídos pelo carregamento dinâmico
-export const athleteOccurrences: AthleteOccurrence[] = [
+[
   {
     "NOME": "Alexandre Pablo",
     "Cat": "Sub-16",
@@ -884,23 +874,5 @@ export const athleteOccurrences: AthleteOccurrence[] = [
     "OCORRÊNCIA": "Algazarra após o horario do silêncio, discutindo por causa de APOSTA de jogo",
     "Valor": "100"
   }
-];
+]
 
-// Função para extrair a escola da ocorrência
-export const extractSchool = (occurrence: string): string => {
-  if (occurrence.includes("Gentil")) return "Escola Gentil";
-  if (occurrence.includes("Julio Cesar")) return "Escola Julio Cesar";
-  if (occurrence.includes("Padre Léo")) return "Escola Padre Léo";
-  return "Alojamento";
-};
-
-// Função para categorizar tipos de ocorrência
-export const categorizeOccurrence = (occurrence: string): string => {
-  if (occurrence.includes("Falta escolar")) return "Falta Escolar";
-  if (occurrence.includes("chocolate") || occurrence.includes("doces") || occurrence.includes("salgado")) return "Alimentação Irregular";
-  if (occurrence.includes("uniforme")) return "Vestimenta";
-  if (occurrence.includes("cama") || occurrence.includes("toalhas") || occurrence.includes("ar condicionado")) return "Desorganização";
-  if (occurrence.includes("algazarra") || occurrence.includes("som alto") || occurrence.includes("fora do quarto")|| occurrence.includes("fora do quarto")) return "Comportamento";
-  if (occurrence.includes("dormiu fora") || occurrence.includes("horário")) return "Atrasos/Sair sem autorização";
-  return "Outras";
-};

@@ -1,27 +1,12 @@
-import { useState, useMemo } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { StatCard } from "@/components/dashboard/StatCard";
-import { AthleteCard } from "@/components/dashboard/AthleteCard";
-import { OccurrenceChart } from "@/components/dashboard/OccurrenceChart";
-import { AthleteProfile } from "@/components/dashboard/AthleteProfile";
-import { AthleteListModal } from "@/components/dashboard/AthleteListModal";
-import { CategoryAthleteModal } from "@/components/dashboard/CategoryAthleteModal";
-import { athleteOccurrences, extractSchool, categorizeOccurrence } from "@/data/athleteData";
-import { 
-  Users, 
-  AlertTriangle, 
-  DollarSign, 
-  GraduationCap,
-  Search,
-  Filter,
-  TrendingUp,
-  Shield,
-  BarChart3,
-  PieChart
-} from "lucide-react";
+import React, { useState, useEffect, useMemo } from 'react';
+import { Users, AlertTriangle, DollarSign, TrendingUp } from 'lucide-react';
+import StatCard from '../components/dashboard/StatCard';
+import OccurrenceChart from '../components/dashboard/OccurrenceChart';
+import AthleteModal from '../components/dashboard/AthleteModal';
+import CategoryAthleteModal from '../components/dashboard/CategoryAthleteModal';
+import MonthSelector from '../components/MonthSelector';
+import { getAllOccurrences, getMonthData, getAvailableMonths } from '../data/dataLoader';
+import { AthleteOccurrence, extractSchool, categorizeOccurrence } from '../data/athleteData';
 
 const Index = () => {
   const [selectedAthlete, setSelectedAthlete] = useState<string | null>(null);
@@ -29,12 +14,57 @@ const Index = () => {
   const [categoryFilter, setCategoryFilter] = useState("all");
   const [selectedSchool, setSelectedSchool] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  
+  // Estados para o sistema de meses
+  const [availableMonths, setAvailableMonths] = useState<{month: string, year: number}[]>([]);
+  const [selectedMonth, setSelectedMonth] = useState<string>('all');
+  const [selectedYear, setSelectedYear] = useState<number>(2025);
+  const [currentData, setCurrentData] = useState<AthleteOccurrence[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // Carregar meses disponíveis e dados iniciais
+  useEffect(() => {
+    const loadInitialData = async () => {
+      setLoading(true);
+      try {
+        const months = await getAvailableMonths();
+        setAvailableMonths(months);
+        
+        // Carregar todos os dados inicialmente
+        const allData = await getAllOccurrences();
+        setCurrentData(allData);
+      } catch (error) {
+        console.error('Erro ao carregar dados:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadInitialData();
+  }, []);
+
+  // Atualizar dados quando o mês selecionado mudar
+  useEffect(() => {
+    const loadMonthData = async () => {
+      if (selectedMonth === 'all') {
+        const allData = await getAllOccurrences();
+        setCurrentData(allData);
+      } else {
+        const monthData = await getMonthData(selectedMonth, selectedYear);
+        setCurrentData(monthData);
+      }
+    };
+
+    if (availableMonths.length > 0) {
+      loadMonthData();
+    }
+  }, [selectedMonth, selectedYear, availableMonths]);
 
   // Processar dados dos atletas
   const athleteStats = useMemo(() => {
     const stats = new Map();
     
-    athleteOccurrences.forEach(occ => {
+    currentData.forEach(occ => {
       const key = occ.NOME;
       if (!stats.has(key)) {
         stats.set(key, {
@@ -52,11 +82,42 @@ const Index = () => {
       athlete.occurrenceCount += 1;
     });
     
-    return Array.from(stats.values())
-      .sort((a, b) => b.occurrenceCount - a.occurrenceCount);
-  }, []);
+    return Array.from(stats.values()).sort((a, b) => b.occurrenceCount - a.occurrenceCount);
+  }, [currentData]);
 
-  // Filtrar atletas
+  // Estatísticas gerais
+  const totalAthletes = athleteStats.length;
+  const totalOccurrences = currentData.length;
+  const totalValue = currentData.reduce((sum, occ) => sum + parseInt(occ.Valor), 0);
+  const averagePerAthlete = totalAthletes > 0 ? (totalValue / totalAthletes).toFixed(2) : "0";
+
+  // Dados para gráfico de pizza (tipos de ocorrência)
+  const occurrenceTypes = useMemo(() => {
+    const types = new Map();
+    currentData.forEach(occ => {
+      const category = categorizeOccurrence(occ.OCORRÊNCIA);
+      types.set(category, (types.get(category) || 0) + 1);
+    });
+    
+    return Array.from(types.entries()).map(([name, value]) => ({ name, value }));
+  }, [currentData]);
+
+  // Dados para gráfico de barras (faltas escolares)
+  const schoolAbsences = useMemo(() => {
+    const schools = new Map();
+    currentData
+      .filter(occ => occ.OCORRÊNCIA.includes("Falta escolar"))
+      .forEach(occ => {
+        const school = extractSchool(occ.OCORRÊNCIA);
+        if (school !== "Alojamento") {
+          schools.set(school, (schools.get(school) || 0) + 1);
+        }
+      });
+    
+    return Array.from(schools.entries()).map(([name, value]) => ({ name, value }));
+  }, [currentData]);
+
+  // Filtros
   const filteredAthletes = useMemo(() => {
     return athleteStats.filter(athlete => {
       const matchesSearch = athlete.name.toLowerCase().includes(searchTerm.toLowerCase());
@@ -65,247 +126,240 @@ const Index = () => {
     });
   }, [athleteStats, searchTerm, categoryFilter]);
 
-  // Estatísticas gerais
-  const totalOccurrences = athleteOccurrences.length;
-  const totalAthletes = athleteStats.length;
-  const totalValue = athleteOccurrences.reduce((sum, occ) => sum + parseInt(occ.Valor), 0);
-  const averagePerAthlete = Math.round(totalValue / totalAthletes);
+  const handleAthleteClick = (athleteName: string) => {
+    setSelectedAthlete(athleteName);
+  };
 
-  // Dados para gráficos
-  const occurrenceByCategory = useMemo(() => {
-    const categories: Record<string, number> = {};
-    athleteOccurrences.forEach(occ => {
-      const category = categorizeOccurrence(occ.OCORRÊNCIA);
-      categories[category] = (categories[category] || 0) + 1;
-    });
-    
-    return Object.entries(categories)
-      .map(([name, value]) => ({ name, value: value as number }))
-      .sort((a, b) => b.value - a.value);
-  }, []);
-
-  const schoolStats = useMemo(() => {
-    const schools: Record<string, number> = {};
-    athleteOccurrences.forEach(occ => {
-      const school = extractSchool(occ.OCORRÊNCIA);
-      // Filtrar apenas as escolas especificadas, removendo "Alojamento"
-      if (school !== "Alojamento") {
-        schools[school] = (schools[school] || 0) + 1;
-      }
-    });
-    
-    return Object.entries(schools)
-      .map(([name, value]) => ({ name, value: value as number }))
-      .sort((a, b) => b.value - a.value);
-  }, []);
-
-  const categoryStats = useMemo(() => {
-    const categories: Record<string, number> = {};
-    athleteStats.forEach(athlete => {
-      categories[athlete.category] = (categories[athlete.category] || 0) + 1;
-    });
-    
-    return Object.entries(categories)
-      .map(([name, value]) => ({ name, value: value as number }))
-      .sort((a, b) => b.value - a.value);
-  }, [athleteStats]);
-
-  const categories = [...new Set(athleteStats.map(athlete => athlete.category))];
-
-  // Handlers para os modais
   const handleSchoolClick = (schoolName: string) => {
     setSelectedSchool(schoolName);
   };
 
-  const handleCategoryClick = (categoryName: string) => {
+  const handlePieClick = (categoryName: string) => {
     setSelectedCategory(categoryName);
   };
 
-  const handleAthleteClickFromModal = (athleteName: string) => {
-    setSelectedSchool(null); // Fecha o modal de escola
-    setSelectedCategory(null); // Fecha o modal de categoria
-    setSelectedAthlete(athleteName); // Abre o perfil do atleta
+  const handleMonthChange = (month: string, year: number) => {
+    setSelectedMonth(month);
+    setSelectedYear(year);
   };
 
-  return (
-    <div className="min-h-screen inter-gradient-bg">
-      {/* Header com Logo do Internacional */}
-      <div className="px-6 py-4 mb-8 bg-white shadow-md rounded-b-lg">
-        <div className="flex items-center space-x-4">
-          <img 
-            src="/inter-logo.png" 
-            alt="Sport Club Internacional" 
-            className="h-12 w-12 object-contain"
-          />
-          <div className="flex-1">
-            <h1 className="text-3xl font-bold text-red-600 flex items-center space-x-3">
-              <Shield className="h-8 w-8" />
-              <span>Controle Disciplinar Alojamento</span>
-            </h1>
-            <p className="inter-text-secondary mt-1">
-              Monitoramento e análise de ocorrências disciplinares dos atletas alojados
-            </p>
-          </div>
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Carregando dados...</p>
         </div>
       </div>
+    );
+  }
 
-      <div className="px-6">
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <div className="container mx-auto px-4 py-8">
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Dashboard - Ocorrências Disciplinares</h1>
+          <p className="text-gray-600">Acompanhamento das ocorrências dos atletas alojados</p>
+        </div>
+
+        {/* Seletor de Mês */}
+        <MonthSelector
+          availableMonths={availableMonths}
+          selectedMonth={selectedMonth}
+          selectedYear={selectedYear}
+          onMonthChange={handleMonthChange}
+        />
+
         {/* Cards de Estatísticas */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <StatCard
             title="Total de Atletas"
-            value={totalAthletes}
+            value={totalAthletes.toString()}
             icon={Users}
-            description="Atletas com ocorrências"
-            className="inter-card animate-fade-in"
+            color="blue"
           />
           <StatCard
             title="Total de Ocorrências"
-            value={totalOccurrences}
+            value={totalOccurrences.toString()}
             icon={AlertTriangle}
-            description="Registradas no período"
-            className="inter-card animate-fade-in"
+            color="red"
           />
           <StatCard
             title="Valor Total"
             value={`R$ ${totalValue.toLocaleString()}`}
             icon={DollarSign}
-            description="Em multas aplicadas"
-            className="inter-card animate-fade-in"
+            color="green"
           />
           <StatCard
             title="Média por Atleta"
             value={`R$ ${averagePerAthlete}`}
             icon={TrendingUp}
-            description="Valor médio de multas"
-            className="inter-card animate-fade-in"
+            color="purple"
           />
         </div>
 
         {/* Gráficos */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          <Card className="inter-card-float animate-slide-up">
-            <CardHeader>
-              <CardTitle className="flex items-center space-x-2 text-red-600">
-                <PieChart className="h-5 w-5" />
-                <span>Tipos de ocorrências</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <OccurrenceChart
-                data={occurrenceByCategory}
-                title="Ocorrências por Categoria"
-                type="pie"
-                onPieClick={handleCategoryClick}
-              />
-            </CardContent>
-          </Card>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+          <div className="bg-white rounded-lg shadow p-6">
+            <h2 className="text-xl font-semibold mb-4">Tipos de Ocorrências</h2>
+            <OccurrenceChart data={occurrenceTypes} onPieClick={handlePieClick} />
+          </div>
           
-          <Card className="inter-card-float animate-slide-up">
-            <CardHeader>
-              <CardTitle className="flex items-center space-x-2 text-red-600">
-                <BarChart3 className="h-5 w-5" />
-                <span>Faltas Escolares</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <OccurrenceChart
-                data={schoolStats}
-                title="Ocorrências por Local/Escola"
-                type="bar"
-                onBarClick={handleSchoolClick}
-              />
-            </CardContent>
-          </Card>
+          <div className="bg-white rounded-lg shadow p-6">
+            <h2 className="text-xl font-semibold mb-4">Faltas Escolares</h2>
+            <div className="h-80">
+              {schoolAbsences.length > 0 ? (
+                <div className="space-y-4">
+                  {schoolAbsences.map((school, index) => (
+                    <div key={school.name} className="flex items-center justify-between">
+                      <button
+                        onClick={() => handleSchoolClick(school.name)}
+                        className="flex-1 text-left hover:bg-gray-50 p-2 rounded transition-colors"
+                      >
+                        <span className="font-medium">{school.name}</span>
+                      </button>
+                      <div className="flex items-center space-x-2">
+                        <div className="w-32 bg-gray-200 rounded-full h-2">
+                          <div
+                            className="bg-blue-600 h-2 rounded-full"
+                            style={{
+                              width: `${(school.value / Math.max(...schoolAbsences.map(s => s.value))) * 100}%`
+                            }}
+                          ></div>
+                        </div>
+                        <span className="text-sm font-medium w-8 text-right">{school.value}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="flex items-center justify-center h-full text-gray-500">
+                  Nenhuma falta escolar registrada
+                </div>
+              )}
+            </div>
+          </div>
         </div>
 
-        {/* Filtros e Lista de Atletas */}
-        <Card className="inter-card-float animate-slide-up">
-          <CardHeader>
-            <CardTitle className="flex items-center space-x-2 text-red-600">
-              <GraduationCap className="h-6 w-6" />
-              <span>Ranking de Atletas</span>
-            </CardTitle>
+        {/* Lista de Atletas */}
+        <div className="bg-white rounded-lg shadow">
+          <div className="p-6 border-b border-gray-200">
+            <h2 className="text-xl font-semibold mb-4">Ranking de Atletas</h2>
             
             {/* Filtros */}
-            <div className="flex flex-col sm:flex-row gap-4 mt-6">
-              <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 inter-text-secondary" />
-                <Input
+            <div className="flex flex-col sm:flex-row gap-4 mb-4">
+              <div className="flex-1">
+                <input
+                  type="text"
                   placeholder="Buscar atleta..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10 border-red-100 focus:border-red-300 focus:ring-red-200"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
-              <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-                <SelectTrigger className="w-full sm:w-48 border-red-100 focus:border-red-300 focus:ring-red-200">
-                  <Filter className="h-4 w-4 mr-2 inter-text-secondary" />
-                  <SelectValue placeholder="Filtrar por categoria" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">Todas as categorias</SelectItem>
-                  {categories.map(category => (
-                    <SelectItem key={category} value={category}>
-                      {category}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-          </CardHeader>
-          
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {filteredAthletes.map((athlete, index) => (
-                <AthleteCard
-                  key={athlete.name}
-                  name={athlete.name}
-                  category={athlete.category}
-                  occurrenceCount={athlete.occurrenceCount}
-                  totalValue={athlete.totalValue}
-                  isSelected={selectedAthlete === athlete.name}
-                  onClick={() => setSelectedAthlete(athlete.name)}
-                  className="inter-hover-effect"
-                />
-              ))}
-            </div>
-            
-            {filteredAthletes.length === 0 && (
-              <div className="text-center py-12 inter-text-secondary">
-                <AlertTriangle className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                <p className="text-lg">Nenhum atleta encontrado com os filtros aplicados.</p>
+              <div className="sm:w-48">
+                <select
+                  value={categoryFilter}
+                  onChange={(e) => setCategoryFilter(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="all">Todas as categorias</option>
+                  <option value="Sub-14">Sub-14</option>
+                  <option value="Sub-15">Sub-15</option>
+                  <option value="Sub-16">Sub-16</option>
+                  <option value="Sub-17">Sub-17</option>
+                  <option value="Sub-20">Sub-20</option>
+                </select>
               </div>
+            </div>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Posição
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Atleta
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Categoria
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Ocorrências
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Valor Total
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="bg-white divide-y divide-gray-200">
+                {filteredAthletes.map((athlete, index) => (
+                  <tr
+                    key={athlete.name}
+                    className="hover:bg-gray-50 cursor-pointer"
+                    onClick={() => handleAthleteClick(athlete.name)}
+                  >
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      {index + 1}º
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      {athlete.name}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      {athlete.category}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      {athlete.occurrenceCount}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      R$ {athlete.totalValue.toLocaleString()}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {filteredAthletes.length === 0 && (
+            <div className="text-center py-8 text-gray-500">
+              Nenhum atleta encontrado com os filtros aplicados.
+            </div>
+          )}
+        </div>
+
+        {/* Modais */}
+        {selectedAthlete && (
+          <AthleteModal
+            athleteName={selectedAthlete}
+            occurrences={currentData.filter(occ => occ.NOME === selectedAthlete)}
+            onClose={() => setSelectedAthlete(null)}
+          />
+        )}
+
+        {selectedSchool && (
+          <AthleteModal
+            athleteName={`Atletas da ${selectedSchool}`}
+            occurrences={currentData.filter(occ => 
+              occ.OCORRÊNCIA.includes("Falta escolar") && 
+              extractSchool(occ.OCORRÊNCIA) === selectedSchool
             )}
-          </CardContent>
-        </Card>
+            onClose={() => setSelectedSchool(null)}
+          />
+        )}
+
+        {selectedCategory && (
+          <CategoryAthleteModal
+            categoryName={selectedCategory}
+            occurrences={currentData.filter(occ => 
+              categorizeOccurrence(occ.OCORRÊNCIA) === selectedCategory
+            )}
+            onClose={() => setSelectedCategory(null)}
+          />
+        )}
       </div>
-
-      {/* Profile Modal */}
-      {selectedAthlete && (
-        <AthleteProfile
-          athleteName={selectedAthlete}
-          onClose={() => setSelectedAthlete(null)}
-        />
-      )}
-
-      {/* School Athletes Modal */}
-      {selectedSchool && (
-        <AthleteListModal
-          schoolName={selectedSchool}
-          onClose={() => setSelectedSchool(null)}
-          onAthleteClick={handleAthleteClickFromModal}
-        />
-      )}
-
-      {/* Category Athletes Modal */}
-      {selectedCategory && (
-        <CategoryAthleteModal
-          categoryName={selectedCategory}
-          onClose={() => setSelectedCategory(null)}
-          onAthleteClick={handleAthleteClickFromModal}
-        />
-      )}
     </div>
   );
 };
