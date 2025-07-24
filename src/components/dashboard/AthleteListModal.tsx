@@ -33,7 +33,7 @@ export function AthleteListModal({ athleteName, occurrences, onClose }: AthleteL
       if (!athleteMap.has(key)) {
         athleteMap.set(key, {
           name: occ.NOME,
-          category: occ.Cat,
+          category: occ.CAT,
           totalAbsences: 0,
           totalValue: 0,
           lastAbsenceDate: occ.DATA

@@ -33,7 +33,7 @@ export const AthleteOccurrencesModal: React.FC<AthleteOccurrencesModalProps> = (
   const initials = athleteName.split(' ').map(n => n[0]).join('').slice(0, 2);
   const firstOccurrence = occurrences[0];
   const fotoUrl = firstOccurrence?.fotoUrl;
-  const category = firstOccurrence?.Cat || 'N/A';
+  const category = firstOccurrence?.CAT || 'N/A';
   const totalValue = occurrences.reduce((sum, occ) => sum + parseInt(occ.VALOR), 0);
 
   return (

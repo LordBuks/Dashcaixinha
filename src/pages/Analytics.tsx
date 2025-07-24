@@ -104,7 +104,7 @@ const Analytics = () => {
         if (!athleteStats.has(occ.NOME)) {
           athleteStats.set(occ.NOME, {
             name: occ.NOME,
-            category: occ.Cat,
+            category: occ.CAT,
             months: new Set(),
             totalOccurrences: 0,
             totalValue: 0

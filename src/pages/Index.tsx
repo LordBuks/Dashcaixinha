@@ -72,7 +72,7 @@ const Index = () => {
       if (!stats.has(key)) {
         stats.set(key, {
           name: occ.NOME,
-          category: occ.Cat,
+          category: occ.CAT,
           occurrences: [],
           totalValue: 0,
           occurrenceCount: 0

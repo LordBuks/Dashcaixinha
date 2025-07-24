@@ -29,7 +29,7 @@ export function CategoryAthleteModal({ categoryName, occurrences, onClose }: Cat
         if (!athleteStats.has(key)) {
           athleteStats.set(key, {
             name: occ.NOME,
-            category: occ.Cat,
+            category: occ.CAT,
             occurrences: [],
             totalValue: 0,
             occurrenceCount: 0,
