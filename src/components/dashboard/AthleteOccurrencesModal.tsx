@@ -13,18 +13,6 @@ interface AthleteOccurrencesModalProps {
   onClose: () => void;
 }
 
-// Função auxiliar para converter número de série do Excel para data
-const excelSerialDateToJSDate = (serial: string): Date | null => {
-  const excelEpoch = new Date(Date.UTC(1899, 11, 30)); // Excel considera 30/12/1899 como dia 0
-  const serialNumber = parseInt(serial, 10);
-  if (isNaN(serialNumber)) {
-    return null;
-  }
-  const millisecondsPerDay = 24 * 60 * 60 * 1000;
-  const jsDate = new Date(excelEpoch.getTime() + serialNumber * millisecondsPerDay);
-  return jsDate;
-};
-
 export const AthleteOccurrencesModal: React.FC<AthleteOccurrencesModalProps> = ({
   athleteName,
   occurrences,
@@ -34,7 +22,7 @@ export const AthleteOccurrencesModal: React.FC<AthleteOccurrencesModalProps> = (
   const firstOccurrence = occurrences[0];
   const fotoUrl = firstOccurrence?.fotoUrl;
   const category = firstOccurrence?.CAT || 'N/A';
-  const totalValue = occurrences.reduce((sum, occ) => sum + parseInt(occ.VALOR), 0);
+  const totalValue = occurrences.reduce((sum, occ) => sum + Number(occ.VALOR), 0);
 
   return (
     <Dialog open={true} onOpenChange={onClose}>
@@ -92,8 +80,8 @@ export const AthleteOccurrencesModal: React.FC<AthleteOccurrencesModalProps> = (
         ) : (
           <div className="flex-1 overflow-y-auto space-y-4 pr-2">
             {occurrences.map((occurrence, index) => {
-              const jsDate = excelSerialDateToJSDate(occurrence.DATA);
-              const formattedDate = jsDate ? format(jsDate, 'dd/MM/yyyy', { locale: ptBR }) : 'Data Inválida';
+              const dateObject = new Date(occurrence.DATA);
+              const formattedDate = isNaN(dateObject.getTime()) ? 'Data Inválida' : format(dateObject, 'dd/MM/yyyy', { locale: ptBR });
 
               return (
                 <div key={index} className="border border-gray-200 rounded-lg p-4 hover:border-red-200 transition-colors">
@@ -111,5 +99,3 @@ export const AthleteOccurrencesModal: React.FC<AthleteOccurrencesModalProps> = (
     </Dialog>
   );
 };
-
-
