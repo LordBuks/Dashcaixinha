@@ -81,7 +81,7 @@ const Index = () => {
       
       const athlete = stats.get(key);
       athlete.occurrences.push(occ);
-      athlete.totalValue += Number(occ.Valor) || 0;
+      athlete.totalValue += Number(occ.VALOR) || 0;
       athlete.occurrenceCount += 1;
     });
     
@@ -91,7 +91,7 @@ const Index = () => {
   // Estatísticas gerais
   const totalAthletes = athleteStats.length;
   const totalOccurrences = currentData.length;
-  const totalValue = currentData.reduce((sum, occ) => sum + (Number(occ.Valor) || 0), 0);
+  const totalValue = currentData.reduce((sum, occ) => sum + (Number(occ.VALOR) || 0), 0);
   const averagePerAthlete = totalAthletes > 0 ? (totalValue / totalAthletes).toFixed(2) : "0";
 
   // Dados para gráfico de pizza (tipos de ocorrência)

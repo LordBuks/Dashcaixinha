@@ -44,7 +44,7 @@ export function CategoryListModal({ categoryName, occurrences, onClose, onAthlet
       
       const athlete = athleteMap.get(key)!;
       athlete.totalOccurrences += 1;
-      athlete.totalValue += parseInt(occ.Valor);
+      athlete.totalValue += parseInt(occ.VALOR);
       
       // Atualizar com a data mais recente (assumindo que DATA é um número serial)
       if (parseInt(occ.DATA) > parseInt(athlete.lastOccurrenceDate)) {

@@ -30,7 +30,7 @@ const Analytics = () => {
     return monthlyData.map(monthData => {
       const uniqueAthletes = new Set(monthData.data.map(occ => occ.NOME)).size;
       const totalOccurrences = monthData.data.length;
-      const totalValue = monthData.data.reduce((sum, occ) => sum + parseInt(occ.Valor), 0);
+      const totalValue = monthData.data.reduce((sum, occ) => sum + parseInt(occ.VALOR), 0);
 
       return {
         month: monthData.month,
@@ -114,7 +114,7 @@ const Analytics = () => {
         const athlete = athleteStats.get(occ.NOME);
         athlete.months.add(monthData.month);
         athlete.totalOccurrences++;
-        athlete.totalValue += parseInt(occ.Valor);
+        athlete.totalValue += parseInt(occ.VALOR);
       });
     });
 

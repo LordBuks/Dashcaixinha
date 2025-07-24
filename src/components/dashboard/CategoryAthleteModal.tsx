@@ -39,7 +39,7 @@ export function CategoryAthleteModal({ categoryName, occurrences, onClose }: Cat
         
         const athlete = athleteStats.get(key);
         athlete.occurrences.push(occ);
-        athlete.totalValue += parseInt(occ.Valor);
+        athlete.totalValue += parseInt(occ.VALOR);
         athlete.occurrenceCount += 1;
         // Atualiza fotoUrl se não existir ainda
         if (!athlete.fotoUrl && occ.fotoUrl) {

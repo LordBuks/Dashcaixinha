@@ -34,7 +34,7 @@ export const AthleteOccurrencesModal: React.FC<AthleteOccurrencesModalProps> = (
   const firstOccurrence = occurrences[0];
   const fotoUrl = firstOccurrence?.fotoUrl;
   const category = firstOccurrence?.Cat || 'N/A';
-  const totalValue = occurrences.reduce((sum, occ) => sum + parseInt(occ.Valor), 0);
+  const totalValue = occurrences.reduce((sum, occ) => sum + parseInt(occ.VALOR), 0);
 
   return (
     <Dialog open={true} onOpenChange={onClose}>

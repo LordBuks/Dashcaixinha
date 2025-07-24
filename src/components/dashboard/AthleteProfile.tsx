@@ -128,7 +128,7 @@ export function AthleteProfile({ athleteName, occurrences, onClose }: AthletePro
                       {occ.TIPO}
                     </div>
                     <Badge variant="outline" className="text-xs bg-red-50 border-red-200 text-red-700">
-                      R$ {occ.Valor}
+                      R$ {occ.VALOR}
                     </Badge>
                   </div>
                   <div className="text-sm text-gray-700 mb-2 leading-relaxed">
