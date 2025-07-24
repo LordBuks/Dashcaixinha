@@ -896,11 +896,34 @@ export const extractSchool = (occurrence: string): string => {
 
 // Função para categorizar tipos de ocorrência
 export const categorizeOccurrence = (occurrence: string): string => {
-  if (occurrence.includes("Falta escolar")) return "Falta Escolar";
-  if (occurrence.includes("chocolate") || occurrence.includes("doces") || occurrence.includes("salgado")) return "Alimentação Irregular";
-  if (occurrence.includes("uniforme")) return "Vestimenta";
-  if (occurrence.includes("cama") || occurrence.includes("toalhas") || occurrence.includes("ar condicionado")) return "Desorganização";
-  if (occurrence.includes("algazarra") || occurrence.includes("som alto") || occurrence.includes("fora do quarto")|| occurrence.includes("fora do quarto")) return "Comportamento";
-  if (occurrence.includes("dormiu fora") || occurrence.includes("horário")) return "Atrasos/Sair sem autorização";
+  const lowerOccurrence = occurrence.toLowerCase();
+  
+  // Falta Escolar
+  if (lowerOccurrence.includes("falta escolar") || lowerOccurrence.includes("falta sem justificativa")) return "Falta Escolar";
+  
+  // Alimentação Irregular
+  if (lowerOccurrence.includes("chocolate") || lowerOccurrence.includes("doces") || lowerOccurrence.includes("salgado") || 
+      lowerOccurrence.includes("embalagens") || lowerOccurrence.includes("energético") || lowerOccurrence.includes("refrigerante") ||
+      lowerOccurrence.includes("comida podre")) return "Alimentação Irregular";
+  
+  // Vestimenta
+  if (lowerOccurrence.includes("uniforme")) return "Vestimenta";
+  
+  // Desorganização
+  if (lowerOccurrence.includes("cama") || lowerOccurrence.includes("toalhas") || lowerOccurrence.includes("ar condicionado") ||
+      lowerOccurrence.includes("desarrumada") || lowerOccurrence.includes("bagunçado") || lowerOccurrence.includes("quarto bagunçado")) return "Desorganização";
+  
+  // Comportamento
+  if (lowerOccurrence.includes("algazarra") || lowerOccurrence.includes("som alto") || lowerOccurrence.includes("fora do quarto") || 
+      lowerOccurrence.includes("aposta") || lowerOccurrence.includes("discutindo") || lowerOccurrence.includes("ignorou a solicitação") ||
+      lowerOccurrence.includes("argumentou")) return "Comportamento";
+  
+  // Atrasos/Sair sem autorização
+  if (lowerOccurrence.includes("dormiu fora") || lowerOccurrence.includes("horário") || lowerOccurrence.includes("chegou após") ||
+      lowerOccurrence.includes("sem autorização")) return "Atrasos/Sair sem autorização";
+  
+  // Uso de Equipamentos/Celular
+  if (lowerOccurrence.includes("celular") || lowerOccurrence.includes("não deixou")) return "Uso de Equipamentos";
+  
   return "Outras";
 };
