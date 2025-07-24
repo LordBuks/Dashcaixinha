@@ -58,11 +58,24 @@ export const getMonthData = async (month: string, year: number): Promise<Athlete
   return monthData ? monthData.data : [];
 };
 
-// Função para obter lista de meses disponíveis
+// Função para obter lista de meses disponíveis, ordenada do mais recente para o mais antigo
 export const getAvailableMonths = async (): Promise<{month: string, year: number}[]> => {
   const monthlyDataList = await loadMonthlyData();
-  return monthlyDataList.map(data => ({ month: data.month, year: data.year }));
-};
+  // Mapeia os nomes dos meses para números para facilitar a comparação
+  const monthOrder: { [key: string]: number } = {
+    'Janeiro': 1, 'Fevereiro': 2, 'Março': 3, 'Abril': 4,
+    'Maio': 5, 'Junho': 6, 'Julho': 7, 'Agosto': 8,
+    'Setembro': 9, 'Outubro': 10, 'Novembro': 11, 'Dezembro': 12
+  };
 
+  return monthlyDataList.map(data => ({ month: data.month, year: data.year }))
+    .sort((a, b) => {
+      // Ordena por ano (descendente) e depois por mês (descendente)
+      if (a.year !== b.year) {
+        return b.year - a.year;
+      }
+      return monthOrder[b.month] - monthOrder[a.month];
+    });
+};
 
 
