@@ -1,0 +1,877 @@
+[
+  {
+    "NOME": "Alexandre Pablo",
+    "Cat": "Sub-16",
+    "DATA": "24/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Danilo Fortunato",
+    "Cat": "Sub-16",
+    "DATA": "13/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Danilo Fortunato",
+    "Cat": "Sub-16",
+    "DATA": "27/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Davi David",
+    "Cat": "Sub-17",
+    "DATA": "02/06/25",
+    "OCORRÊNCIA": "Alimentação Irregular",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Davi David",
+    "Cat": "Sub-17",
+    "DATA": "15/05/25",
+    "OCORRÊNCIA": "Desorganização",
+    "Valor": 50.0
+  },
+  {
+    "NOME": "Davi Gabriel",
+    "Cat": "Sub-16",
+    "DATA": "04/06/25",
+    "OCORRÊNCIA": "Desorganização",
+    "Valor": 50.0
+  },
+  {
+    "NOME": "Enzo Baggio",
+    "Cat": "Sub-16",
+    "DATA": "03/06/25",
+    "OCORRÊNCIA": "Comportamento",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Esley Ezequiel",
+    "Cat": "Sub-20",
+    "DATA": "02/06/25",
+    "OCORRÊNCIA": "Alimentação Irregular",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Esley Ezequiel",
+    "Cat": "Sub-20",
+    "DATA": "12/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Gabriel Baggio",
+    "Cat": "Sub-17",
+    "DATA": "10/06/25",
+    "OCORRÊNCIA": "Desorganização",
+    "Valor": 50.0
+  },
+  {
+    "NOME": "Gabriel Ryan",
+    "Cat": "Sub-20",
+    "DATA": "10/06/25",
+    "OCORRÊNCIA": "Desorganização",
+    "Valor": 50.0
+  },
+  {
+    "NOME": "Gustavo Mattos",
+    "Cat": "Sub-16",
+    "DATA": "02/06/25",
+    "OCORRÊNCIA": "Desorganização",
+    "Valor": 50.0
+  },
+  {
+    "NOME": "Gustavo Mattos",
+    "Cat": "Sub-16",
+    "DATA": "03/06/25",
+    "OCORRÊNCIA": "Alimentação Irregular",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Gustavo Mattos",
+    "Cat": "Sub-15",
+    "DATA": "18/06/25",
+    "OCORRÊNCIA": "Uniforme ",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Jhonatan Almeida",
+    "Cat": "Sub-20",
+    "DATA": "03/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Jhonatan Almeida",
+    "Cat": "Sub-20",
+    "DATA": "05/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Jhonatan Almeida",
+    "Cat": "Sub-20",
+    "DATA": "09/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Jhonatan Almeida",
+    "Cat": "Sub-20",
+    "DATA": "10/06/25",
+    "OCORRÊNCIA": "Uniforme ",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Jhonatan Almeida",
+    "Cat": "Sub-20",
+    "DATA": "12/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Jhonatan Almeida",
+    "Cat": "Sub-20",
+    "DATA": "13/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Jhonatan Almeida",
+    "Cat": "Sub-20",
+    "DATA": "27/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Jhonatan Almeida",
+    "Cat": "Sub-20",
+    "DATA": "28/06/25",
+    "OCORRÊNCIA": "Atrasos/Sair sem autorização",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "João Lucas",
+    "Cat": "Sub-17",
+    "DATA": "06/06/25",
+    "OCORRÊNCIA": "Comportamento",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "João Lucas",
+    "Cat": "Sub-17",
+    "DATA": "04/06/25",
+    "OCORRÊNCIA": "Uniforme ",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "João Lucas",
+    "Cat": "Sub-17",
+    "DATA": "10/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "João Lucas",
+    "Cat": "Sub-17",
+    "DATA": "10/06/25",
+    "OCORRÊNCIA": "Uniforme ",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "João Lucas",
+    "Cat": "Sub-17",
+    "DATA": "10/06/25",
+    "OCORRÊNCIA": "Comportamento",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "João Lucas",
+    "Cat": "Sub-17",
+    "DATA": "10/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "João Lucas",
+    "Cat": "Sub-17",
+    "DATA": "16/05/25",
+    "OCORRÊNCIA": "Alimentação Irregular",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "João Pedro Leite",
+    "Cat": "Sub-17",
+    "DATA": "10/06/25",
+    "OCORRÊNCIA": "Desorganização",
+    "Valor": 50.0
+  },
+  {
+    "NOME": "João Pedro Leite",
+    "Cat": "Sub-17",
+    "DATA": "12/06/25",
+    "OCORRÊNCIA": "Uniforme ",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "João Pedro Leite",
+    "Cat": "Sub-17",
+    "DATA": "13/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "João Pedro Leite",
+    "Cat": "Sub-17",
+    "DATA": "16/05/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "João Pedro Leite",
+    "Cat": "Sub-17",
+    "DATA": "27/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "João Victor Alves",
+    "Cat": "Sub-20",
+    "DATA": "03/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "João Victor Alves",
+    "Cat": "Sub-20",
+    "DATA": "05/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "João Victor Alves",
+    "Cat": "Sub-20",
+    "DATA": "09/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "João Victor Alves",
+    "Cat": "Sub-20",
+    "DATA": "12/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "João Victor Alves",
+    "Cat": "Sub-20",
+    "DATA": "13/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "João Victor Alves",
+    "Cat": "Sub-20",
+    "DATA": "14/06/25",
+    "OCORRÊNCIA": "Alimentação Irregular",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "João Victor Alves",
+    "Cat": "Sub-20",
+    "DATA": "22/06/25",
+    "OCORRÊNCIA": "Atrasos/Sair sem autorização",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "João Victor Alves",
+    "Cat": "Sub-20",
+    "DATA": "26/06/25",
+    "OCORRÊNCIA": "Uniforme ",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "João Victor Alves",
+    "Cat": "Sub-20",
+    "DATA": "27/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "João Vitor Galindo",
+    "Cat": "Sub-20",
+    "DATA": "02/06/25",
+    "OCORRÊNCIA": "Desorganização",
+    "Valor": 50.0
+  },
+  {
+    "NOME": "João Vitor Galindo",
+    "Cat": "Sub-20",
+    "DATA": "10/06/25",
+    "OCORRÊNCIA": "Desorganização",
+    "Valor": 50.0
+  },
+  {
+    "NOME": "João Vitor Meier",
+    "Cat": "Sub-16",
+    "DATA": "12/06/25",
+    "OCORRÊNCIA": "Uniforme ",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Julio Cesar",
+    "Cat": "Sub-17",
+    "DATA": "02/06/25",
+    "OCORRÊNCIA": "Alimentação Irregular",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Julio Cesar",
+    "Cat": "Sub-17",
+    "DATA": "10/06/25",
+    "OCORRÊNCIA": "Comportamento",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Julio Cesar",
+    "Cat": "Sub-17",
+    "DATA": "15/05/25",
+    "OCORRÊNCIA": "Desorganização",
+    "Valor": 50.0
+  },
+  {
+    "NOME": "Julio Cesar",
+    "Cat": "Sub-17",
+    "DATA": "27/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Kaike Sander",
+    "Cat": "Sub-15",
+    "DATA": "02/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Kaike Sander",
+    "Cat": "Sub-15",
+    "DATA": "03/06/25",
+    "OCORRÊNCIA": "Comportamento",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Kaike Sander",
+    "Cat": "Sub-15",
+    "DATA": "23/06/25",
+    "OCORRÊNCIA": "Comportamento",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Kauâ Cavalcanti",
+    "Cat": "Sub-17",
+    "DATA": "09/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Kauâ Cavalcanti",
+    "Cat": "Sub-17",
+    "DATA": "10/06/25",
+    "OCORRÊNCIA": "Desorganização",
+    "Valor": 50.0
+  },
+  {
+    "NOME": "Kauâ Cavalcanti",
+    "Cat": "Sub-17",
+    "DATA": "22/06/25",
+    "OCORRÊNCIA": "Alimentação Irregular",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Lázaro Junior",
+    "Cat": "Sub-20",
+    "DATA": "02/06/25",
+    "OCORRÊNCIA": "Alimentação Irregular",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Lázaro Junior",
+    "Cat": "Sub-20",
+    "DATA": "10/06/25",
+    "OCORRÊNCIA": "Uniforme ",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Lázaro Junior",
+    "Cat": "Sub-20",
+    "DATA": "25/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Lázaro Junior",
+    "Cat": "Sub-20",
+    "DATA": "26/06/25",
+    "OCORRÊNCIA": "Uniforme ",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Luan Pain",
+    "Cat": "Sub-20",
+    "DATA": "14/06/25",
+    "OCORRÊNCIA": "Alimentação Irregular",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Lucas Andrew",
+    "Cat": "Sub-16",
+    "DATA": "26/06/25",
+    "OCORRÊNCIA": "Desorganização",
+    "Valor": 50.0
+  },
+  {
+    "NOME": "Lucas Gabriel",
+    "Cat": "Sub-16",
+    "DATA": "26/06/25",
+    "OCORRÊNCIA": "Desorganização",
+    "Valor": 50.0
+  },
+  {
+    "NOME": "Lukas Pedrosa",
+    "Cat": "Sub-16",
+    "DATA": "02/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Lukas Pedrosa",
+    "Cat": "Sub-15",
+    "DATA": "03/06/25",
+    "OCORRÊNCIA": "Comportamento",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Lukas Pedrosa",
+    "Cat": "Sub-16",
+    "DATA": "08/06/25",
+    "OCORRÊNCIA": "Uniforme ",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Lukas Pedrosa",
+    "Cat": "Sub-16",
+    "DATA": "09/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Lukas Pedrosa",
+    "Cat": "Sub-16",
+    "DATA": "20/06/25",
+    "OCORRÊNCIA": "Comportamento",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Marcos Neves",
+    "Cat": "Sub-14",
+    "DATA": "02/06/25",
+    "OCORRÊNCIA": "Desorganização",
+    "Valor": 50.0
+  },
+  {
+    "NOME": "Marcos Neves",
+    "Cat": "Sub-14",
+    "DATA": "03/06/25",
+    "OCORRÊNCIA": "Desorganização",
+    "Valor": 50.0
+  },
+  {
+    "NOME": "Marcos Neves",
+    "Cat": "Sub-14",
+    "DATA": "04/06/25",
+    "OCORRÊNCIA": "Desorganização",
+    "Valor": 50.0
+  },
+  {
+    "NOME": "Marcos Neves",
+    "Cat": "Sub-14",
+    "DATA": "11/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Marcos Neves",
+    "Cat": "Sub-14",
+    "DATA": "17/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Matheus Ferreira",
+    "Cat": "Sub-17",
+    "DATA": "03/06/25",
+    "OCORRÊNCIA": "Alimentação Irregular",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Matheus Ferreira",
+    "Cat": "Sub-17",
+    "DATA": "10/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Matheus Ferreira",
+    "Cat": "Sub-17",
+    "DATA": "10/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Matheus Ferreira",
+    "Cat": "Sub-17",
+    "DATA": "16/05/25",
+    "OCORRÊNCIA": "Alimentação Irregular",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Matheus Fereira",
+    "Cat": "Sub-17",
+    "DATA": "04/06/25",
+    "OCORRÊNCIA": "Uniforme ",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Matheus Mauricio",
+    "Cat": "Sub-14",
+    "DATA": "03/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Nathan Lacerda",
+    "Cat": "Sub-16",
+    "DATA": "03/06/25",
+    "OCORRÊNCIA": "Alimentação Irregular",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Pedro Henrique Campos",
+    "Cat": "Sub-14",
+    "DATA": "02/06/25",
+    "OCORRÊNCIA": "Desorganização",
+    "Valor": 50.0
+  },
+  {
+    "NOME": "Pedro Henrique Campos",
+    "Cat": "Sub-15",
+    "DATA": "02/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Pedro Henrique Campos",
+    "Cat": "Sub-15",
+    "DATA": "03/06/25",
+    "OCORRÊNCIA": "Desorganização",
+    "Valor": 50.0
+  },
+  {
+    "NOME": "Pedro Henrique Campos",
+    "Cat": "Sub-15",
+    "DATA": "04/06/25",
+    "OCORRÊNCIA": "Desorganização",
+    "Valor": 50.0
+  },
+  {
+    "NOME": "Pedro Henrique Campos",
+    "Cat": "Sub-15",
+    "DATA": "13/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Pedro Henrique Campos",
+    "Cat": "Sub-15",
+    "DATA": "23/06/25",
+    "OCORRÊNCIA": "Comportamento",
+    "Valor": 50.0
+  },
+  {
+    "NOME": "Pedro Henrique da Silva",
+    "Cat": "Sub-16",
+    "DATA": "20/06/25",
+    "OCORRÊNCIA": "Comportamento",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Pedro Martins",
+    "Cat": "Sub-17",
+    "DATA": "12/06/25",
+    "OCORRÊNCIA": "Uniforme ",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Petro Zucchi",
+    "Cat": "Sub-17",
+    "DATA": "06/06/25",
+    "OCORRÊNCIA": "Comportamento",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Pietro Zucchi",
+    "Cat": "Sub-17",
+    "DATA": "02/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Pietro Zucchi",
+    "Cat": "Sub-17",
+    "DATA": "02/06/25",
+    "OCORRÊNCIA": "Uniforme ",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Pietro Zucchi",
+    "Cat": "Sub-17",
+    "DATA": "16/05/25",
+    "OCORRÊNCIA": "Alimentação Irregular",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Ray Corrêa",
+    "Cat": "Sub-16",
+    "DATA": "05/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Raykkonen Soares",
+    "Cat": "Sub-17",
+    "DATA": "10/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Raykkonen Soares",
+    "Cat": "Sub-17",
+    "DATA": "10/06/25",
+    "OCORRÊNCIA": "Comportamento",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Raykkonen Soares",
+    "Cat": "Sub-17",
+    "DATA": "10/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Raykkonem Soares",
+    "Cat": "Sub-17",
+    "DATA": "02/06/25",
+    "OCORRÊNCIA": "Desorganização",
+    "Valor": 50.0
+  },
+  {
+    "NOME": "Raykkonem Soares",
+    "Cat": "Sub-17",
+    "DATA": "04/06/25",
+    "OCORRÊNCIA": "Uniforme ",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Richard Rodriguees",
+    "Cat": "Sub-17",
+    "DATA": "02/06/25",
+    "OCORRÊNCIA": "",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Richard Rodrigues",
+    "Cat": "Sub-17",
+    "DATA": "09/06/25",
+    "OCORRÊNCIA": "",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Richard Rodrigues",
+    "Cat": "Sub-17",
+    "DATA": "13/06/25",
+    "OCORRÊNCIA": "",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Richard Rodrigues",
+    "Cat": "Sub-17",
+    "DATA": "15/05/25",
+    "OCORRÊNCIA": "",
+    "Valor": 50.0
+  },
+  {
+    "NOME": "Richard Rodrigues",
+    "Cat": "Sub-17",
+    "DATA": "22/06/25",
+    "OCORRÊNCIA": "",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Roger Cavalheiro",
+    "Cat": "Sub-16",
+    "DATA": "02/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Roger Cavalheiro",
+    "Cat": "Sub-16",
+    "DATA": "27/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Thiago Luiz",
+    "Cat": "Sub-16",
+    "DATA": "06/06/25",
+    "OCORRÊNCIA": "Uniforme ",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Thiago Luiz",
+    "Cat": "Sub-16",
+    "DATA": "26/06/25",
+    "OCORRÊNCIA": "Desorganização",
+    "Valor": 50.0
+  },
+  {
+    "NOME": "Victor Hugo Mattos",
+    "Cat": "Sub-15",
+    "DATA": "03/06/25",
+    "OCORRÊNCIA": "Desorganização",
+    "Valor": 50.0
+  },
+  {
+    "NOME": "Victor Hugo Mattos",
+    "Cat": "Sub-15",
+    "DATA": "08/06/25",
+    "OCORRÊNCIA": "Alimentação Irregular",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Victor Hugo Mattos",
+    "Cat": "Sub-15",
+    "DATA": "16/05/25",
+    "OCORRÊNCIA": "Alimentação Irregular",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Victor Hugo Mattos",
+    "Cat": "Sub-15",
+    "DATA": "17/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Victor Hugo Mattos",
+    "Cat": "Sub-15",
+    "DATA": "26/06/25",
+    "OCORRÊNCIA": "Uniforme ",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Victor Rossi",
+    "Cat": "Sub-16",
+    "DATA": "03/06/25",
+    "OCORRÊNCIA": "Alimentação Irregular",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Victor Rossi",
+    "Cat": "Sub-15",
+    "DATA": "12/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Victor Rossi",
+    "Cat": "Sub-16",
+    "DATA": "02/06/25",
+    "OCORRÊNCIA": "Desorganização",
+    "Valor": 50.0
+  },
+  {
+    "NOME": "Vitor Hugo Neves",
+    "Cat": "Sub-17",
+    "DATA": "06/06/25",
+    "OCORRÊNCIA": "Uniforme ",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Vitor Hugo Neves",
+    "Cat": "Sub-17",
+    "DATA": "08/06/25",
+    "OCORRÊNCIA": "Uniforme ",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Vitor Hugo Neves",
+    "Cat": "Sub-17",
+    "DATA": "10/06/25",
+    "OCORRÊNCIA": "Uniforme ",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Vitor Hugo Neves",
+    "Cat": "Sub-17",
+    "DATA": "16/05/25",
+    "OCORRÊNCIA": "Uniforme ",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Vitor Hugo Neves",
+    "Cat": "Sub-17",
+    "DATA": "26/06/25",
+    "OCORRÊNCIA": "Uniforme ",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Vitor Hugo Neves",
+    "Cat": "Sub-17",
+    "DATA": "26/06/25",
+    "OCORRÊNCIA": "Uniforme ",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Vitor Hugo Neves",
+    "Cat": "Sub-17",
+    "DATA": "27/06/25",
+    "OCORRÊNCIA": "Falta Escolar",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Vitor Hugo Neves",
+    "Cat": "Sub-17",
+    "DATA": "02/06/25",
+    "OCORRÊNCIA": "Desorganização",
+    "Valor": 50.0
+  },
+  {
+    "NOME": "Wesley Antônio",
+    "Cat": "Sub-15",
+    "DATA": "26/06/25",
+    "OCORRÊNCIA": "Uniforme ",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Yuri Manoel",
+    "Cat": "Sub-16",
+    "DATA": "20/06/25",
+    "OCORRÊNCIA": "Comportamento",
+    "Valor": 100.0
+  }
+]
