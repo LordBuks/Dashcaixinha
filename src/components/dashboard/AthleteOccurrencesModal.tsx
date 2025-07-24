@@ -1,6 +1,7 @@
 import React from 'react';
 import { X } from 'lucide-react';
 import { AthleteOccurrence } from '../../data/athleteData';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 interface AthleteOccurrencesModalProps {
   athleteName: string;
@@ -14,17 +15,21 @@ export const AthleteOccurrencesModal: React.FC<AthleteOccurrencesModalProps> = (
   onClose,
 }) => {
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-500">
-      <div className="bg-white rounded-lg shadow-xl p-6 w-11/12 md:w-2/3 lg:w-1/2 max-h-[90vh] overflow-y-auto relative">
-        <button onClick={onClose} className="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
-          <X size={24} />
-        </button>
-        <h2 className="text-2xl font-bold mb-4">Ocorrências de {athleteName}</h2>
+    <Dialog open={true} onOpenChange={onClose}>
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-hidden flex flex-col">
+        <DialogHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
+          <DialogTitle className="text-xl font-bold text-gray-900">
+            Ocorrências de {athleteName}
+          </DialogTitle>
+          <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
+            <X size={24} />
+          </button>
+        </DialogHeader>
         
         {occurrences.length === 0 ? (
           <p className="text-gray-600">Nenhuma ocorrência encontrada para este atleta.</p>
         ) : (
-          <div className="space-y-4">
+          <div className="flex-1 overflow-y-auto space-y-4 pr-2">
             {occurrences.map((occurrence, index) => (
               <div key={index} className="border border-gray-200 rounded-md p-4">
                 <p className="text-sm text-gray-500">Data: {occurrence.DATA}</p>
@@ -34,7 +39,9 @@ export const AthleteOccurrencesModal: React.FC<AthleteOccurrencesModalProps> = (
             ))}
           </div>
         )}
-      </div>
-    </div>
+      </DialogContent>
+    </Dialog>
   );
 };
+
+
