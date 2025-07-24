@@ -31,11 +31,11 @@ export const normalizeData = (data: any[]): AthleteOccurrence[] => {
 
     return {
       NOME: item.NOME,
-      CAT: item.Cat || item.CAT, // Prioriza 'Cat' conforme especificado
+      CAT: item.CAT,
       DATA: normalizedDate,
       TIPO: item.TIPO || item.OCORRÊNCIA, // Usa TIPO se disponível, senão OCORRÊNCIA
       OCORRÊNCIA: item.OCORRÊNCIA,
-      VALOR: item.Valor || item.VALOR // Prioriza 'Valor' conforme especificado
+      VALOR: item.VALOR
     };
   });
 };
