@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Users, AlertTriangle, DollarSign, TrendingUp } from 'lucide-react';
-import StatCard from '../components/dashboard/StatCard';
-import OccurrenceChart from '../components/dashboard/OccurrenceChart';
-import AthleteModal from '../components/dashboard/AthleteModal';
-import CategoryAthleteModal from '../components/dashboard/CategoryAthleteModal';
+import { StatCard } from '../components/dashboard/StatCard';
+import { OccurrenceChart } from '../components/dashboard/OccurrenceChart';
+import { AthleteListModal } from '../components/dashboard/AthleteListModal';
+import { CategoryAthleteModal } from '../components/dashboard/CategoryAthleteModal';
 import MonthSelector from '../components/MonthSelector';
 import { getAllOccurrences, getMonthData, getAvailableMonths } from '../data/dataLoader';
 import { AthleteOccurrence, extractSchool, categorizeOccurrence } from '../data/athleteData';
@@ -202,7 +202,12 @@ const Index = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           <div className="bg-white rounded-lg shadow p-6">
             <h2 className="text-xl font-semibold mb-4">Tipos de Ocorrências</h2>
-            <OccurrenceChart data={occurrenceTypes} onPieClick={handlePieClick} />
+            <OccurrenceChart 
+              data={occurrenceTypes} 
+              title="Tipos de Ocorrências"
+              type="pie"
+              onPieClick={handlePieClick} 
+            />
           </div>
           
           <div className="bg-white rounded-lg shadow p-6">
@@ -332,7 +337,7 @@ const Index = () => {
 
         {/* Modais */}
         {selectedAthlete && (
-          <AthleteModal
+          <AthleteListModal
             athleteName={selectedAthlete}
             occurrences={currentData.filter(occ => occ.NOME === selectedAthlete)}
             onClose={() => setSelectedAthlete(null)}
@@ -340,7 +345,7 @@ const Index = () => {
         )}
 
         {selectedSchool && (
-          <AthleteModal
+          <AthleteListModal
             athleteName={`Atletas da ${selectedSchool}`}
             occurrences={currentData.filter(occ => 
               occ.OCORRÊNCIA.includes("Falta escolar") && 

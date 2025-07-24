@@ -3,23 +3,23 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { AthleteCard } from "./AthleteCard";
-import { athleteOccurrences, categorizeOccurrence } from "@/data/athleteData";
+import { AthleteOccurrence, categorizeOccurrence } from "@/data/athleteData";
 import { Search, X } from "lucide-react";
 
 interface CategoryAthleteModalProps {
   categoryName: string;
+  occurrences: AthleteOccurrence[];
   onClose: () => void;
-  onAthleteClick: (athleteName: string) => void;
 }
 
-export function CategoryAthleteModal({ categoryName, onClose, onAthleteClick }: CategoryAthleteModalProps) {
+export function CategoryAthleteModal({ categoryName, occurrences, onClose }: CategoryAthleteModalProps) {
   const [searchTerm, setSearchTerm] = useState("");
 
   // Filtrar atletas que têm ocorrências da categoria específica
   const athletesInCategory = useMemo(() => {
     const athleteStats = new Map();
     
-    athleteOccurrences.forEach(occ => {
+    occurrences.forEach(occ => {
       const category = categorizeOccurrence(occ.OCORRÊNCIA);
       if (category === categoryName) {
         const key = occ.NOME;
@@ -42,7 +42,7 @@ export function CategoryAthleteModal({ categoryName, onClose, onAthleteClick }: 
     
     return Array.from(athleteStats.values())
       .sort((a, b) => b.occurrenceCount - a.occurrenceCount);
-  }, [categoryName]);
+  }, [categoryName, occurrences]);
 
   // Filtrar atletas por termo de busca
   const filteredAthletes = useMemo(() => {
@@ -91,7 +91,7 @@ export function CategoryAthleteModal({ categoryName, onClose, onAthleteClick }: 
                   occurrenceCount={athlete.occurrenceCount}
                   totalValue={athlete.totalValue}
                   isSelected={false}
-                  onClick={() => onAthleteClick(athlete.name)}
+                  onClick={() => {}}
                   className="inter-hover-effect cursor-pointer"
                 />
               ))}

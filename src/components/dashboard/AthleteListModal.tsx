@@ -1,14 +1,14 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { AthleteOccurrence, athleteOccurrences, extractSchool } from "@/data/athleteData";
+import { AthleteOccurrence, extractSchool } from "@/data/athleteData";
 import { useMemo } from "react";
 import { X, User, Calendar, AlertTriangle } from "lucide-react";
 
 interface AthleteListModalProps {
-  schoolName: string;
+  athleteName: string;
+  occurrences: AthleteOccurrence[];
   onClose: () => void;
-  onAthleteClick: (athleteName: string) => void;
 }
 
 interface AthleteAbsence {
@@ -19,18 +19,12 @@ interface AthleteAbsence {
   lastAbsenceDate: string;
 }
 
-export function AthleteListModal({ schoolName, onClose, onAthleteClick }: AthleteListModalProps) {
+export function AthleteListModal({ athleteName, occurrences, onClose }: AthleteListModalProps) {
   const athletesWithAbsences = useMemo(() => {
-    // Filtrar ocorrências por escola/local
-    const filteredOccurrences = athleteOccurrences.filter(occ => {
-      const occurrenceSchool = extractSchool(occ.OCORRÊNCIA);
-      return occurrenceSchool === schoolName;
-    });
-
     // Agrupar por atleta
     const athleteMap = new Map<string, AthleteAbsence>();
     
-    filteredOccurrences.forEach(occ => {
+    occurrences.forEach(occ => {
       const key = occ.NOME;
       if (!athleteMap.has(key)) {
         athleteMap.set(key, {
@@ -53,7 +47,7 @@ export function AthleteListModal({ schoolName, onClose, onAthleteClick }: Athlet
     });
 
     return Array.from(athleteMap.values()).sort((a, b) => b.totalAbsences - a.totalAbsences);
-  }, [schoolName]);
+  }, [occurrences]);
 
   // Converter data serial para formato legível
   const formatDate = (serialDate: string): string => {
@@ -82,10 +76,10 @@ export function AthleteListModal({ schoolName, onClose, onAthleteClick }: Athlet
               </div>
               <div>
                 <CardTitle className="text-2xl text-gray-900 flex items-center space-x-2">
-                  <span>Atletas com Faltas - {schoolName}</span>
+                  <span>{athleteName}</span>
                 </CardTitle>
                 <p className="text-gray-600 mt-1">
-                  {athletesWithAbsences.length} atleta(s) com faltas registradas
+                  {athletesWithAbsences.length} atleta(s) com ocorrências
                 </p>
               </div>
             </div>
@@ -101,7 +95,7 @@ export function AthleteListModal({ schoolName, onClose, onAthleteClick }: Athlet
         <CardContent className="p-6">
           {athletesWithAbsences.length === 0 ? (
             <div className="text-center py-8">
-              <p className="text-gray-500 text-lg">Nenhum atleta com faltas encontrado para {schoolName}</p>
+              <p className="text-gray-500 text-lg">Nenhuma ocorrência encontrada</p>
             </div>
           ) : (
             <div className="space-y-4">
@@ -111,8 +105,7 @@ export function AthleteListModal({ schoolName, onClose, onAthleteClick }: Athlet
                 return (
                   <Card 
                     key={index}
-                    className="cursor-pointer transition-all duration-300 group bg-white border border-red-100 hover:border-red-200 hover:shadow-lg"
-                    onClick={() => onAthleteClick(athlete.name)}
+                    className="transition-all duration-300 group bg-white border border-red-100 hover:border-red-200 hover:shadow-lg"
                     onMouseEnter={(e) => {
                       e.currentTarget.style.boxShadow = '0 8px 32px rgba(229, 5, 15, 0.15)';
                       e.currentTarget.style.transform = 'translateY(-2px)';
@@ -153,14 +146,14 @@ export function AthleteListModal({ schoolName, onClose, onAthleteClick }: Athlet
                             </span>
                           </div>
                           <div className="text-xs text-gray-500 font-medium">
-                            Total de Faltas
+                            Total de Ocorrências
                           </div>
                           
                           <div className="text-sm font-bold text-gray-700">
                             R$ {athlete.totalValue.toLocaleString()}
                           </div>
                           <div className="text-xs text-gray-500 font-medium">
-                            Valor das Faltas
+                            Valor Total
                           </div>
                           
                           <div className="flex items-center justify-end space-x-1 text-xs text-gray-600">
@@ -168,7 +161,7 @@ export function AthleteListModal({ schoolName, onClose, onAthleteClick }: Athlet
                             <span>{formatDate(athlete.lastAbsenceDate)}</span>
                           </div>
                           <div className="text-xs text-gray-500 font-medium">
-                            Data da Falta
+                            Última Ocorrência
                           </div>
                         </div>
                       </div>

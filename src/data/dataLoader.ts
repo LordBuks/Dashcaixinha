@@ -14,9 +14,7 @@ export const loadMonthlyData = async (): Promise<MonthlyData[]> => {
   const monthlyFiles = [
     { file: 'janeiro-2025.json', month: 'Janeiro', year: 2025 },
     { file: 'fevereiro-2025.json', month: 'Fevereiro', year: 2025 },
-    { file: 'marco-2025.json', month: 'Março', year: 2025 },
     { file: 'abril-2025.json', month: 'Abril', year: 2025 },
-    { file: 'maio-2025.json', month: 'Maio', year: 2025 },
     { file: 'junho-2025.json', month: 'Junho', year: 2025 },
     { file: 'julho-2025.json', month: 'Julho', year: 2025 },
     { file: 'agosto-2025.json', month: 'Agosto', year: 2025 },
@@ -25,10 +23,6 @@ export const loadMonthlyData = async (): Promise<MonthlyData[]> => {
     { file: 'novembro-2025.json', month: 'Novembro', year: 2025 },
     { file: 'dezembro-2025.json', month: 'Dezembro', year: 2025 }
   ];
-
-  for (const { file, month, year } of monthlyFiles) {
-    try {
-      const response = await fetch(`/data/${file}`);
       if (response.ok) {
         const rawData = await response.json();
         const monthData: AthleteOccurrence[] = normalizeData(rawData);
