@@ -86,7 +86,10 @@ const Index = () => {
     const schools: Record<string, number> = {};
     athleteOccurrences.forEach(occ => {
       const school = extractSchool(occ.OCORRÊNCIA);
-      schools[school] = (schools[school] || 0) + 1;
+      // Filtrar apenas as escolas especificadas, removendo "Alojamento"
+      if (school !== "Alojamento") {
+        schools[school] = (schools[school] || 0) + 1;
+      }
     });
     
     return Object.entries(schools)

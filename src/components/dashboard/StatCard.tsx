@@ -48,7 +48,7 @@ export function StatCard({
     }}
     >
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
-        <CardTitle className="text-sm font-semibold text-gray-600 group-hover:text-gray-700 transition-colors">
+        <CardTitle className="text-sm font-semibold text-gray-800 group-hover:text-gray-900 transition-colors">
           {title}
         </CardTitle>
         <div className="p-2 bg-red-50 rounded-lg group-hover:bg-red-100 transition-colors">
@@ -58,7 +58,7 @@ export function StatCard({
       <CardContent>
         <div className="text-3xl font-bold text-gray-900 mb-1">{value}</div>
         {description && (
-          <p className="text-sm text-gray-500 leading-relaxed">
+          <p className="text-sm text-gray-700 leading-relaxed">
             {description}
           </p>
         )}

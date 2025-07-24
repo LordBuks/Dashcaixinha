@@ -100,17 +100,17 @@ export function OccurrenceChart({ data, title, type, onBarClick }: OccurrenceCha
         />
         <XAxis 
           dataKey="name" 
-          stroke="#6B7280"
+          stroke="#374151"
           fontSize={12}
           angle={-45}
           textAnchor="end"
           height={80}
-          tick={{ fill: '#6B7280' }}
+          tick={{ fill: '#374151' }}
         />
         <YAxis 
-          stroke="#6B7280" 
+          stroke="#374151" 
           fontSize={12}
-          tick={{ fill: '#6B7280' }}
+          tick={{ fill: '#374151' }}
         />
         <Tooltip content={<CustomTooltip />} />
         <Bar 
