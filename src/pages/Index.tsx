@@ -4,6 +4,7 @@ import { StatCard } from '../components/dashboard/StatCard';
 import { OccurrenceChart } from '../components/dashboard/OccurrenceChart';
 import { AthleteListModal } from '../components/dashboard/AthleteListModal';
 import { CategoryAthleteModal } from '../components/dashboard/CategoryAthleteModal';
+import { AthleteOccurrencesModal } from '../components/dashboard/AthleteOccurrencesModal'; // Importar o novo modal
 import MonthSelector from '../components/MonthSelector';
 import { getAllOccurrences, getMonthData, getAvailableMonths } from '../data/dataLoader';
 import { AthleteOccurrence, extractSchool, categorizeOccurrence } from '../data/athleteData';
@@ -14,7 +15,8 @@ const Index = () => {
   const [categoryFilter, setCategoryFilter] = useState("all");
   const [selectedSchool, setSelectedSchool] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  
+  const [selectedAthleteForOccurrences, setSelectedAthleteForOccurrences] = useState<string | null>(null); // Novo estado para o modal de ocorrências do atleta
+
   // Estados para o sistema de meses
   const [availableMonths, setAvailableMonths] = useState<{month: string, year: number}[]>([]);
   const [selectedMonth, setSelectedMonth] = useState<string>('all');
@@ -127,7 +129,7 @@ const Index = () => {
   }, [athleteStats, searchTerm, categoryFilter]);
 
   const handleAthleteClick = (athleteName: string) => {
-    setSelectedAthlete(athleteName);
+    setSelectedAthleteForOccurrences(athleteName); // Abre o modal de ocorrências do atleta
   };
 
   const handleSchoolClick = (schoolName: string) => {
@@ -212,37 +214,12 @@ const Index = () => {
           
           <div className="bg-white rounded-lg shadow p-6">
             <h2 className="text-xl font-semibold mb-4">Faltas Escolares</h2>
-            <div className="h-80">
-              {schoolAbsences.length > 0 ? (
-                <div className="space-y-4">
-                  {schoolAbsences.map((school, index) => (
-                    <div key={school.name} className="flex items-center justify-between">
-                      <button
-                        onClick={() => handleSchoolClick(school.name)}
-                        className="flex-1 text-left hover:bg-gray-50 p-2 rounded transition-colors"
-                      >
-                        <span className="font-medium">{school.name}</span>
-                      </button>
-                      <div className="flex items-center space-x-2">
-                        <div className="w-32 bg-gray-200 rounded-full h-2">
-                          <div
-                            className="bg-blue-600 h-2 rounded-full"
-                            style={{
-                              width: `${(school.value / Math.max(...schoolAbsences.map(s => s.value))) * 100}%`
-                            }}
-                          ></div>
-                        </div>
-                        <span className="text-sm font-medium w-8 text-right">{school.value}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <div className="flex items-center justify-center h-full text-gray-500">
-                  Nenhuma falta escolar registrada
-                </div>
-              )}
-            </div>
+            <OccurrenceChart 
+              data={schoolAbsences} 
+              title="Faltas Escolares por Escola"
+              type="bar"
+              onBarClick={handleSchoolClick}
+            />
           </div>
         </div>
 
@@ -336,11 +313,11 @@ const Index = () => {
         </div>
 
         {/* Modais */}
-        {selectedAthlete && (
-          <AthleteListModal
-            athleteName={selectedAthlete}
-            occurrences={currentData.filter(occ => occ.NOME === selectedAthlete)}
-            onClose={() => setSelectedAthlete(null)}
+        {selectedAthleteForOccurrences && (
+          <AthleteOccurrencesModal
+            athleteName={selectedAthleteForOccurrences}
+            occurrences={currentData.filter(occ => occ.NOME === selectedAthleteForOccurrences)}
+            onClose={() => setSelectedAthleteForOccurrences(null)}
           />
         )}
 
@@ -370,4 +347,5 @@ const Index = () => {
 };
 
 export default Index;
+
 
