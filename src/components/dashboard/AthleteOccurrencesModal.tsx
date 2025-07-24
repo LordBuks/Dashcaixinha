@@ -43,14 +43,12 @@ export const AthleteOccurrencesModal: React.FC<AthleteOccurrencesModalProps> = (
           <DialogTitle className="text-xl font-bold text-red-600">
             Ocorrências de {athleteName}
           </DialogTitle>
-          <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
-            <X size={24} />
+          <button onClick={onClose} className="flex items-center justify-center w-8 h-8 rounded-full bg-red-600 text-white hover:bg-red-700 transition-colors">
+            <X size={20} />
           </button>
         </DialogHeader>
-        
         {/* Cabeçalho com foto e informações do atleta */}
         <div className="bg-gradient-to-r from-red-50 to-white border border-red-100 rounded-lg p-6 mb-4">
-          <div className="flex items-center space-x-6">
             <Avatar className="h-24 w-24 rounded-lg border-3 border-red-200">
               {fotoUrl ? (
                 <AvatarImage 
@@ -102,7 +100,7 @@ export const AthleteOccurrencesModal: React.FC<AthleteOccurrencesModalProps> = (
                 <div key={index} className="border border-gray-200 rounded-lg p-4 hover:border-red-200 transition-colors">
                   <div className="flex justify-between items-start mb-2">
                     <p className="text-sm text-gray-500 font-medium">Data: {formattedDate}</p>
-                    <span className="text-sm font-bold text-red-600">R$ {occurrence.Valor}</span>
+                    <span className="text-sm font-bold text-red-600">R$ {occurrence.VALOR.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                   </div>
                   <p className="font-medium text-gray-900 leading-relaxed">{occurrence.OCORRÊNCIA}</p>
                 </div>
