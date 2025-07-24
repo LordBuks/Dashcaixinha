@@ -18,6 +18,7 @@ export default defineConfig({
       "8080-i75v2nd834mqmztgrm2dz-0cf01204.manusvm.computer",
       "localhost",
       "127.0.0.1",
+      "4173-iuwpw43i0pligwknihg7u-a3180ed9.manusvm.computer",
     ],
   },
   plugins: [react()],
