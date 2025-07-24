@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Users, AlertTriangle, DollarSign, TrendingUp } from 'lucide-react';
 import { StatCard } from '../components/dashboard/StatCard';
 import { OccurrenceChart } from '../components/dashboard/OccurrenceChart';
@@ -288,7 +289,22 @@ const Index = () => {
                       {index + 1}º
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {athlete.name}
+                      <div className="flex items-center space-x-3">
+                        <Avatar className="h-14 w-14 rounded-lg border-2 border-red-100">
+                          {athlete.fotoUrl ? (
+                            <AvatarImage 
+                              src={athlete.fotoUrl} 
+                              alt={`Foto de ${athlete.name}`}
+                              className="object-cover"
+                            />
+                          ) : (
+                            <AvatarFallback className="bg-red-50 text-red-700 font-bold text-lg">
+                              {athlete.name.split(" ").map(n => n[0]).join("").slice(0, 2)}
+                            </AvatarFallback>
+                          )}
+                        </Avatar>
+                        <span>{athlete.name}</span>
+                      </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                       {athlete.category}
