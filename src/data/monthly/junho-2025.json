@@ -259,7 +259,7 @@
     "NOME": "João Pedro Leite",
     "Cat": "Sub-17",
     "DATA": "15/05/25",
-    "TIPO": "Falta Escolar",
+    "TIPO": "Uniforme",
     "OCORRÊNCIA": "Em ronda estava sem uniforme na ceia",
     "Valor": 100.0
   },
@@ -828,7 +828,7 @@
     "Cat": "Sub-16",
     "DATA": "01/06/25",
     "TIPO": "Falta Escolar",
-    "OCORRÊNCIA": "Falta escolar sem justificativa Escola Julio Cesar",
+    "OCORRÊNCIA": "Falta escolar sem justificativa Escola Juliano Nascimento",
     "Valor": 100.0
   },
   {
