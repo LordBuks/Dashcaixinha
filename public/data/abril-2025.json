@@ -1,0 +1,954 @@
+[
+  {
+    "NOME": "Alexandre Pablo",
+    "CAT": "Sub-16",
+    "DATA": 45761,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Alexandre Pablo",
+    "CAT": "Sub-16",
+    "DATA": 45756,
+    "TIPO": "Comportamento",
+    "OCORRÊNCIA": "Estava fora de seu quarto após 23h, não acatou orientação do monitor",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Arhim Benjamim",
+    "CAT": "Sub-20",
+    "DATA": 45763,
+    "TIPO": "Alimentação Irregular",
+    "OCORRÊNCIA": "Comeu o Kit Café da tarde no quarto",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Bernardo Natário",
+    "CAT": "Sub-14",
+    "DATA": 45748,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Ar condicionado ligado quarto vazio",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "Danilo Fortunato",
+    "CAT": "Sub-16",
+    "DATA": 45776,
+    "TIPO": "Uniforme",
+    "OCORRÊNCIA": "Sem uniforme no refeitório foi orientado e não acatou",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Davi David",
+    "CAT": "Sub-17",
+    "DATA": 45772,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Davi David",
+    "CAT": "Sub-17",
+    "DATA": 45770,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Excesso de toalhas no quarto",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "Davi David",
+    "CAT": "Sub-17",
+    "DATA": 45775,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Ar condicionado ligado sem ninguém no quarto",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "Esley Ezequiel",
+    "CAT": "Sub-20",
+    "DATA": 45751,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Esley Ezequiel",
+    "CAT": "Sub-20",
+    "DATA": 45753,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Excesso de toalhas no banheiro",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "Esley Ezequiel",
+    "CAT": "Sub-20",
+    "DATA": 45754,
+    "TIPO": "Alimentação Irregular",
+    "OCORRÊNCIA": "Em ronda no quarto várias embalagens de salgadinhos, doce e garrafa de suco",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Everaldo Ponciano",
+    "CAT": "Sub-17",
+    "DATA": 45753,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Excesso de toalhas no banheiro",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "Everaldo Ponciano",
+    "CAT": "Sub-17",
+    "DATA": 45771,
+    "TIPO": "Alimentação Irregular",
+    "OCORRÊNCIA": "Entrou com chocolate no alojamento",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Gabriel Baggio",
+    "CAT": "Sub-16",
+    "DATA": 45751,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Gabriel Baggio",
+    "CAT": "Sub-17",
+    "DATA": 45770,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Quarto desorganizado",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "Gabriel Lara",
+    "CAT": "Sub-20",
+    "DATA": 45762,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Gabriel Lara",
+    "CAT": "Sub-20",
+    "DATA": 45769,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Gabriel Palma",
+    "CAT": "Sub-20",
+    "DATA": 45754,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Gabriel Palma",
+    "CAT": "Sub-20",
+    "DATA": 45771,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Gabriel Ryan",
+    "CAT": "Sub-20",
+    "DATA": 45752,
+    "TIPO": "Comportamento",
+    "OCORRÊNCIA": "Algazarra, som alto e gritaria no quarto, foi chamada",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Gabriel Ryan",
+    "CAT": "Sub-20",
+    "DATA": 45763,
+    "TIPO": "Comportamento",
+    "OCORRÊNCIA": "Estavam tumultuando a ceia, pedindo lanche dos outros",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Jackson Teixeira",
+    "CAT": "Sub-20",
+    "DATA": 45753,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Excesso de toalhas no banheiro",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "Jackson Teixeira",
+    "CAT": "Sub-20",
+    "DATA": 45754,
+    "TIPO": "Alimentação Irregular",
+    "OCORRÊNCIA": "Em ronda no quarto várias embalagens de salgadinhos, doce e garrafa de suco",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Jackson Teixeira",
+    "CAT": "Sub-20",
+    "DATA": 45761,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Jackson Teixeira",
+    "CAT": "Sub-20",
+    "DATA": 45771,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Jackson Teixeira",
+    "CAT": "Sub-20",
+    "DATA": 45777,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Jackson Teixeira",
+    "CAT": "Sub-20",
+    "DATA": 45772,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Jheimison Henrique",
+    "CAT": "Sub-16",
+    "DATA": 45748,
+    "TIPO": "Outros",
+    "OCORRÊNCIA": "07h54 estava tomando café fora do refeitório",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "João Cruvinel",
+    "CAT": "Sub-17",
+    "DATA": 45750,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "João Lucas Bezerra",
+    "CAT": "Sub-17",
+    "DATA": 45753,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Excesso de toalhas no banheiro",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "João Lucas Bezerra",
+    "CAT": "Sub-17",
+    "DATA": 45771,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "João Lucas Bezerra",
+    "CAT": "Sub-17",
+    "DATA": 45777,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "João Lucas Bezerra",
+    "CAT": "Sub-17",
+    "DATA": 45772,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "João Pedro Leite",
+    "CAT": "Sub-17",
+    "DATA": 45770,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Quarto desorganizado",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "João Pedro Leite",
+    "CAT": "Sub-17",
+    "DATA": 45771,
+    "TIPO": "Alimentação Irregular",
+    "OCORRÊNCIA": "Entrou com chocolate no alojamento e não quis entregar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "João Pedro Leite",
+    "CAT": "Sub-17",
+    "DATA": 45750,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "João Pedro Leite",
+    "CAT": "Sub-17",
+    "DATA": 45758,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "João Pedro Leite",
+    "CAT": "Sub-17",
+    "DATA": 45776,
+    "TIPO": "Uniforme",
+    "OCORRÊNCIA": "Sem uniforme no refeitório, parte de baixo, 17h23",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "João Pedro Leite",
+    "CAT": "Sub-17",
+    "DATA": 45763,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "João Pedro Leite",
+    "CAT": "Sub-17",
+    "DATA": 45777,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "João Pedro Leite",
+    "CAT": "Sub-17",
+    "DATA": 45772,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "João Pedro Stevanelli",
+    "CAT": "Sub-17",
+    "DATA": 45748,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Ar condicionado ligado quarto vazio",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "João Pedro Stevanelli",
+    "CAT": "Sub-17",
+    "DATA": 45755,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Ar condicionado ligado quarto vazio",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "João Pedro Stevanelli",
+    "CAT": "Sub-17",
+    "DATA": 45770,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Excesso de toalhas no quarto",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "João Pedro Stevanelli",
+    "CAT": "Sub-17",
+    "DATA": 45750,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "João Pedro Stevanelli",
+    "CAT": "Sub-17",
+    "DATA": 45755,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "João Pedro Stevanelli",
+    "CAT": "Sub-17",
+    "DATA": 45758,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "João Pedro Stevanelli",
+    "CAT": "Sub-17",
+    "DATA": 45769,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "João Pedro Stevanelli",
+    "CAT": "Sub-17",
+    "DATA": 45777,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "João Victor Alves",
+    "CAT": "Sub-20",
+    "DATA": 45750,
+    "TIPO": "Atrasos/Sair sem autorização",
+    "OCORRÊNCIA": "Chegou após o horário permitido sem autorização 20h40",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "João Victor Alves",
+    "CAT": "Sub-20",
+    "DATA": 45750,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "João Victor Alves",
+    "CAT": "Sub-20",
+    "DATA": 45755,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "João Victor Alves",
+    "CAT": "Sub-20",
+    "DATA": 45762,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "João Vitor Cruvinel",
+    "CAT": "Sub-17",
+    "DATA": 45748,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Ar condicionado ligado quarto vazio",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "João Vitor Cruvinel",
+    "CAT": "Sub-17",
+    "DATA": 45756,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "João Vitor Cruvinel",
+    "CAT": "Sub-17",
+    "DATA": 45769,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "João Vitor Cruvinel",
+    "CAT": "Sub-17",
+    "DATA": 45772,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "João Vitor Miranda",
+    "CAT": "Sub-20",
+    "DATA": 45751,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Jhonatan Almeida",
+    "CAT": "Sub-20",
+    "DATA": 45750,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Jhonatan Almeida",
+    "CAT": "Sub-20",
+    "DATA": 45755,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Jhonatan Almeida",
+    "CAT": "Sub-20",
+    "DATA": 45762,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Jhonatan Almeida",
+    "CAT": "Sub-20",
+    "DATA": 45777,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Jhonatan Almeida",
+    "CAT": "Sub-20",
+    "DATA": 45772,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Julio Cesar",
+    "CAT": "Sub-17",
+    "DATA": 45752,
+    "TIPO": "Comportamento",
+    "OCORRÊNCIA": "Algazarra, som alto e gritaria no quarto, foi chamada",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Julio Cesar",
+    "CAT": "Sub-17",
+    "DATA": 45770,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Excesso de toalhas no quarto",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "Julio Cesar",
+    "CAT": "Sub-17",
+    "DATA": 45775,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Ar condicionado ligado quarto vazio",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "Julio Cesar",
+    "CAT": "Sub-17",
+    "DATA": 45772,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Kauã Cavalcanti",
+    "CAT": "Sub-17",
+    "DATA": 45770,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Quarto desorganizado",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "Kauã Cavalcanti",
+    "CAT": "Sub-17",
+    "DATA": 45750,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Kauã Pio",
+    "CAT": "Sub-14",
+    "DATA": 45748,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Ar condicionado ligado quarto vazio",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "Lázaro Gonçalves",
+    "CAT": "Sub-20",
+    "DATA": 45753,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Excesso de toalhas no banheiro",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "Lázaro Gonçalves",
+    "CAT": "Sub-20",
+    "DATA": 45754,
+    "TIPO": "Alimentação Irregular",
+    "OCORRÊNCIA": "Em ronda no quarto várias embalagens de salgadinhos, doce e garrafa de suco",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Lázaro Gonçalves",
+    "CAT": "Sub-20",
+    "DATA": 45750,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Lázaro Gonçalves",
+    "CAT": "Sub-20",
+    "DATA": 45751,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Lázaro Gonçalves",
+    "CAT": "Sub-20",
+    "DATA": 45771,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Lázaro Gonçalves",
+    "CAT": "Sub-20",
+    "DATA": 45777,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Luan Paim",
+    "CAT": "Sub-20",
+    "DATA": 45757,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Lucas Andrew",
+    "CAT": "Sub-16",
+    "DATA": 45749,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Luis Gustavo",
+    "CAT": "Sub-16",
+    "DATA": 45748,
+    "TIPO": "Alimentação Irregular",
+    "OCORRÊNCIA": "12h06 levou alimento do refeitório para o quarto",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Luis Gustavo",
+    "CAT": "Sub-16",
+    "DATA": 45752,
+    "TIPO": "Comportamento",
+    "OCORRÊNCIA": "Algazarra, som alto e gritaria no quarto, foi chamada",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Marcos Vinicius",
+    "CAT": "Sub-14",
+    "DATA": 45771,
+    "TIPO": "Alimentação Irregular",
+    "OCORRÊNCIA": "Entrou com chocolate no alojamento",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Pedro Henrique Inocente",
+    "CAT": "Sub-14",
+    "DATA": 45748,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Ar condicionado ligado quarto vazio",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "Pedro Santos Martins",
+    "CAT": "Sub-17",
+    "DATA": 45750,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Pedro Santos Martins",
+    "CAT": "Sub-17",
+    "DATA": 45772,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Pedro Santos Martins",
+    "CAT": "Sub-17",
+    "DATA": 45753,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Excesso de toalhas no banheiro",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "Pietro Zucchi",
+    "CAT": "Sub-17",
+    "DATA": 45748,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Ar condicionado ligado quarto vazio",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "Pietro Zucchi",
+    "CAT": "Sub-17",
+    "DATA": 45760,
+    "TIPO": "Outros",
+    "OCORRÊNCIA": "Comendo no quarto lanche que trouxe do refeitório",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Pietro Zucchi",
+    "CAT": "Sub-17",
+    "DATA": 45750,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Pietro Zucchi",
+    "CAT": "Sub-17",
+    "DATA": 45751,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Pietro Zucchi",
+    "CAT": "Sub-17",
+    "DATA": 45756,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Pietro Zucchi",
+    "CAT": "Sub-17",
+    "DATA": 45758,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Pietro Zucchi",
+    "CAT": "Sub-17",
+    "DATA": 45763,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Pietro Zucchi",
+    "CAT": "Sub-17",
+    "DATA": 45777,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Raykkonen Pereira",
+    "CAT": "Sub-17",
+    "DATA": 45748,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Ar condicionado ligado quarto vazio",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "Raykkonen Pereira",
+    "CAT": "Sub-17",
+    "DATA": 45755,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Ar condicionado ligado quarto vazio",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "Raykkonen Pereira",
+    "CAT": "Sub-17",
+    "DATA": 45770,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Excesso de toalhas no quarto",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "Raykkonen Pereira",
+    "CAT": "Sub-17",
+    "DATA": 45750,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Raykkonen Pereira",
+    "CAT": "Sub-17",
+    "DATA": 45772,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Richard Rodrigues",
+    "CAT": "Sub-17",
+    "DATA": 45752,
+    "TIPO": "Comportamento",
+    "OCORRÊNCIA": "Algazarra, som alto e gritaria no quarto, foi chamada",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Richard Rodrigues",
+    "CAT": "Sub-16",
+    "DATA": 45763,
+    "TIPO": "Comportamento",
+    "OCORRÊNCIA": "Estavam tumultuando a ceia, pedindo lanche dos outros",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Richard Rodrigues",
+    "CAT": "Sub-17",
+    "DATA": 45770,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Excesso de toalhas no quarto",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "Richard Rodrigues",
+    "CAT": "Sub-17",
+    "DATA": 45775,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Ar condicionado ligado quarto vazio",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "Richarlysson Tosta",
+    "CAT": "Sub-17",
+    "DATA": 45748,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Ar condicionado ligado quarto vazio",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "Richarlysson Tosta",
+    "CAT": "Sub-17",
+    "DATA": 45752,
+    "TIPO": "Alimentação Irregular",
+    "OCORRÊNCIA": "Comeu o Kit Café da tarde no quarto",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Richarlysson Tosta",
+    "CAT": "Sub-17",
+    "DATA": 45772,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Thiago Luiz",
+    "CAT": "Sub-16",
+    "DATA": 45752,
+    "TIPO": "Comportamento",
+    "OCORRÊNCIA": "Algazarra, som alto e gritaria no quarto, foi chamada",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Thiago Luiz",
+    "CAT": "Sub-16",
+    "DATA": 45748,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Thiago Luiz",
+    "CAT": "Sub-16",
+    "DATA": 45761,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Vitor Hugo",
+    "CAT": "Sub-17",
+    "DATA": 45748,
+    "TIPO": "Alimentação Irregular",
+    "OCORRÊNCIA": "12h06 levou alimento do refeitório para o quarto",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Vitor Hugo",
+    "CAT": "Sub-17",
+    "DATA": 45748,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Ar condicionado ligado quarto vazio",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "Vitor Hugo",
+    "CAT": "Sub-17",
+    "DATA": 45755,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Ar condicionado ligado quarto vazio",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "Vitor Hugo",
+    "CAT": "Sub-17",
+    "DATA": 45770,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Excesso de toalhas no quarto",
+    "VALOR": 50.0
+  },
+  {
+    "NOME": "Vitor Hugo",
+    "CAT": "Sub-17",
+    "DATA": 45755,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Vitor Hugo",
+    "CAT": "Sub-17",
+    "DATA": 45758,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Vitor Hugo",
+    "CAT": "Sub-17",
+    "DATA": 45763,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Vitor Hugo",
+    "CAT": "Sub-17",
+    "DATA": 45769,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Vitor Hugo",
+    "CAT": "Sub-17",
+    "DATA": 45777,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Vitor Hugo",
+    "CAT": "Sub-17",
+    "DATA": 45772,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Faltas escolares sem justificativa Escola Julio Cesar",
+    "VALOR": 100.0
+  },
+  {
+    "NOME": "Vitor Gabriel Rossi",
+    "CAT": "Sub-15",
+    "DATA": 45756,
+    "TIPO": "Comportamento",
+    "OCORRÊNCIA": "Estava fora de seu quarto após 23h, não acatou",
+    "VALOR": 100.0
+  }
+]

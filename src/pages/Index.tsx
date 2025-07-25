@@ -116,11 +116,7 @@ const Index = () => {
         let school = "Alojamento";
         if (occ.OCORRÊNCIA.includes("Gentil")) school = "Escola Gentil";
         else if (occ.OCORRÊNCIA.includes("Julio Cesar")) school = "Escola Julio Cesar";
-        else if (occ.OCORRÊNCIA.includes("Padre Léo")) school = "Escola Padre Léo";
-        else return; // Ignora ocorrências sem escola específica
-        
-        schools.set(school, (schools.get(school) || 0) + 1);
-      });
+        else if (occ.OCORRÊNCIA.includes("Padre Léo")) school = "Escola Padre Lé        schools.set(school, (schools.get(school) || 0) + 1);     });
     
     return Array.from(schools.entries()).map(([name, value]) => ({ name, value }));
   }, [currentData]);
@@ -351,7 +347,6 @@ const Index = () => {
               if (occ.OCORRÊNCIA.includes("Gentil")) school = "Escola Gentil";
               else if (occ.OCORRÊNCIA.includes("Julio Cesar")) school = "Escola Julio Cesar";
               else if (occ.OCORRÊNCIA.includes("Padre Léo")) school = "Escola Padre Léo";
-              else return false; // Ignora ocorrências sem escola específica
               return school === selectedSchool;
             })}
             onClose={() => setSelectedSchool(null)}

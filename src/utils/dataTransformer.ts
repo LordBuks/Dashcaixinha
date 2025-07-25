@@ -33,8 +33,8 @@ export const normalizeData = (data: any[]): AthleteOccurrence[] => {
       NOME: item.NOME || item.nome,
       CAT: item.CAT || item.Cat,
       DATA: normalizedDate,
-      TIPO: item.TIPO || item.Tipo || item.OCORRÊNCIA || item.Ocorrencia,
-      OCORRÊNCIA: item.OCORRÊNCIA || item.Ocorrencia,
+      TIPO: item.TIPO,
+      OCORRÊNCIA: item.OCORRÊNCIA,
       VALOR: item.VALOR || item.Valor
     };
   });
