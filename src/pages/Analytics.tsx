@@ -105,7 +105,7 @@ const Analytics = () => {
         month: monthData.month,
         ...categoryCounts
       };
-    });[monthlyData]);
+    });
 
   // Top atletas reincidentes
   const topRecurrentAthletes = useMemo(() => {
