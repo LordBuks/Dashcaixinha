@@ -2,13 +2,13 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { TrendingUp, TrendingDown, Users, AlertTriangle, Calendar, BarChart3, PieChart as PieChartIcon, Activity } from 'lucide-react';
 import { loadMonthlyData, getAvailableMonths } from '../data/dataLoader';
-import { RecurrenceAthleteModal } from '../components/dashboard/RecurrenceAthleteModal'; // Importar o novo modal
+import { RecurrenceAthleteModal } from '../components/dashboard/RecurrenceAthleteModal';
 
 const Analytics = () => {
   const [monthlyData, setMonthlyData] = useState<MonthlyData[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedMetric, setSelectedMetric] = useState<'occurrences' | 'athletes' | 'value'>('occurrences');
-  const [selectedRecurrenceType, setSelectedRecurrenceType] = useState<string | null>(null); // Novo estado para o modal de reincidência
+  const [selectedRecurrenceType, setSelectedRecurrenceType] = useState<string | null>(null);
 
   useEffect(() => {
     const loadData = async () => {
@@ -161,7 +161,7 @@ const Analytics = () => {
     setSelectedRecurrenceType(null);
   };
 
-  const colors = ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40', '#8B5CF6']; // Cores para o gráfico de barras empilhadas
+  const colors = ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40', '#8B5CF6'];
 
   if (loading) {
     return (
@@ -316,7 +316,6 @@ const Analytics = () => {
             <h2 className="text-xl font-semibold mb-4">Top Atletas Reincidentes</h2>
             <div className="space-y-3 max-h-80 overflow-y-auto">
               {topRecurrentAthletes.map((athlete, index) => {
-                // Buscar a foto do atleta nos dados mensais
                 const athleteOccurrence = monthlyData
                   .flatMap(monthData => monthData.data)
                   .find(occ => occ.NOME === athlete.name);
@@ -364,7 +363,6 @@ const Analytics = () => {
             </div>
           </div>
         </div>
-
 
         {/* Tendência por Categoria - Gráfico de Barras Empilhadas */}
         <div className="bg-white rounded-lg shadow p-6">
@@ -417,6 +415,7 @@ const Analytics = () => {
             onClose={handleCloseRecurrenceModal}
           />
         )}
+      </div>
     </div>
   );
 };
