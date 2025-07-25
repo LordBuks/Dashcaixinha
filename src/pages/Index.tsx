@@ -116,7 +116,10 @@ const Index = () => {
         let school = "Alojamento";
         if (occ.OCORRÊNCIA.includes("Gentil")) school = "Escola Gentil";
         else if (occ.OCORRÊNCIA.includes("Julio Cesar")) school = "Escola Julio Cesar";
-        else if (occ.OCORRÊNCIA.includes("Padre Léo")) school = "Escola Padre Lé        schools.set(school, (schools.get(school) || 0) + 1);     });
+        else if (occ.OCORRÊNCIA.includes("Padre Léo")) school = "Escola Padre Léo";
+        
+        schools.set(school, (schools.get(school) || 0) + 1);
+      });
     
     return Array.from(schools.entries()).map(([name, value]) => ({ name, value }));
   }, [currentData]);
