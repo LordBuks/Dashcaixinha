@@ -6,6 +6,16 @@ import { RecurrenceAthleteModal } from '../components/dashboard/RecurrenceAthlet
 import { CategoryDetailModal } from '../components/dashboard/CategoryDetailModal';
 
 const Analytics = () => {
+  const categories = [
+    { name: 'Falta Escolar', color: '#FFC0CB' },
+    { name: 'Alimentação Irregular', color: '#36A2EB' },
+    { name: 'Uniforme', color: '#FFCE56' },
+    { name: 'Desorganização', color: '#4BC0C0' },
+    { name: 'Comportamento', color: '#FF0000' },
+    { name: 'Atrasos/Sair sem autorização', color: '#FF9F40' },
+    { name: 'Outras', color: '#8B5CF6' }
+  ];
+
   const [monthlyData, setMonthlyData] = useState<MonthlyData[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedMetric, setSelectedMetric] = useState<'occurrences' | 'athletes' | 'value'>('occurrences');
@@ -82,16 +92,6 @@ const Analytics = () => {
 
   // Análise por categoria de ocorrência ao longo dos meses (Gráfico de Barras Empilhadas)
   const categoryTrendData = useMemo(() => {
-    const categories = [
-      { name: 'Falta Escolar', color: '#FFC0CB' },
-      { name: 'Alimentação Irregular', color: '#36A2EB' },
-      { name: 'Uniforme', color: '#FFCE56' },
-      { name: 'Desorganização', color: '#4BC0C0' },
-      { name: 'Comportamento', color: '#FF0000' },
-      { name: 'Atrasos/Sair sem autorização', color: '#FF9F40' },
-      { name: 'Outras', color: '#8B5CF6' }
-    ];
-    
     return monthlyData.map(monthData => {
       const categoryCounts = {};
       categories.forEach(cat => categoryCounts[cat.name] = 0);
