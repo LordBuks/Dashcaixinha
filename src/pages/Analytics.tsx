@@ -81,7 +81,8 @@ const Analytics = () => {
   }, [athleteOccurrences]);
 
   // Análise por categoria de ocorrência ao longo dos meses (Gráfico de Barras Empilhadas)
-  const categoryTrendData = useMemo(    const categories = [
+  const categoryTrendData = useMemo(() => {
+    const categories = [
       { name: 'Falta Escolar', color: '#FFC0CB' },
       { name: 'Alimentação Irregular', color: '#36A2EB' },
       { name: 'Uniforme', color: '#FFCE56' },
