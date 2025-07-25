@@ -17,7 +17,7 @@ interface AthleteAbsence {
   category: string;
   totalAbsences: number;
   totalValue: number;
-  lastAbsenceDate: string;
+  lastAbsenceDate: number;
 }
 
 export function AthleteListModal({ athleteName, occurrences, onClose }: AthleteListModalProps) {
@@ -36,16 +36,16 @@ export function AthleteListModal({ athleteName, occurrences, onClose }: AthleteL
           category: occ.CAT,
           totalAbsences: 0,
           totalValue: 0,
-          lastAbsenceDate: occ.DATA
+          lastAbsenceDate: occ.DATA as number
         });
       }
       
       const athlete = athleteMap.get(key)!;
       athlete.totalAbsences += 1;
-      athlete.totalValue += parseInt(occ.VALOR);
+      athlete.totalValue += Number(occ.VALOR);
       
       // Atualizar com a data mais recente (assumindo que DATA é um número serial)
-      if (parseInt(occ.DATA) > parseInt(athlete.lastAbsenceDate)) {
+      if (occ.DATA > athlete.lastAbsenceDate) {
         athlete.lastAbsenceDate = occ.DATA;
       }
     });
@@ -54,9 +54,11 @@ export function AthleteListModal({ athleteName, occurrences, onClose }: AthleteL
   }, [occurrences]);
 
   // Converter data serial para formato legível
-  const formatDate = (serialDate: string): string => {
-    const date = new Date((parseInt(serialDate) - 25569) * 86400 * 1000);
-    return date.toLocaleDateString("pt-BR");
+  const formatDate = (serialDate: number): string => {
+    const excelEpoch = new Date(Date.UTC(1899, 11, 30)); // Excel considera 30/12/1899 como dia 0
+    const millisecondsPerDay = 24 * 60 * 60 * 1000;
+    const jsDate = new Date(excelEpoch.getTime() + serialDate * millisecondsPerDay);
+    return jsDate.toLocaleDateString("pt-BR");
   };
 
   const handleAthleteClick = (athleteName: string) => {

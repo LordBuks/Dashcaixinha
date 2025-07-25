@@ -80,7 +80,9 @@ export const AthleteOccurrencesModal: React.FC<AthleteOccurrencesModalProps> = (
         ) : (
           <div className="flex-1 overflow-y-auto space-y-4 pr-2">
             {occurrences.map((occurrence, index) => {
-              const dateObject = new Date(occurrence.DATA);
+              const excelEpoch = new Date(Date.UTC(1899, 11, 30)); // Excel considera 30/12/1899 como dia 0
+              const millisecondsPerDay = 24 * 60 * 60 * 1000;
+              const dateObject = new Date(excelEpoch.getTime() + occurrence.DATA * millisecondsPerDay);
               const formattedDate = isNaN(dateObject.getTime()) ? 'Data Inválida' : format(dateObject, 'dd/MM/yyyy', { locale: ptBR });
 
               return (

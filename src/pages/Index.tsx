@@ -91,7 +91,9 @@ const Index = () => {
   // Estatísticas gerais
   const totalAthletes = athleteStats.length;
   const totalOccurrences = currentData.length;
-  const totalValue = currentData.reduce((sum, occ) => sum + (Number(occ.VALOR) || 0), 0);
+  const totalValue = useMemo(() => {
+    return currentData.reduce((sum, occ) => sum + (Number(occ.VALOR) || 0), 0);
+  }, [currentData]);
   const averagePerAthlete = totalAthletes > 0 ? (totalValue / totalAthletes).toFixed(2) : "0";
 
   // Dados para gráfico de pizza (tipos de ocorrência)
@@ -115,10 +117,9 @@ const Index = () => {
         if (occ.OCORRÊNCIA.includes("Gentil")) school = "Escola Gentil";
         else if (occ.OCORRÊNCIA.includes("Julio Cesar")) school = "Escola Julio Cesar";
         else if (occ.OCORRÊNCIA.includes("Padre Léo")) school = "Escola Padre Léo";
+        else return; // Ignora ocorrências sem escola específica
         
-        if (school !== "Alojamento") {
-          schools.set(school, (schools.get(school) || 0) + 1);
-        }
+        schools.set(school, (schools.get(school) || 0) + 1);
       });
     
     return Array.from(schools.entries()).map(([name, value]) => ({ name, value }));
@@ -350,6 +351,7 @@ const Index = () => {
               if (occ.OCORRÊNCIA.includes("Gentil")) school = "Escola Gentil";
               else if (occ.OCORRÊNCIA.includes("Julio Cesar")) school = "Escola Julio Cesar";
               else if (occ.OCORRÊNCIA.includes("Padre Léo")) school = "Escola Padre Léo";
+              else return false; // Ignora ocorrências sem escola específica
               return school === selectedSchool;
             })}
             onClose={() => setSelectedSchool(null)}

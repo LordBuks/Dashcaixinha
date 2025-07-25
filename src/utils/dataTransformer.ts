@@ -30,12 +30,12 @@ export const normalizeData = (data: any[]): AthleteOccurrence[] => {
     }
 
     return {
-      NOME: item.NOME,
-      CAT: item.CAT,
+      NOME: item.NOME || item.nome,
+      CAT: item.CAT || item.Cat,
       DATA: normalizedDate,
-      TIPO: item.TIPO || item.OCORRÊNCIA, // Usa TIPO se disponível, senão OCORRÊNCIA
-      OCORRÊNCIA: item.OCORRÊNCIA,
-      VALOR: item.VALOR
+      TIPO: item.TIPO || item.Tipo || item.OCORRÊNCIA || item.Ocorrencia,
+      OCORRÊNCIA: item.OCORRÊNCIA || item.Ocorrencia,
+      VALOR: item.VALOR || item.Valor
     };
   });
 };
