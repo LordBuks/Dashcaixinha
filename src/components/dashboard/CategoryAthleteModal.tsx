@@ -40,18 +40,18 @@ export function CategoryAthleteModal({ categoryName, occurrences, onClose }: Cat
             category: occ.CAT,
             totalOccurrences: 0,
             totalValue: 0,
-            lastOccurrenceDate: occ.DATA.toString(), // Convert to string for consistency
+            lastOccurrenceDate: occ.DATA, // DATA já é um timestamp
             fotoUrl: occ.fotoUrl
           });
         }
         
         const athlete = athleteMap.get(key)!;
         athlete.totalOccurrences += 1;
-        athlete.totalValue += parseInt(occ.VALOR);
+        athlete.totalValue += Number(occ.VALOR); // Usar Number() para VALOR
         
-        // Atualizar com a data mais recente (assumindo que DATA é um número serial)
-        if (parseInt(occ.DATA.toString()) > parseInt(athlete.lastOccurrenceDate)) {
-          athlete.lastOccurrenceDate = occ.DATA.toString();
+        // Atualizar com a data mais recente (assumindo que DATA é um timestamp)
+        if (occ.DATA > athlete.lastOccurrenceDate) {
+          athlete.lastOccurrenceDate = occ.DATA;
         }
       }
     });
@@ -65,9 +65,9 @@ export function CategoryAthleteModal({ categoryName, occurrences, onClose }: Cat
     );
   }, [athletesInCategory, searchTerm]);
 
-  const formatDate = (serialDate: string): string => {
-    const date = new Date((parseInt(serialDate) - 25569) * 86400 * 1000);
-    return date.toLocaleDateString("pt-BR");
+  const formatDate = (timestamp: number): string => {
+    const dateObject = new Date(timestamp);
+    return isNaN(dateObject.getTime()) ? 'Data Inválida' : dateObject.toLocaleDateString("pt-BR");
   };
 
   const handleAthleteClick = (athleteName: string) => {
