@@ -40,7 +40,7 @@ const Analytics = () => {
         value: totalValue,
         averagePerAthlete: uniqueAthletes > 0 ? (totalValue / uniqueAthletes) : 0
       };
-    });
+    }).reverse();
   }, [monthlyData]);
 
   // Análise de reincidência
