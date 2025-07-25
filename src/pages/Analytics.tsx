@@ -2,14 +2,16 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { TrendingUp, TrendingDown, Users, AlertTriangle, Calendar, BarChart3, PieChart as PieChartIcon, Activity } from 'lucide-react';
 import { loadMonthlyData, getAvailableMonths } from '../data/dataLoader';
-import { MonthlyData } from '../data/dataLoader';
+iimport { PieChart, Pie, Cell } from 'recharts';
+import { RecurrenceAthleteModal } from '../components/dashboard/RecurrenceAthleteModal'; // Importar o novo modal
 
 const Analytics = () => {
   const [monthlyData, setMonthlyData] = useState<MonthlyData[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedMetric, setSelectedMetric] = useState<'occurrences' | 'athletes' | 'value'>('occurrences');
+  const [selectedRecurrenceType, setSelectedRecurrenceType] = useState<string | null>(null); // Novo estado para o modal de reincidência
 
-  useEffect(() => {
+  useEffect(() => {{
     const loadData = async () => {
       setLoading(true);
       try {
@@ -43,18 +45,20 @@ const Analytics = () => {
   }, [monthlyData]);
 
   // Análise de reincidência
-  const recurrenceAnalysis = useMemo(() => {
-    const athleteOccurrences = new Map();
-    
+  const athleteOccurrences = useMemo(() => {
+    const map = new Map();
     monthlyData.forEach(monthData => {
       monthData.data.forEach(occ => {
-        if (!athleteOccurrences.has(occ.NOME)) {
-          athleteOccurrences.set(occ.NOME, new Set());
+        if (!map.has(occ.NOME)) {
+          map.set(occ.NOME, new Set());
         }
-        athleteOccurrences.get(occ.NOME).add(monthData.month);
+        map.get(occ.NOME).add(monthData.month);
       });
     });
+    return map;
+  }, [monthlyData]);
 
+  const recurrenceAnalysis = useMemo(() => {
     const recurrenceStats = {
       oneMonth: 0,
       twoMonths: 0,
@@ -73,7 +77,7 @@ const Analytics = () => {
       { name: '2 Meses', value: recurrenceStats.twoMonths, color: '#F59E0B' },
       { name: '3+ Meses', value: recurrenceStats.threeMonths, color: '#EF4444' }
     ];
-  }, [monthlyData]);
+  }, [athleteOccurrences]);
 
   // Análise por categoria de ocorrência ao longo dos meses
   const categoryTrendData = useMemo(() => {
@@ -150,7 +154,15 @@ const Analytics = () => {
     };
   }, [timelineData]);
 
-  const colors = ['#3B82F6', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6', '#06B6D4', '#84CC16'];
+  const handlePieClick = (data: any) => {
+    setSelectedRecurrenceType(data.name);
+  };
+
+  const handleCloseRecurrenceModal = () => {
+    setSelectedRecurrenceType(null);
+  };
+
+  const colors = ['#10B981', '#F59E0B', '#EF4444', '#8B5CF6', '#06B6D4', '#84CC16', '#F97316'];
 
   if (loading) {
     return (
@@ -180,7 +192,7 @@ const Analytics = () => {
                   <p className="text-sm font-medium text-gray-600">Ocorrências</p>
                   <p className="text-2xl font-bold text-gray-900">{comparativeStats.occurrences.current}</p>
                 </div>
-                <div className={`flex items-center ${parseFloat(comparativeStats.occurrences.change) >= 0 ? 'text-red-600' : 'text-green-600'}`}>
+                <div className={`flex items-center ${parseFloat(comparativeStats.occurrences.change) >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                   {parseFloat(comparativeStats.occurrences.change) >= 0 ? <TrendingUp className="h-4 w-4 mr-1" /> : <TrendingDown className="h-4 w-4 mr-1" />}
                   <span className="text-sm font-medium">{Math.abs(parseFloat(comparativeStats.occurrences.change))}%</span>
                 </div>
@@ -224,23 +236,20 @@ const Analytics = () => {
             <h2 className="text-xl font-semibold">Tendência Temporal</h2>
             <div className="flex space-x-2">
               <button
-                onClick={() => setSelectedMetric('occurrences')}
-                className={`px-3 py-1 rounded text-sm ${selectedMetric === 'occurrences' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}
+                onClick={() => setSelectedMetric("occurrences")}
+                className={`px-3 py-1 rounded text-sm ${selectedMetric === "occurrences" ? "bg-red-600 text-white" : "bg-gray-200 text-gray-700"}`}
               >
                 Ocorrências
               </button>
               <button
-                onClick={() => setSelectedMetric('athletes')}
-                className={`px-3 py-1 rounded text-sm ${selectedMetric === 'athletes' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}
+                onClick={() => setSelectedMetric("athletes")}
+                className={`px-3 py-1 rounded text-sm ${selectedMetric === "athletes" ? "bg-red-600 text-white" : "bg-gray-200 text-gray-700"}`}
               >
                 Atletas
               </button>
               <button
-                onClick={() => setSelectedMetric('value')}
-                className={`px-3 py-1 rounded text-sm ${selectedMetric === 'value' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}
-              >
-                Valor
-              </button>
+                onClick={() => setSelectedMetric("value")}
+                className={`px-3 py-1 rounded text-sm ${selectedMetric === "value" ? "bg-red-600 text-white" : "bg-gray-200 text-gray-700"}`}
             </div>
           </div>
           <div className="h-80">
@@ -258,9 +267,9 @@ const Analytics = () => {
                 <Line 
                   type="monotone" 
                   dataKey={selectedMetric} 
-                  stroke="#3B82F6" 
+                  stroke="#10B981" 
                   strokeWidth={3}
-                  dot={{ fill: '#3B82F6', strokeWidth: 2, r: 6 }}
+                  dot={{ fill: '#10B981', strokeWidth: 2, r: 6 }}
                 />
               </LineChart>
             </ResponsiveContainer>
@@ -283,6 +292,7 @@ const Analytics = () => {
                     fill="#8884d8"
                     dataKey="value"
                     label={({ name, value, percent }) => `${name}: ${value} (${(percent * 100).toFixed(0)}%)`}
+                    onClick={handlePieClick}
                   >
                     {recurrenceAnalysis.map((entry, index) => (
                       <Cell key={`cell-${index}`} fill={entry.color} />
@@ -353,32 +363,54 @@ const Analytics = () => {
           </div>
         </div>
 
-        {/* Tendência por Categoria */}
+
+        {/* Tendência por Categoria - Gráfico de Linhas */}
         <div className="bg-white rounded-lg shadow p-6">
           <h2 className="text-xl font-semibold mb-4">Tendência por Categoria de Ocorrência</h2>
           <div className="h-96">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={categoryTrendData}>
+              <LineChart data={categoryTrendData}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="month" />
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="Falta Escolar" stackId="a" fill={colors[0]} />
-                <Bar dataKey="Alimentação Irregular" stackId="a" fill={colors[1]} />
-                <Bar dataKey="Vestimenta" stackId="a" fill={colors[2]} />
-                <Bar dataKey="Desorganização" stackId="a" fill={colors[3]} />
-                <Bar dataKey="Comportamento" stackId="a" fill={colors[4]} />
-                <Bar dataKey="Atrasos/Sair sem autorização" stackId="a" fill={colors[5]} />
-                <Bar dataKey="Outras" stackId="a" fill={colors[6]} />
-              </BarChart>
+                <Line type="monotone" dataKey="Falta Escolar" stroke={colors[0]} />
+                <Line type="monotone" dataKey="Alimentação Irregular" stroke={colors[1]} />
+                <Line type="monotone" dataKey="Vestimenta" stroke={colors[2]} />
+                <Line type="monotone" dataKey="Desorganização" stroke={colors[3]} />
+                <Line type="monotone" dataKey="Comportamento" stroke={colors[4]} />
+                <Line type="monotone" dataKey="Atrasos/Sair sem autorização" stroke={colors[5]} />
+                <Line type="monotone" dataKey="Outras" stroke={colors[6]} />
+              </LineChart>
             </ResponsiveContainer>
           </div>
-        </div>
       </div>
-    </div>
-  );
-};
-
-export default Analytics;
-
+        {selectedRecurrenceType && (
+          <RecurrenceAthleteModal
+            recurrenceType={selectedRecurrenceType}
+            athletes={(() => {
+              const filteredAthletes = Array.from(athleteOccurrences.entries())
+                .map(([name, monthsSet]) => {
+                  const athleteData = monthlyData.flatMap(monthData => monthData.data).filter(occ => occ.NOME === name);
+                  return {
+                    name,
+                    category: athleteData[0]?.CAT || 
+                    monthlyData.flatMap(monthData => monthData.data).find(occ => occ.NOME === name)?.CAT || 'N/A',
+                    totalOccurrences: athleteData.length,
+                    totalValue: athleteData.reduce((sum, occ) => sum + Number(occ.VALOR || 0), 0),
+                    months: monthsSet,
+                    occurrences: athleteData
+                  };
+                })
+                .filter(athlete => {
+                  if (selectedRecurrenceType === '1 Mês') return athlete.months.size === 1;
+                  if (selectedRecurrenceType === '2 Meses') return athlete.months.size === 2;
+                  if (selectedRecurrenceType === '3+ Meses') return athlete.months.size >= 3;
+                  return false;
+                });
+              return filteredAthletes;
+            })()}
+            onClose={handleCloseRecurrenceModal}
+          />
+        )}
