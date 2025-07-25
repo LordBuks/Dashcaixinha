@@ -106,6 +106,7 @@ const Analytics = () => {
         ...categoryCounts
       };
     });
+  }, [monthlyData]);
 
   // Top atletas reincidentes
   const topRecurrentAthletes = useMemo(() => {
@@ -407,8 +408,7 @@ const Analytics = () => {
                   const athleteData = monthlyData.flatMap(monthData => monthData.data).filter(occ => occ.NOME === name);
                   return {
                     name,
-                    category: athleteData[0]?.CAT || 
-                    monthlyData.flatMap(monthData => monthData.data).find(occ => occ.NOME === name)?.CAT || \'N/A\',
+                    category: athleteData[0]?.CAT || monthlyData.flatMap(monthData => monthData.data).find(occ => occ.NOME === name)?.CAT || 'N/A',
                     totalOccurrences: athleteData.length,
                     totalValue: athleteData.reduce((sum, occ) => sum + Number(occ.VALOR || 0), 0),
                     months: monthsSet,
@@ -416,9 +416,9 @@ const Analytics = () => {
                   };
                 })
                 .filter(athlete => {
-                  if (selectedRecurrenceType === \'1 Mês\') return athlete.months.size === 1;
-                  if (selectedRecurrenceType === \'2 Meses\') return athlete.months.size === 2;
-                  if (selectedRecurrenceType === \'3+ Meses\') return athlete.months.size >= 3;
+                  if (selectedRecurrenceType === '1 Mês') return athlete.months.size === 1;
+                  if (selectedRecurrenceType === '2 Meses') return athlete.months.size === 2;
+                  if (selectedRecurrenceType === '3+ Meses') return athlete.months.size >= 3;
                   return false;
                 });
               return filteredAthletes;
