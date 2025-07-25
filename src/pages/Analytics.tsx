@@ -2,8 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { TrendingUp, TrendingDown, Users, AlertTriangle, Calendar, BarChart3, PieChart as PieChartIcon, Activity } from 'lucide-react';
 import { loadMonthlyData, getAvailableMonths } from '../data/dataLoader';
-iimport { PieChart, Pie, Cell } from 'recharts';
-import { RecurrenceAthleteModal } from '../components/dashboard/RecurrenceAthleteModal'; // Importar o novo modal
+import { PieChart, Pie, Cell } from 'recharts';import { RecurrenceAthleteModal } from '../components/dashboard/RecurrenceAthleteModal'; // Importar o novo modal
 
 const Analytics = () => {
   const [monthlyData, setMonthlyData] = useState<MonthlyData[]>([]);
