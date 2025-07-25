@@ -10,7 +10,7 @@ const Analytics = () => {
   const [selectedMetric, setSelectedMetric] = useState<'occurrences' | 'athletes' | 'value'>('occurrences');
   const [selectedRecurrenceType, setSelectedRecurrenceType] = useState<string | null>(null); // Novo estado para o modal de reincidência
 
-  useEffect(() => {{
+  useEffect(() => {
     const loadData = async () => {
       setLoading(true);
       try {
