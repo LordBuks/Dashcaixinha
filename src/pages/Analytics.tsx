@@ -1,196 +1,425 @@
-import React, { useState, useEffect } from 'react';
-import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
+import React, { useState, useEffect, useMemo } from 'react';
+import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import { TrendingUp, TrendingDown, Users, AlertTriangle, Calendar, BarChart3, PieChart as PieChartIcon, Activity } from 'lucide-react';
+import { loadMonthlyData, getAvailableMonths } from '../data/dataLoader';
+import { RecurrenceAthleteModal } from '../components/dashboard/RecurrenceAthleteModal'; // Importar o novo modal
 
-interface Player {
-  id: string;
-  name: string;
-  position: string;
-  team: string;
-  incidents: Incident[];
-}
-
-interface Incident {
-  id: string;
-  type: string;
-  date: string;
-  description: string;
-  severity: 'low' | 'medium' | 'high';
-}
-
-const Analytics: React.FC = () => {
-  const [players, setPlayers] = useState<Player[]>([]);
-  const [selectedMetric, setSelectedMetric] = useState<'count' | 'value'>('count');
+const Analytics = () => {
+  const [monthlyData, setMonthlyData] = useState<MonthlyData[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedMetric, setSelectedMetric] = useState<'occurrences' | 'athletes' | 'value'>('occurrences');
+  const [selectedRecurrenceType, setSelectedRecurrenceType] = useState<string | null>(null); // Novo estado para o modal de reincidência
 
   useEffect(() => {
-    // Mock data for demonstration
-    const mockPlayers: Player[] = [
-      {
-        id: '1',
-        name: 'João Silva',
-        position: 'Atacante',
-        team: 'Time A',
-        incidents: [
-          { id: '1', type: 'Atraso', date: '2024-07-20', description: 'Chegou 15 minutos atrasado', severity: 'low' },
-          { id: '2', type: 'Cartão Amarelo', date: '2024-07-18', description: 'Falta tática', severity: 'medium' },
-        ],
-      },
-      {
-        id: '2',
-        name: 'Pedro Souza',
-        position: 'Zagueiro',
-        team: 'Time B',
-        incidents: [
-          { id: '3', type: 'Expulsão', date: '2024-07-15', description: 'Conduta antidesportiva', severity: 'high' },
-        ],
-      },
-      {
-        id: '3',
-        name: 'Lucas Pereira',
-        position: 'Meio-campo',
-        team: 'Time A',
-        incidents: [
-          { id: '4', type: 'Atraso', date: '2024-07-19', description: 'Chegou 5 minutos atrasado', severity: 'low' },
-          { id: '5', type: 'Multa', date: '2024-07-17', description: 'Não compareceu a evento', severity: 'medium' },
-        ],
-      },
-    ];
-    setPlayers(mockPlayers);
+    const loadData = async () => {
+      setLoading(true);
+      try {
+        const data = await loadMonthlyData();
+        setMonthlyData(data);
+      } catch (error) {
+        console.error('Erro ao carregar dados:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadData();
   }, []);
 
-  const incidentTypes = players.flatMap(player => player.incidents.map(inc => inc.type));
-  const uniqueIncidentTypes = Array.from(new Set(incidentTypes));
+  // Dados para gráfico de tendência temporal
+  const timelineData = useMemo(() => {
+    return monthlyData.map(monthData => {
+      const uniqueAthletes = new Set(monthData.data.map(occ => occ.NOME)).size;
+      const totalOccurrences = monthData.data.length;
+      const totalValue = monthData.data.reduce((sum, occ) => sum + parseInt(occ.VALOR), 0);
 
-  const incidentData = uniqueIncidentTypes.map(type => {
-    const count = incidentTypes.filter(t => t === type).length;
-    const value = players.reduce((sum, player) => {
-      return sum + player.incidents.filter(inc => inc.type === type).length;
-    }, 0);
-    return { name: type, count, value };
-  });
+      return {
+        month: monthData.month,
+        athletes: uniqueAthletes,
+        occurrences: totalOccurrences,
+        value: totalValue,
+        averagePerAthlete: uniqueAthletes > 0 ? (totalValue / uniqueAthletes) : 0
+      };
+    });
+  }, [monthlyData]);
 
-  const severityData = ['low', 'medium', 'high'].map(severity => {
-    const count = players.flatMap(player => player.incidents).filter(inc => inc.severity === severity).length;
-    const value = count; // For severity, count and value can be the same for simplicity
-    return { name: severity, count, value };
-  });
+  // Análise de reincidência
+  const athleteOccurrences = useMemo(() => {
+    const map = new Map();
+    monthlyData.forEach(monthData => {
+      monthData.data.forEach(occ => {
+        if (!map.has(occ.NOME)) {
+          map.set(occ.NOME, new Set());
+        }
+        map.get(occ.NOME).add(monthData.month);
+      });
+    });
+    return map;
+  }, [monthlyData]);
 
-  const playerIncidentData = players.map(player => ({
-    name: player.name,
-    incidentCount: player.incidents.length,
-  }));
+  const recurrenceAnalysis = useMemo(() => {
+    const recurrenceStats = {
+      oneMonth: 0,
+      twoMonths: 0,
+      threeMonths: 0
+    };
 
-  const COLORS = ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40'];
+    athleteOccurrences.forEach((months) => {
+      const monthCount = months.size;
+      if (monthCount === 1) recurrenceStats.oneMonth++;
+      else if (monthCount === 2) recurrenceStats.twoMonths++;
+      else if (monthCount >= 3) recurrenceStats.threeMonths++;
+    });
+
+    return [
+      { name: '1 Mês', value: recurrenceStats.oneMonth, color: '#10B981' },
+      { name: '2 Meses', value: recurrenceStats.twoMonths, color: '#F59E0B' },
+      { name: '3+ Meses', value: recurrenceStats.threeMonths, color: '#EF4444' }
+    ];
+  }, [athleteOccurrences]);
+
+  // Análise por categoria de ocorrência ao longo dos meses (Gráfico de Barras Empilhadas)
+  const categoryTrendData = useMemo(() => {
+    const categories = ['Falta Escolar', 'Alimentação Irregular', 'Vestimenta', 'Desorganização', 'Comportamento', 'Atrasos/Sair sem autorização', 'Outras'];
+    
+    return monthlyData.map(monthData => {
+      const categoryCounts = {};
+      categories.forEach(cat => categoryCounts[cat] = 0);
+      
+      monthData.data.forEach(occ => {
+        const category = occ.TIPO;
+        categoryCounts[category] = (categoryCounts[category] || 0) + 1;
+      });
+
+      return {
+        month: monthData.month,
+        ...categoryCounts
+      };
+    });
+  }, [monthlyData]);
+
+  // Top atletas reincidentes
+  const topRecurrentAthletes = useMemo(() => {
+    const athleteStats = new Map();
+    
+    monthlyData.forEach(monthData => {
+      monthData.data.forEach(occ => {
+        if (!athleteStats.has(occ.NOME)) {
+          athleteStats.set(occ.NOME, {
+            name: occ.NOME,
+            category: occ.CAT,
+            months: new Set(),
+            totalOccurrences: 0,
+            totalValue: 0
+          });
+        }
+        
+        const athlete = athleteStats.get(occ.NOME);
+        athlete.months.add(monthData.month);
+        athlete.totalOccurrences++;
+        athlete.totalValue += parseInt(occ.VALOR);
+      });
+    });
+
+    return Array.from(athleteStats.values())
+      .filter(athlete => athlete.months.size > 1)
+      .sort((a, b) => b.months.size - a.months.size || b.totalOccurrences - a.totalOccurrences)
+      .slice(0, 10);
+  }, [monthlyData]);
+
+  // Estatísticas comparativas
+  const comparativeStats = useMemo(() => {
+    if (timelineData.length < 2) return null;
+
+    const current = timelineData[timelineData.length - 1];
+    const previous = timelineData[timelineData.length - 2];
+
+    return {
+      occurrences: {
+        current: current.occurrences,
+        previous: previous.occurrences,
+        change: ((current.occurrences - previous.occurrences) / previous.occurrences * 100).toFixed(1)
+      },
+      athletes: {
+        current: current.athletes,
+        previous: previous.athletes,
+        change: ((current.athletes - previous.athletes) / previous.athletes * 100).toFixed(1)
+      },
+      value: {
+        current: current.value,
+        previous: previous.value,
+        change: ((current.value - previous.value) / previous.value * 100).toFixed(1)
+      }
+    };
+  }, [timelineData]);
+
+  const handlePieClick = (data: any) => {
+    setSelectedRecurrenceType(data.name);
+  };
+
+  const handleCloseRecurrenceModal = () => {
+    setSelectedRecurrenceType(null);
+  };
+
+  const colors = ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40', '#8B5CF6']; // Cores para o gráfico de barras empilhadas
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Carregando análises...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">Análise Disciplinar</h1>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-        {/* Card de Incidentes Totais */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h2 className="text-xl font-semibold text-gray-700 mb-4">Incidentes Totais</h2>
-          <p className="text-4xl font-bold text-red-600">{incidentTypes.length}</p>
+    <div className="min-h-screen bg-gray-50">
+      <div className="container mx-auto px-4 py-8">
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Análises Comparativas</h1>
+          <p className="text-gray-600">Insights e tendências ao longo dos meses</p>
         </div>
 
-        {/* Card de Jogadores com Incidentes */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h2 className="text-xl font-semibold text-gray-700 mb-4">Jogadores com Incidentes</h2>
-          <p className="text-4xl font-bold text-red-600">{players.filter(p => p.incidents.length > 0).length}</p>
-        </div>
+        {/* Cards de Comparação */}
+        {comparativeStats && (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div className="bg-white rounded-lg shadow p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-medium text-gray-600">Ocorrências</p>
+                  <p className="text-2xl font-bold text-gray-900">{comparativeStats.occurrences.current}</p>
+                </div>
+                <div className={`flex items-center ${parseFloat(comparativeStats.occurrences.change) >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+                  {parseFloat(comparativeStats.occurrences.change) >= 0 ? <TrendingUp className="h-4 w-4 mr-1" /> : <TrendingDown className="h-4 w-4 mr-1" />}
+                  <span className="text-sm font-medium">{Math.abs(parseFloat(comparativeStats.occurrences.change))}%</span>
+                </div>
+              </div>
+              <p className="text-xs text-gray-500 mt-2">vs. mês anterior: {comparativeStats.occurrences.previous}</p>
+            </div>
 
-        {/* Card de Gravidade Média */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h2 className="text-xl font-semibold text-gray-700 mb-4">Gravidade Média</h2>
-          <p className="text-4xl font-bold text-red-600">{(players.flatMap(p => p.incidents).reduce((sum, inc) => {
-            if (inc.severity === 'low') return sum + 1;
-            if (inc.severity === 'medium') return sum + 2;
-            if (inc.severity === 'high') return sum + 3;
-            return sum;
-          }, 0) / incidentTypes.length || 0).toFixed(2)}</p>
-        </div>
-      </div>
+            <div className="bg-white rounded-lg shadow p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-medium text-gray-600">Atletas com Ocorrências</p>
+                  <p className="text-2xl font-bold text-gray-900">{comparativeStats.athletes.current}</p>
+                </div>
+                <div className={`flex items-center ${parseFloat(comparativeStats.athletes.change) >= 0 ? 'text-red-600' : 'text-green-600'}`}>
+                  {parseFloat(comparativeStats.athletes.change) >= 0 ? <TrendingUp className="h-4 w-4 mr-1" /> : <TrendingDown className="h-4 w-4 mr-1" />}
+                  <span className="text-sm font-medium">{Math.abs(parseFloat(comparativeStats.athletes.change))}%</span>
+                </div>
+              </div>
+              <p className="text-xs text-gray-500 mt-2">vs. mês anterior: {comparativeStats.athletes.previous}</p>
+            </div>
 
-      <div className="bg-white p-6 rounded-lg shadow-md mb-8">
-        <h2 className="text-xl font-semibold text-gray-700 mb-4">Incidentes por Tipo</h2>
-        <div className="flex justify-end mb-4">
-          <div className="flex bg-gray-200 rounded p-1">
-            <button
-              onClick={() => setSelectedMetric("count")}
-              className={`px-3 py-1 rounded text-sm ${selectedMetric === "count" ? "bg-red-600 text-white" : "bg-gray-200 text-gray-700"}`}
-            >Contagem</button>
-            <button
-              onClick={() => setSelectedMetric("value")}
-              className={`px-3 py-1 rounded text-sm ${selectedMetric === "value" ? "bg-red-600 text-white" : "bg-gray-200 text-gray-700"}`}
-            >Valor</button>
+            <div className="bg-white rounded-lg shadow p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-medium text-gray-600">Valor Total</p>
+                  <p className="text-2xl font-bold text-gray-900">R$ {comparativeStats.value.current.toLocaleString()}</p>
+                </div>
+                <div className={`flex items-center ${parseFloat(comparativeStats.value.change) >= 0 ? 'text-red-600' : 'text-green-600'}`}>
+                  {parseFloat(comparativeStats.value.change) >= 0 ? <TrendingUp className="h-4 w-4 mr-1" /> : <TrendingDown className="h-4 w-4 mr-1" />}
+                  <span className="text-sm font-medium">{Math.abs(parseFloat(comparativeStats.value.change))}%</span>
+                </div>
+              </div>
+              <p className="text-xs text-gray-500 mt-2">vs. mês anterior: R$ {comparativeStats.value.previous.toLocaleString()}</p>
+            </div>
+          </div>
+        )}
+
+        {/* Gráfico de Tendência Temporal */}
+        <div className="bg-white rounded-lg shadow p-6 mb-8">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl font-semibold">Tendência Temporal</h2>
+            <div className="flex space-x-2">
+              <button
+                onClick={() => setSelectedMetric("occurrences")}
+                className={`px-3 py-1 rounded text-sm ${selectedMetric === "occurrences" ? "bg-red-600 text-white" : "bg-gray-200 text-gray-700"}`}
+              >
+                Ocorrências
+              </button>
+              <button
+                onClick={() => setSelectedMetric("athletes")}
+                className={`px-3 py-1 rounded text-sm ${selectedMetric === "athletes" ? "bg-red-600 text-white" : "bg-gray-200 text-gray-700"}`}
+              >
+                Atletas
+              </button>
+              <button
+                onClick={() => setSelectedMetric("value")}
+                className={`px-3 py-1 rounded text-sm ${selectedMetric === "value" ? "bg-red-600 text-white" : "bg-gray-200 text-gray-700"}`}
+              >
+                Valor
+              </button>
+            </div>
+          </div>
+          <div className="h-80">
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart data={timelineData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="month" />
+                <YAxis />
+                <Tooltip 
+                  formatter={(value, name) => {
+                    if (name === 'value') return [`R$ ${value.toLocaleString()}`, 'Valor Total'];
+                    return [value, name === 'athletes' ? 'Atletas' : 'Ocorrências'];
+                  }}
+                />
+                <Line 
+                  type="monotone" 
+                  dataKey={selectedMetric} 
+                  stroke="#10B981" 
+                  strokeWidth={3}
+                  dot={{ fill: '#10B981', strokeWidth: 2, r: 6 }}
+                />
+              </LineChart>
+            </ResponsiveContainer>
           </div>
         </div>
-        <div className="h-80">
-          <ResponsiveContainer width="100%" height="100%">
-            <PieChart>
-              <Pie
-                data={incidentData}
-                cx="50%"
-                cy="50%"
-                labelLine={false}
-                outerRadius={80}
-                fill="#8884d8"
-                dataKey={selectedMetric}
-              >
-                {incidentData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                ))}
-              </Pie>
-              <Tooltip />
-              <Legend />
-            </PieChart>
-          </ResponsiveContainer>
-        </div>
-      </div>
 
-      <div className="bg-white p-6 rounded-lg shadow-md mb-8">
-        <h2 className="text-xl font-semibold text-gray-700 mb-4">Incidentes por Gravidade</h2>
-        <div className="h-80">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart
-              data={severityData}
-              margin={{
-                top: 5, right: 30, left: 20, bottom: 5,
-              }}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Legend />
-              <Bar dataKey={selectedMetric} fill="#8884d8" />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-      </div>
+        {/* Gráficos lado a lado */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+          {/* Análise de Reincidência */}
+          <div className="bg-white rounded-lg shadow p-6">
+            <h2 className="text-xl font-semibold mb-4">Análise de Reincidência</h2>
+            <div className="h-80">
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie
+                    data={recurrenceAnalysis}
+                    cx="50%"
+                    cy="50%"
+                    outerRadius={100}
+                    fill="#8884d8"
+                    dataKey="value"
+                    label={({ name, value, percent }) => `${name}: ${value} (${(percent * 100).toFixed(0)}%)`}
+                    onClick={handlePieClick}
+                  >
+                    {recurrenceAnalysis.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} />
+                    ))}
+                  </Pie>
+                  <Tooltip />
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+            <div className="mt-4 text-sm text-gray-600">
+              <p>• <span className="text-green-600">1 Mês:</span> Atletas com ocorrências em apenas um mês</p>
+              <p>• <span className="text-yellow-600">2 Meses:</span> Atletas com ocorrências em dois meses</p>
+              <p>• <span className="text-red-600">3+ Meses:</span> Atletas reincidentes (maior atenção)</p>
+            </div>
+          </div>
 
-      <div className="bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-xl font-semibold text-gray-700 mb-4">Incidentes por Jogador</h2>
-        <div className="h-80">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart
-              data={playerIncidentData}
-              margin={{
-                top: 5, right: 30, left: 20, bottom: 5,
-              }}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Legend />
-              <Bar dataKey="incidentCount" fill="#82ca9d" />
-            </BarChart>
-          </ResponsiveContainer>
+          {/* Top Atletas Reincidentes */}
+          <div className="bg-white rounded-lg shadow p-6">
+            <h2 className="text-xl font-semibold mb-4">Top Atletas Reincidentes</h2>
+            <div className="space-y-3 max-h-80 overflow-y-auto">
+              {topRecurrentAthletes.map((athlete, index) => {
+                // Buscar a foto do atleta nos dados mensais
+                const athleteOccurrence = monthlyData
+                  .flatMap(monthData => monthData.data)
+                  .find(occ => occ.NOME === athlete.name);
+                const fotoUrl = athleteOccurrence?.fotoUrl;
+                const initials = athlete.name.split(' ').map(n => n[0]).join('').slice(0, 2);
+
+                return (
+                  <div key={athlete.name} className="flex items-center justify-between p-3 bg-gray-50 rounded hover:bg-gray-100 transition-colors">
+                    <div className="flex items-center space-x-3 flex-1">
+                      <div className="flex items-center space-x-2">
+                        <span className="font-bold text-lg text-gray-700 w-6">{index + 1}º</span>
+                        <div className="relative">
+                          {fotoUrl ? (
+                          <img 
+                              src={fotoUrl} 
+                              alt={`Foto de ${athlete.name}`}
+                              className="w-14 h-14 rounded-lg object-cover border-2 border-red-200"
+                            />
+                          ) : (
+                            <div className="w-14 h-14 rounded-lg bg-red-100 border-2 border-red-200 flex items-center justify-center">
+                              <span className="text-red-700 font-bold text-sm">{initials}</span>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center space-x-2">
+                          <span className="font-medium">{athlete.name}</span>
+                          <span className="text-sm text-gray-500 bg-gray-200 px-2 py-1 rounded">
+                            {athlete.category}
+                          </span>
+                        </div>
+                        <div className="text-sm text-gray-600 mt-1">
+                          {athlete.months.size} meses • {athlete.totalOccurrences} ocorrências
+                        </div>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <div className="font-medium text-sm">R$ {athlete.totalValue.toLocaleString()}</div>
+                      <div className="text-xs text-gray-500">Total</div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
+
+
+        {/* Tendência por Categoria - Gráfico de Barras Empilhadas */}
+        <div className="bg-white rounded-lg shadow p-6">
+          <h2 className="text-xl font-semibold mb-4">Tendência por Categoria de Ocorrência</h2>
+          <div className="h-96">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={categoryTrendData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="month" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="Falta Escolar" stackId="a" fill={colors[0]} />
+                <Bar dataKey="Alimentação Irregular" stackId="a" fill={colors[1]} />
+                <Bar dataKey="Vestimenta" stackId="a" fill={colors[2]} />
+                <Bar dataKey="Desorganização" stackId="a" fill={colors[3]} />
+                <Bar dataKey="Comportamento" stackId="a" fill={colors[4]} />
+                <Bar dataKey="Atrasos/Sair sem autorização" stackId="a" fill={colors[5]} />
+                <Bar dataKey="Outras" stackId="a" fill={colors[6]} />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
       </div>
+        {selectedRecurrenceType && (
+          <RecurrenceAthleteModal
+            recurrenceType={selectedRecurrenceType}
+            athletes={(() => {
+              const filteredAthletes = Array.from(athleteOccurrences.entries())
+                .map(([name, monthsSet]) => {
+                  const athleteData = monthlyData.flatMap(monthData => monthData.data).filter(occ => occ.NOME === name);
+                  return {
+                    name,
+                    category: athleteData[0]?.CAT || 
+                    monthlyData.flatMap(monthData => monthData.data).find(occ => occ.NOME === name)?.CAT || 'N/A',
+                    totalOccurrences: athleteData.length,
+                    totalValue: athleteData.reduce((sum, occ) => sum + Number(occ.VALOR || 0), 0),
+                    months: monthsSet,
+                    occurrences: athleteData
+                  };
+                })
+                .filter(athlete => {
+                  if (selectedRecurrenceType === '1 Mês') return athlete.months.size === 1;
+                  if (selectedRecurrenceType === '2 Meses') return athlete.months.size === 2;
+                  if (selectedRecurrenceType === '3+ Meses') return athlete.months.size >= 3;
+                  return false;
+                });
+              return filteredAthletes;
+            })()}
+            onClose={handleCloseRecurrenceModal}
+          />
+        )}
     </div>
   );
 };
 
 export default Analytics;
+
 
