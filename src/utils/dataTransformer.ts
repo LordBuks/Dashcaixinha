@@ -19,7 +19,7 @@ export const normalizeData = (data: any[]): AthleteOccurrence[] => {
     if (typeof item.DATA === 'string') {
       const [day, month, year] = item.DATA.split('/').map(Number);
       // Converte ano de 2 dígitos para 4 dígitos (assumindo 20XX)
-      const fullYear = year < 100 ? 2000 + year : year + 2000; // Garante ano de 4 dígitos
+      const fullYear = year < 100 ? 2000 + year : year; 
       normalizedDate = new Date(fullYear, month - 1, day).getTime();
     } else if (typeof item.DATA === 'number') {
       // Se DATA é um número, assume que é um número de série do Excel

@@ -54,11 +54,9 @@ export function AthleteListModal({ athleteName, occurrences, onClose }: AthleteL
   }, [occurrences]);
 
   // Converter data serial para formato legível
-  const formatDate = (serialDate: number): string => {
-    const excelEpoch = new Date(Date.UTC(1899, 11, 30)); // Excel considera 30/12/1899 como dia 0
-    const millisecondsPerDay = 24 * 60 * 60 * 1000;
-    const jsDate = new Date(excelEpoch.getTime() + serialDate * millisecondsPerDay);
-    return jsDate.toLocaleDateString("pt-BR");
+  const formatDate = (timestamp: number): string => {
+    const dateObject = new Date(timestamp);
+    return isNaN(dateObject.getTime()) ? 'Data Inválida' : dateObject.toLocaleDateString("pt-BR");
   };
 
   const handleAthleteClick = (athleteName: string) => {
