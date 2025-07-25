@@ -21,6 +21,25 @@ export const AthleteOccurrencesModal: React.FC<AthleteOccurrencesModalProps> = (
   const initials = athleteName.split(' ').map(n => n[0]).join('').slice(0, 2);
   const firstOccurrence = occurrences[0];
   const fotoUrl = firstOccurrence?.fotoUrl;
+  const categoryColors: { [key: string]: string } = {
+    'Falta Escolar': '#FFC0CB',
+    'Alimentação Irregular': '#36A2EB',
+    'Uniforme': '#FFCE56',
+    'Desorganização': '#4BC0C0',
+    'Comportamento': '#FF0000',
+    'Atrasos/Sair sem autorização': '#FF9F40',
+    'Outras': '#8B5CF6',
+  };
+
+  const getCategoryColor = (category: string) => categoryColors[category] || '#CCCCCC'; // Default gray
+  
+  // Calcular categorias de reincidência
+  const categoryRecurrence = occurrences.reduce((acc, occ) => {
+    const category = occ.TIPO || 'Outras';
+    acc[category] = (acc[category] || 0) + 1;
+    return acc;
+  }, {} as { [key: string]: number });
+  
   const category = firstOccurrence?.CAT || 'N/A';
   const totalValue = occurrences.reduce((sum, occ) => sum + Number(occ.VALOR), 0);
 
@@ -28,8 +47,15 @@ export const AthleteOccurrencesModal: React.FC<AthleteOccurrencesModalProps> = (
     <Dialog open={true} onOpenChange={onClose}>
       <DialogContent className="max-w-3xl max-h-[90vh] overflow-hidden flex flex-col">
         <DialogHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
-          <DialogTitle className="text-xl font-bold text-red-600">
+          <DialogTitle className="text-xl font-bold text-gray-900">
             Ocorrências de {athleteName}
+            <div className="mt-2 text-sm font-normal text-gray-600 flex flex-wrap gap-2">
+              {Object.entries(categoryRecurrence).map(([cat, count]) => (
+                <span key={cat} className="px-2 py-1 rounded-full text-xs font-semibold" style={{ backgroundColor: getCategoryColor(cat), color: '#FFFFFF' }}>
+                  {cat} {count}
+                </span>
+              ))}
+            </div>
           </DialogTitle>
           <button onClick={onClose} className="flex items-center justify-center w-8 h-8 rounded-full bg-red-600 text-white hover:bg-red-700 transition-colors">
             <X size={20} />

@@ -3,12 +3,14 @@ import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, L
 import { TrendingUp, TrendingDown, Users, AlertTriangle, Calendar, BarChart3, PieChart as PieChartIcon, Activity } from 'lucide-react';
 import { loadMonthlyData, getAvailableMonths } from '../data/dataLoader';
 import { RecurrenceAthleteModal } from '../components/dashboard/RecurrenceAthleteModal';
+import { CategoryDetailModal } from '../components/dashboard/CategoryDetailModal';
 
 const Analytics = () => {
   const [monthlyData, setMonthlyData] = useState<MonthlyData[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedMetric, setSelectedMetric] = useState<'occurrences' | 'athletes' | 'value'>('occurrences');
   const [selectedRecurrenceType, setSelectedRecurrenceType] = useState<string | null>(null);
+  const [categoryDetailModal, setCategoryDetailModal] = useState<{ isOpen: boolean; category: string; month: string; count: number; color: string } | null>(null);
 
   useEffect(() => {
     const loadData = async () => {
@@ -79,12 +81,19 @@ const Analytics = () => {
   }, [athleteOccurrences]);
 
   // Análise por categoria de ocorrência ao longo dos meses (Gráfico de Barras Empilhadas)
-  const categoryTrendData = useMemo(() => {
-    const categories = ['Falta Escolar', 'Alimentação Irregular', 'Vestimenta', 'Desorganização', 'Comportamento', 'Atrasos/Sair sem autorização', 'Outras'];
+  const categoryTrendData = useMemo(    const categories = [
+      { name: 'Falta Escolar', color: '#FFC0CB' },
+      { name: 'Alimentação Irregular', color: '#36A2EB' },
+      { name: 'Uniforme', color: '#FFCE56' },
+      { name: 'Desorganização', color: '#4BC0C0' },
+      { name: 'Comportamento', color: '#FF0000' },
+      { name: 'Atrasos/Sair sem autorização', color: '#FF9F40' },
+      { name: 'Outras', color: '#8B5CF6' }
+    ];
     
     return monthlyData.map(monthData => {
       const categoryCounts = {};
-      categories.forEach(cat => categoryCounts[cat] = 0);
+      categories.forEach(cat => categoryCounts[cat.name] = 0);
       
       monthData.data.forEach(occ => {
         const category = occ.TIPO;
@@ -95,8 +104,7 @@ const Analytics = () => {
         month: monthData.month,
         ...categoryCounts
       };
-    });
-  }, [monthlyData]);
+    });[monthlyData]);
 
   // Top atletas reincidentes
   const topRecurrentAthletes = useMemo(() => {
@@ -161,7 +169,7 @@ const Analytics = () => {
     setSelectedRecurrenceType(null);
   };
 
-  const colors = ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40', '#8B5CF6'];
+  const colors = ['#FFC0CB', '#36A2EB', '#FFCE56', '#4BC0C0', '#FF0000', '#FF9F40', '#8B5CF6'];
 
   if (loading) {
     return (
@@ -375,13 +383,15 @@ const Analytics = () => {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="Falta Escolar" stackId="a" fill={colors[0]} />
-                <Bar dataKey="Alimentação Irregular" stackId="a" fill={colors[1]} />
-                <Bar dataKey="Vestimenta" stackId="a" fill={colors[2]} />
-                <Bar dataKey="Desorganização" stackId="a" fill={colors[3]} />
-                <Bar dataKey="Comportamento" stackId="a" fill={colors[4]} />
-                <Bar dataKey="Atrasos/Sair sem autorização" stackId="a" fill={colors[5]} />
-                <Bar dataKey="Outras" stackId="a" fill={colors[6]} />
+                {categories.map((cat, index) => (
+                  <Bar
+                    key={cat.name}
+                    dataKey={cat.name}
+                    stackId="a"
+                    fill={cat.color}
+                    onClick={(data) => setCategoryDetailModal({ isOpen: true, category: data.dataKey, month: data.month, count: data.value, color: cat.color })}
+                  />
+                ))}
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -397,7 +407,7 @@ const Analytics = () => {
                   return {
                     name,
                     category: athleteData[0]?.CAT || 
-                    monthlyData.flatMap(monthData => monthData.data).find(occ => occ.NOME === name)?.CAT || 'N/A',
+                    monthlyData.flatMap(monthData => monthData.data).find(occ => occ.NOME === name)?.CAT || \'N/A\',
                     totalOccurrences: athleteData.length,
                     totalValue: athleteData.reduce((sum, occ) => sum + Number(occ.VALOR || 0), 0),
                     months: monthsSet,
@@ -405,14 +415,25 @@ const Analytics = () => {
                   };
                 })
                 .filter(athlete => {
-                  if (selectedRecurrenceType === '1 Mês') return athlete.months.size === 1;
-                  if (selectedRecurrenceType === '2 Meses') return athlete.months.size === 2;
-                  if (selectedRecurrenceType === '3+ Meses') return athlete.months.size >= 3;
+                  if (selectedRecurrenceType === \'1 Mês\') return athlete.months.size === 1;
+                  if (selectedRecurrenceType === \'2 Meses\') return athlete.months.size === 2;
+                  if (selectedRecurrenceType === \'3+ Meses\') return athlete.months.size >= 3;
                   return false;
                 });
               return filteredAthletes;
             })()}
             onClose={handleCloseRecurrenceModal}
+          />
+        )}
+
+        {categoryDetailModal && (
+          <CategoryDetailModal
+            isOpen={categoryDetailModal.isOpen}
+            onClose={() => setCategoryDetailModal(null)}
+            category={categoryDetailModal.category}
+            month={categoryDetailModal.month}
+            count={categoryDetailModal.count}
+            color={categoryDetailModal.color}
           />
         )}
       </div>
