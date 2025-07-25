@@ -1,680 +1,777 @@
 [
   {
-    "NOME": "Alexandre Pablo",
+    "NOME": "Alexandre Pablo ",
     "Cat": "Sub-15",
-    "DATA": "45790",
+    "DATA": 45790,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Gentil",
     "Valor": 100.0
   },
   {
-    "NOME": "Alexandre Pablo",
+    "NOME": "Alexandre Pablo ",
     "Cat": "Sub-15",
-    "DATA": "45806",
+    "DATA": 45806,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Gentil",
     "Valor": 100.0
   },
   {
     "NOME": "Bernardo Natario",
     "Cat": "Sub-14",
-    "DATA": "45798",
+    "DATA": 45798,
+    "TIPO": "Comportamento",
     "OCORRÊNCIA": "Deitado na mesma cama com o atleta Marcos as 19:45hs.",
     "Valor": 50.0
   },
   {
     "NOME": "Bernardo Noal",
     "Cat": "Sub-14",
-    "DATA": "45804",
+    "DATA": 45804,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Padre Léo",
     "Valor": 100.0
   },
   {
     "NOME": "Davi Deivid",
     "Cat": "Sub-17",
-    "DATA": "45790",
+    "DATA": 45790,
+    "TIPO": "Desorganização",
     "OCORRÊNCIA": "Em ronda foi observado no Q1 acumulo de toalhas no chão do quarto as 16:00hs",
     "Valor": 50.0
   },
   {
-    "NOME": "Everaldo Fábio",
+    "NOME": "Everaldo Fábio ",
     "Cat": "Sub-17",
-    "DATA": "45782",
+    "DATA": 45782,
+    "TIPO": "Desorganização",
     "OCORRÊNCIA": "Camas desarrumadas as 09:35hs.",
     "Valor": 50.0
   },
   {
-    "NOME": "Everaldo Fábio",
+    "NOME": "Everaldo Fábio ",
     "Cat": "Sub-17",
-    "DATA": "45790",
+    "DATA": 45790,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Gentil",
     "Valor": 100.0
   },
   {
     "NOME": "Gabriel Baggio",
     "Cat": "Sub-17",
-    "DATA": "45782",
+    "DATA": 45782,
+    "TIPO": "Desorganização",
     "OCORRÊNCIA": "Camas desarrumadas as 09:35hs.",
     "Valor": 50.0
   },
   {
     "NOME": "Gabriel Baggio",
     "Cat": "Sub-17",
-    "DATA": "45790",
-    "OCORRÊNCIA": "Em ronda foi observado no Q6 acumulo de toalhas no chão do banheiro as 16:00",
+    "DATA": 45790,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Em ronda foi observado no Q6 acumulo de toalhas no chão do banheiro as 16:00hs",
     "Valor": 50.0
   },
   {
-    "NOME": "Gabriel Lara",
+    "NOME": "Gabriel Baggio",
     "Cat": "Sub-17",
-    "DATA": "45803",
+    "DATA": 45803,
+    "TIPO": "Comportamento",
     "OCORRÊNCIA": "Levou o celular para a escola sem autorização;",
     "Valor": 100.0
   },
   {
-    "NOME": "Jhontan Almeida",
+    "NOME": "Gabriel Lara ",
     "Cat": "Sub-20",
-    "DATA": "45784",
+    "DATA": 45784,
+    "TIPO": "Alimentação Irregular",
     "OCORRÊNCIA": "Encontrado embalagem de bomobom e biscoito recheado ao lado da cama.",
     "Valor": 100.0
   },
   {
-    "NOME": "Jhontan Almeida",
+    "NOME": "Jhontan Almeida ",
     "Cat": "Sub-20",
-    "DATA": "45791",
+    "DATA": 45791,
+    "TIPO": "Uniforme ",
     "OCORRÊNCIA": "Sem uniforme na Ceia.",
     "Valor": 100.0
   },
   {
-    "NOME": "Jhontan Almeida",
+    "NOME": "Jhontan Almeida ",
     "Cat": "Sub-20",
-    "DATA": "45792",
+    "DATA": 45792,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Julio Cesar",
     "Valor": 100.0
   },
   {
-    "NOME": "Jhontan Almeida",
+    "NOME": "Jhontan Almeida ",
     "Cat": "Sub-20",
-    "DATA": "45793",
+    "DATA": 45793,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Julio Cesar",
     "Valor": 100.0
   },
   {
-    "NOME": "Jhontan Almeida",
+    "NOME": "Jhontan Almeida ",
     "Cat": "Sub-20",
-    "DATA": "45796",
+    "DATA": 45796,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Julio Cesar",
     "Valor": 100.0
   },
   {
-    "NOME": "Jhontan Almeida",
+    "NOME": "Jhontan Almeida ",
     "Cat": "Sub-20",
-    "DATA": "45797",
+    "DATA": 45797,
+    "TIPO": "Uniforme ",
     "OCORRÊNCIA": "Sem uniforme na Ceia.",
     "Valor": 100.0
   },
   {
-    "NOME": "Jhontan Almeida",
+    "NOME": "Jhontan Almeida ",
     "Cat": "Sub-20",
-    "DATA": "45800",
+    "DATA": 45800,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Julio Cesar",
     "Valor": 100.0
   },
   {
-    "NOME": "Jhontan Almeida",
+    "NOME": "Jhontan Almeida ",
     "Cat": "Sub-20",
-    "DATA": "45803",
+    "DATA": 45803,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Julio Cesar",
     "Valor": 100.0
   },
   {
-    "NOME": "Jhontan Almeida",
+    "NOME": "Jhontan Almeida ",
     "Cat": "Sub-20",
-    "DATA": "45807",
+    "DATA": 45807,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Julio Cesar",
     "Valor": 100.0
   },
   {
-    "NOME": "João Cruvinel",
+    "NOME": "João Cruvinel ",
     "Cat": "Sub-17",
-    "DATA": "45786",
+    "DATA": 45786,
+    "TIPO": "Alimentação Irregular",
     "OCORRÊNCIA": "Encontrado embalagem de chocolate e biscoito recheado no quarto ás 20:00hs.",
     "Valor": 100.0
   },
   {
-    "NOME": "João Cruvinel",
+    "NOME": "João Cruvinel ",
     "Cat": "Sub-17",
-    "DATA": "45789",
+    "DATA": 45789,
+    "TIPO": "Desorganização",
     "OCORRÊNCIA": "Ar condicionado ligado sem ninguém no quarto as 14:00hs.",
     "Valor": 50.0
   },
   {
     "NOME": "João Lucas Bezerra",
     "Cat": "Sub-17",
-    "DATA": "45786",
+    "DATA": 45786,
+    "TIPO": "Alimentação Irregular",
     "OCORRÊNCIA": "Encontrado embalagem de chocolate e biscoito recheado no quarto ás 20:00hs.",
     "Valor": 100.0
   },
   {
     "NOME": "João Lucas Bezerra",
     "Cat": "Sub-17",
-    "DATA": "45789",
+    "DATA": 45789,
+    "TIPO": "Desorganização",
     "OCORRÊNCIA": "Ar condicionado ligado sem ninguém no quarto as 14:00hs.",
     "Valor": 50.0
   },
   {
     "NOME": "João Lucas Bezerra",
     "Cat": "Sub-17",
-    "DATA": "45791",
+    "DATA": 45791,
+    "TIPO": "Desorganização",
     "OCORRÊNCIA": "Ar condicionado ligado sem ninguém no quarto as 15:10hs.",
     "Valor": 50.0
   },
   {
     "NOME": "João Lucas Bezerra",
     "Cat": "Sub-17",
-    "DATA": "45803",
+    "DATA": 45803,
+    "TIPO": "Comportamento",
     "OCORRÊNCIA": "Levou o celular para a escola sem autorização;",
     "Valor": 100.0
   },
   {
     "NOME": "João Pedro Leite",
     "Cat": "Sub-17",
-    "DATA": "45790",
-    "OCORRÊNCIA": "Em ronda foi observado no Q6 acumule de toalhas no chão do banheiro as 16:00",
+    "DATA": 45790,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Em ronda foi observado no Q6 acumulo de toalhas no chão do banheiro as 16:00hs",
     "Valor": 50.0
   },
   {
     "NOME": "João Pedro Leite",
     "Cat": "Sub-17",
-    "DATA": "45790",
+    "DATA": 45790,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Julio Cesar",
     "Valor": 100.0
   },
   {
     "NOME": "João Pedro Leite",
     "Cat": "Sub-17",
-    "DATA": "45796",
+    "DATA": 45796,
+    "TIPO": "Comportamento",
     "OCORRÊNCIA": "Fora dos seus respectivos quartos após horário prmitido.",
     "Valor": 100.0
   },
   {
     "NOME": "João Pedro Leite",
     "Cat": "Sub-17",
-    "DATA": "45797",
+    "DATA": 45797,
+    "TIPO": "Uniforme ",
     "OCORRÊNCIA": "Sem uniforme na Ceia.",
     "Valor": 100.0
   },
   {
     "NOME": "João Victor Alves",
     "Cat": "Sub-20",
-    "DATA": "45785",
+    "DATA": 45785,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Julio Cesar",
     "Valor": 100.0
   },
   {
     "NOME": "João Victor Alves",
     "Cat": "Sub-20",
-    "DATA": "45786",
+    "DATA": 45786,
+    "TIPO": "Atrasos/Sair sem autorização",
     "OCORRÊNCIA": "Chegar após o horário permitido, as 20:16hs.",
     "Valor": 100.0
   },
   {
     "NOME": "João Victor Alves",
     "Cat": "Sub-20",
-    "DATA": "45792",
+    "DATA": 45792,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Julio Cesar",
     "Valor": 100.0
   },
   {
     "NOME": "João Victor Alves",
     "Cat": "Sub-20",
-    "DATA": "45793",
+    "DATA": 45793,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Julio Cesar",
     "Valor": 100.0
   },
   {
     "NOME": "João Victor Alves",
     "Cat": "Sub-20",
-    "DATA": "45796",
+    "DATA": 45796,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Julio Cesar",
     "Valor": 100.0
   },
   {
     "NOME": "João Victor Alves",
     "Cat": "Sub-20",
-    "DATA": "45800",
+    "DATA": 45800,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Julio Cesar",
     "Valor": 100.0
   },
   {
     "NOME": "João Victor Alves",
     "Cat": "Sub-20",
-    "DATA": "45807",
+    "DATA": 45807,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Julio Cesar",
     "Valor": 100.0
   },
   {
-    "NOME": "Jhontan Almeida",
+    "NOME": "Jhontan Almeida ",
     "Cat": "Sub-20",
-    "DATA": "45785",
+    "DATA": 45785,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Julio Cesar",
     "Valor": 100.0
   },
   {
     "NOME": "Jonathan Almeida",
     "Cat": "Sub-20",
-    "DATA": "45786",
+    "DATA": 45786,
+    "TIPO": "Atrasos/Sair sem autorização",
     "OCORRÊNCIA": "Chegar após o horário permitido, as 20:16hs.",
     "Valor": 100.0
   },
   {
-    "NOME": "Jhontan Almeida",
+    "NOME": "Jhontan Almeida ",
     "Cat": "Sub-20",
-    "DATA": "45789",
+    "DATA": 45789,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Julio Cesar",
     "Valor": 100.0
   },
   {
     "NOME": "Jonathan Almeida",
     "Cat": "Sub-20",
-    "DATA": "45790",
+    "DATA": 45790,
+    "TIPO": "Uniforme ",
     "OCORRÊNCIA": "Sem uniforme as 17:03hs.",
     "Valor": 100.0
   },
   {
-    "NOME": "Jhontan Almeida",
+    "NOME": "Jhontan Almeida ",
     "Cat": "Sub-20",
-    "DATA": "45790",
+    "DATA": 45790,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Julio Cesar",
     "Valor": 100.0
   },
   {
-    "NOME": "Julio Cesar",
+    "NOME": "Julio Cesar ",
     "Cat": "Sub-17",
-    "DATA": "45790",
+    "DATA": 45790,
+    "TIPO": "Desorganização",
     "OCORRÊNCIA": "Em ronda foi observado no Q1 acumulo de toalhas no chão do quarto as 16:00hs",
     "Valor": 50.0
   },
   {
-    "NOME": "Julio Cesar",
+    "NOME": "Julio Cesar ",
     "Cat": "Sub-17",
-    "DATA": "45793",
+    "DATA": 45793,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Gentil",
     "Valor": 100.0
   },
   {
-    "NOME": "Julio Cesar",
+    "NOME": "Julio Cesar ",
     "Cat": "Sub-17",
-    "DATA": "45796",
+    "DATA": 45796,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Fora dos seus respectivos quartos após horário prmitido.",
     "Valor": 100.0
   },
   {
-    "NOME": "Julio Cesar",
+    "NOME": "Julio Cesar ",
     "Cat": "Sub-17",
-    "DATA": "45803",
+    "DATA": 45803,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Gentil",
     "Valor": 100.0
   },
   {
-    "NOME": "Kaua Cavalcante",
+    "NOME": "Kauã Cavalcante ",
     "Cat": "Sub-17",
-    "DATA": "45782",
+    "DATA": 45782,
+    "TIPO": "Desorganização",
     "OCORRÊNCIA": "Camas desarrumadas as 09:35hs.",
     "Valor": 50.0
   },
   {
-    "NOME": "Kaua Cavalcante",
+    "NOME": "Kauã Cavalcante ",
     "Cat": "Sub-17",
-    "DATA": "45790",
-    "OCORRÊNCIA": "Em ronda foi observado no Q6 acumulo de toalhas no chão do banheiro as 16:00",
+    "DATA": 45790,
+    "TIPO": "Desorganização",
+    "OCORRÊNCIA": "Em ronda foi observado no Q6 acumulo de toalhas no chão do banheiro as 16:00hs",
     "Valor": 50.0
   },
   {
     "NOME": "Lazaro Gonçalves",
     "Cat": "Sub-20",
-    "DATA": "45806",
+    "DATA": 45806,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Gentil",
     "Valor": 100.0
   },
   {
     "NOME": "Lazaro Gonçalves",
     "Cat": "Sub-20",
-    "DATA": "45807",
+    "DATA": 45807,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Gentil",
     "Valor": 100.0
   },
   {
     "NOME": "Lucas Andrew",
     "Cat": "Sub-15",
-    "DATA": "45800",
+    "DATA": 45800,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Gentil",
     "Valor": 100.0
   },
   {
     "NOME": "Lucas Andrew",
     "Cat": "Sub-15",
-    "DATA": "45806",
+    "DATA": 45806,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Gentil",
     "Valor": 100.0
   },
   {
-    "NOME": "Marcos Vinicius",
+    "NOME": "Marcos Vinicius ",
     "Cat": "Sub-14",
-    "DATA": "45782",
+    "DATA": 45782,
+    "TIPO": "Alimentação Irregular",
     "OCORRÊNCIA": "Em ronda foi observado no Q13 embalagem de biscoito Toddy às 20:00hs.",
     "Valor": 100.0
   },
   {
-    "NOME": "Marcos Vinicius",
+    "NOME": "Marcos Vinicius ",
     "Cat": "Sub-14",
-    "DATA": "45793",
+    "DATA": 45793,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Padre Léo",
     "Valor": 100.0
   },
   {
-    "NOME": "Marcos Vinicius",
+    "NOME": "Marcos Vinicius ",
     "Cat": "Sub-14",
-    "DATA": "45795",
+    "DATA": 45795,
+    "TIPO": "Uniforme ",
     "OCORRÊNCIA": "Sem uniforme no alojamento por volta das 09:00hs.",
     "Valor": 100.0
   },
   {
-    "NOME": "Marcos Vinicius",
+    "NOME": "Marcos Vinicius ",
     "Cat": "Sub-14",
-    "DATA": "45795",
+    "DATA": 45795,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Padre Léo",
     "Valor": 100.0
   },
   {
-    "NOME": "Marcos Vinicius",
+    "NOME": "Marcos Vinicius ",
     "Cat": "Sub-14",
-    "DATA": "45798",
+    "DATA": 45798,
+    "TIPO": "Comportamento",
     "OCORRÊNCIA": "Deitado na mesma cama com o atleta Bernardo as 19:45hs.",
     "Valor": 50.0
   },
   {
-    "NOME": "Marcos Vinicius",
+    "NOME": "Marcos Vinicius ",
     "Cat": "Sub-14",
-    "DATA": "45799",
+    "DATA": 45799,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Padre Léo",
     "Valor": 100.0
   },
   {
-    "NOME": "Marcos Vinicius",
+    "NOME": "Marcos Vinicius ",
     "Cat": "Sub-14",
-    "DATA": "45807",
-    "OCORRÊNCIA": "Falta escolar sem justificativa Escola Padre Léo",
-    "Valor": 100.0
-  },
-  {
-    "NOME": "Miguel Dezanette",
-    "Cat": "Sub-14",
-    "DATA": "45792",
+    "DATA": 45807,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Padre Léo",
     "Valor": 100.0
   },
   {
     "NOME": "Miguel Dezanette",
     "Cat": "Sub-14",
-    "DATA": "45807",
+    "DATA": 45792,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Padre Léo",
     "Valor": 100.0
   },
   {
-    "NOME": "Pedro Henrique de Souza",
+    "NOME": "Miguel Dezanette",
+    "Cat": "Sub-14",
+    "DATA": 45807,
+    "TIPO": "Falta Escolar",
+    "OCORRÊNCIA": "Falta escolar sem justificativa Escola Padre Léo",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Pedro Henrique de Souza Campos",
     "Cat": "Sub-15",
-    "DATA": "45782",
+    "DATA": 45782,
+    "TIPO": "Alimentação Irregular",
     "OCORRÊNCIA": "Em ronda foi observado no Q13 embalagem de biscoito Toddy às 20:00hs.",
     "Valor": 100.0
   },
   {
     "NOME": "Pedro Henrique Inocente",
     "Cat": "Sub-14",
-    "DATA": "45807",
+    "DATA": 45807,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Padre Léo",
     "Valor": 100.0
   },
   {
     "NOME": "Pedro Santos Martins",
     "Cat": "Sub-17",
-    "DATA": "45786",
+    "DATA": 45786,
+    "TIPO": "Atrasos/Sair sem autorização",
     "OCORRÊNCIA": "Chegar após o horário permitido, as 20:16hs.",
     "Valor": 100.0
   },
   {
     "NOME": "Pietro Zucchi",
     "Cat": "Sub-17",
-    "DATA": "45786",
+    "DATA": 45786,
+    "TIPO": "Alimentação Irregular",
     "OCORRÊNCIA": "Encontrado embalagem de chocolate e biscoito recheado no quarto ás 20:00hs.",
     "Valor": 100.0
   },
   {
     "NOME": "Pietro Zucchi",
     "Cat": "Sub-17",
-    "DATA": "45789",
+    "DATA": 45789,
+    "TIPO": "Desorganização",
     "OCORRÊNCIA": "Ar condicionado ligado sem ninguém no quarto as 14:00hs.",
     "Valor": 50.0
   },
   {
     "NOME": "Pietro Zucchi",
     "Cat": "Sub-17",
-    "DATA": "45791",
+    "DATA": 45791,
+    "TIPO": "Desorganização",
     "OCORRÊNCIA": "Ar condicionado ligado sem ninguém no quarto as 15:10hs.",
     "Valor": 50.0
   },
   {
     "NOME": "Pietro Zucchi",
     "Cat": "Sub-17",
-    "DATA": "45792",
+    "DATA": 45792,
+    "TIPO": "Uniforme ",
     "OCORRÊNCIA": "Sem uniforme na Ceia.",
     "Valor": 100.0
   },
   {
     "NOME": "Pietro Zucchi",
     "Cat": "Sub-17",
-    "DATA": "45800",
+    "DATA": 45800,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Gentil",
     "Valor": 100.0
   },
   {
     "NOME": "Pietro Zucchi",
     "Cat": "Sub-17",
-    "DATA": "45803",
+    "DATA": 45803,
+    "TIPO": "Comportamento",
     "OCORRÊNCIA": "Levou o celular para a escola sem autorização;",
     "Valor": 100.0
   },
   {
     "NOME": "Pietro Zucchi",
     "Cat": "Sub-17",
-    "DATA": "45806",
+    "DATA": 45806,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Gentil",
     "Valor": 100.0
   },
   {
     "NOME": "Pietro Zucchi",
     "Cat": "Sub-17",
-    "DATA": "45806",
+    "DATA": 45806,
+    "TIPO": "Alimentação Irregular",
     "OCORRÊNCIA": "Em ronda foi obervado no quarto embalagem de chocolate barra as 21:30hs.",
     "Valor": 100.0
   },
   {
     "NOME": "Raykkonen Pereira",
     "Cat": "Sub-17",
-    "DATA": "45782",
+    "DATA": 45782,
+    "TIPO": "Uniforme ",
     "OCORRÊNCIA": "Sem o uniforme no alojamento as 17:33hs.",
     "Valor": 100.0
   },
   {
     "NOME": "Raykkonen Pereira",
     "Cat": "Sub-17",
-    "DATA": "45790",
+    "DATA": 45790,
+    "TIPO": "Desorganização",
     "OCORRÊNCIA": "Quarto Bagunçado e todas as camas desarrumadas as 16:00hs.",
     "Valor": 50.0
   },
   {
     "NOME": "Raykkonen Pereira",
     "Cat": "Sub-17",
-    "DATA": "45792",
+    "DATA": 45792,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Julio Cesar",
     "Valor": 100.0
   },
   {
-    "NOME": "Richard Rodrigues",
+    "NOME": "Richard Rodrigues ",
     "Cat": "Sub-17",
-    "DATA": "45786",
+    "DATA": 45786,
+    "TIPO": "Uniforme ",
     "OCORRÊNCIA": "Sem o uniforme no refeitório as 12:30hs.",
     "Valor": 100.0
   },
   {
-    "NOME": "Richard Rodrigues",
+    "NOME": "Richard Rodrigues ",
     "Cat": "Sub-17",
-    "DATA": "45790",
+    "DATA": 45790,
+    "TIPO": "Desorganização",
     "OCORRÊNCIA": "Em ronda foi observado no Q1 acumulo de toalhas no chão do quarto as 16:00hs",
     "Valor": 50.0
   },
   {
-    "NOME": "Richard Rodrigues",
+    "NOME": "Richard Rodrigues ",
     "Cat": "Sub-17",
-    "DATA": "45803",
+    "DATA": 45803,
+    "TIPO": "Comportamento",
     "OCORRÊNCIA": "Levou o celular para a escola sem autorização;",
     "Valor": 100.0
   },
   {
-    "NOME": "Richarlysson Souza Tosta",
+    "NOME": "Richard Rodrigues ",
     "Cat": "Sub-17",
-    "DATA": "45804",
+    "DATA": 45804,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Gentil",
     "Valor": 100.0
   },
   {
     "NOME": "Richarlysson Souza Tosta",
     "Cat": "Sub-17",
-    "DATA": "45778",
-    "OCORRÊNCIA": "Sem uniforme o dia todo.",
+    "DATA": 45778,
+    "TIPO": "Uniforme ",
+    "OCORRÊNCIA": "Sem uniforme o dia todo. ",
     "Valor": 100.0
   },
   {
     "NOME": "Richarlysson Souza Tosta",
     "Cat": "Sub-17",
-    "DATA": "45782",
+    "DATA": 45782,
+    "TIPO": "Uniforme ",
     "OCORRÊNCIA": "Sem uniforme no alojamento às 08:00hs.",
     "Valor": 100.0
   },
   {
     "NOME": "Richarlysson Souza Tosta",
     "Cat": "Sub-17",
-    "DATA": "45784",
+    "DATA": 45784,
+    "TIPO": "Uniforme ",
     "OCORRÊNCIA": "Sem uniforme no alojamento.",
     "Valor": 100.0
   },
   {
     "NOME": "Richarlysson Souza Tosta",
     "Cat": "Sub-17",
-    "DATA": "45786",
+    "DATA": 45786,
+    "TIPO": "Uniforme ",
     "OCORRÊNCIA": "Sem o uniforme no refeitório as 12:30hs.",
+    "Valor": 100.0
+  },
+  {
+    "NOME": "Richarlysson Souza Tosta",
+    "Cat": "Sub-17",
+    "DATA": 45786,
+    "TIPO": "Atrasos/Sair sem autorização",
+    "OCORRÊNCIA": "Chegar após o horário permitido, as 20:16hs.",
     "Valor": 100.0
   },
   {
     "NOME": "Roger Cavalheiro",
     "Cat": "Sub-17",
-    "DATA": "45786",
-    "OCORRÊNCIA": "Chegar após o horário permitido, as 20:16hs.",
-    "Valor": 100.0
-  },
-  {
-    "NOME": "Thiago Luiz da Silva",
-    "Cat": "Sub-17",
-    "DATA": "45790",
+    "DATA": 45790,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Julio Cesar",
     "Valor": 100.0
   },
   {
     "NOME": "Thiago Luiz da Silva",
     "Cat": "Sub-17",
-    "DATA": "45781",
+    "DATA": 45781,
+    "TIPO": "Comportamento",
     "OCORRÊNCIA": "De algazzarra no quarto e quabraram a cama comemorando gol Flamengo.",
     "Valor": 100.0
   },
   {
     "NOME": "Thiago Luiz da Silva",
     "Cat": "Sub-17",
-    "DATA": "45791",
+    "DATA": 45791,
+    "TIPO": "Comportamento",
     "OCORRÊNCIA": "Som alto no Alojamento em horário comercial, recolhido as 14:30hs.",
     "Valor": 100.0
   },
   {
     "NOME": "Thiago Luiz da Silva",
     "Cat": "Sub-17",
-    "DATA": "45797",
+    "DATA": 45797,
+    "TIPO": "Uniforme ",
     "OCORRÊNCIA": "Sem uniforme na Ceia.",
     "Valor": 100.0
   },
   {
     "NOME": "Thiago Luiz da Silva",
     "Cat": "Sub-17",
-    "DATA": "45804",
+    "DATA": 45804,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Gentil",
     "Valor": 100.0
   },
   {
     "NOME": "Victor Hugo Mattos",
     "Cat": "Sub-15",
-    "DATA": "45802",
-    "OCORRÊNCIA": "Encontrado embalagens de doces em sua cama (KitKat, Trakinas, Bombom) as 21",
+    "DATA": 45802,
+    "TIPO": "Alimentação Irregular",
+    "OCORRÊNCIA": "Encontrado embalagens de doces em sua cama (KitKat, Trakinas,Bombom) as 21:00hs",
     "Valor": 100.0
   },
   {
     "NOME": "Victor Hugo Mattos",
     "Cat": "Sub-15",
-    "DATA": "45778",
+    "DATA": 45778,
+    "TIPO": "Uniforme ",
     "OCORRÊNCIA": "Sem uniforme no alojamento às 15:23hs.",
     "Valor": 100.0
   },
   {
     "NOME": "Victor Hugo Mattos",
     "Cat": "Sub-15",
-    "DATA": "45793",
+    "DATA": 45793,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Padre Léo",
     "Valor": 100.0
   },
   {
-    "NOME": "Vitor Hugo Neves",
+    "NOME": "Vitor Hugo Neves ",
     "Cat": "Sub-17",
-    "DATA": "45789",
+    "DATA": 45789,
+    "TIPO": "Uniforme ",
     "OCORRÊNCIA": "Sem uniforme na Ceia.",
     "Valor": 100.0
   },
   {
-    "NOME": "Vitor Hugo Neves",
+    "NOME": "Vitor Hugo Neves ",
     "Cat": "Sub-17",
-    "DATA": "45790",
+    "DATA": 45790,
+    "TIPO": "Desorganização",
     "OCORRÊNCIA": "Quarto Bagunçado e todas as camas desarrumadas as 16:00hs.",
     "Valor": 50.0
   },
   {
-    "NOME": "Vitor Hugo Neves",
+    "NOME": "Vitor Hugo Neves ",
     "Cat": "Sub-17",
-    "DATA": "45803",
+    "DATA": 45803,
+    "TIPO": "Comportamento",
     "OCORRÊNCIA": "Levou o celular para a escola sem autorização;",
     "Valor": 100.0
   },
   {
-    "NOME": "Vitor Hugo Neves",
+    "NOME": "Vitor Hugo Neves ",
     "Cat": "Sub-17",
-    "DATA": "45804",
+    "DATA": 45804,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Gentil",
     "Valor": 100.0
   },
   {
-    "NOME": "Vitor Hugo Neves",
+    "NOME": "Vitor Hugo Neves ",
     "Cat": "Sub-17",
-    "DATA": "45806",
+    "DATA": 45806,
+    "TIPO": "Falta Escolar",
     "OCORRÊNCIA": "Falta escolar sem justificativa Escola Gentil",
     "Valor": 100.0
   },
   {
-    "NOME": "Wesley Antonio",
+    "NOME": "Wesley Antonio ",
     "Cat": "Sub-15",
-    "DATA": "45782",
+    "DATA": 45782,
+    "TIPO": "Alimentação Irregular",
     "OCORRÊNCIA": "Em ronda foi observado no Q19 embalagem chocolate (barra) de às 20:00hs.",
     "Valor": 100.0
   }
