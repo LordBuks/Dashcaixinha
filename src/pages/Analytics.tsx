@@ -387,7 +387,8 @@ const Analytics = () => {
               </BarChart>
             </ResponsiveContainer>
           </div>
-      </div>
+        </div>
+
         {selectedRecurrenceType && (
           <RecurrenceAthleteModal
             recurrenceType={selectedRecurrenceType}
@@ -421,5 +422,3 @@ const Analytics = () => {
 };
 
 export default Analytics;
-
-
