@@ -143,7 +143,7 @@ export default function LoginPage() {
             <p>Departamento de Serviço Social</p>
           </div>
           <div className="mt-4 text-xs text-gray-500">
-            © 2025 TechVamp. Todos os direitos reservados.
+            © 2025 TechVamp.
           </div>
         </div>
       </footer>
