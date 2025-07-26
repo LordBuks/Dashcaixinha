@@ -4,6 +4,9 @@ import { auth } from '@/lib/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 
+import internacionalLogo from '@/assets/internacional_logo.png';
+import servicoSocialLogo from '@/assets/servico_social_logo.png';
+
 export default function LoginPage() {
   const { user, loading } = useAuth();
   const navigate = useNavigate();
@@ -63,7 +66,7 @@ export default function LoginPage() {
           {/* Logo do Internacional */}
           <div className="text-center mb-8">
             <img 
-              src="/internacional_logo.png" 
+              src={internacionalLogo} 
               alt="Sport Club Internacional" 
               className="w-16 h-16 mx-auto mb-4"
             />
@@ -130,9 +133,9 @@ export default function LoginPage() {
         <div className="max-w-md mx-auto text-center px-4">
           <div className="mb-4">
             <img 
-              src="/servico_social_logo.png" 
+              src={servicoSocialLogo} 
               alt="Serviço Social" 
-              className="w-12 h-12 mx-auto mb-2"
+              className="w-12 h-12 mx-auto mb-2 object-contain"
             />
           </div>
           <div className="text-sm text-gray-600 space-y-1">
@@ -140,7 +143,7 @@ export default function LoginPage() {
             <p>Departamento de Serviço Social</p>
           </div>
           <div className="mt-4 text-xs text-gray-500">
-            © 2025 TechVamp2025. Todos os direitos reservados.
+            © 2025 TechVamp. Todos os direitos reservados.
           </div>
         </div>
       </footer>
