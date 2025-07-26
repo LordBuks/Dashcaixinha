@@ -135,7 +135,7 @@ export default function LoginPage() {
             <img 
               src={servicoSocialLogo} 
               alt="Serviço Social" 
-              className="w-22 h-22 mx-auto mb-2 object-contain"
+              className="w-16 h-16 mx-auto mb-2 object-contain"
             />
           </div>
           <div className="text-sm text-gray-600 space-y-1">
