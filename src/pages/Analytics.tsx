@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { TrendingUp, TrendingDown, Users, AlertTriangle, Calendar, BarChart3, PieChart as PieChartIcon, Activity } from 'lucide-react';
-import { loadMonthlyData, getAvailableMonths, getMonthData } from '../data/dataLoader';
+import { useAuth } from '@/context/AuthContext';
+import { loadUserMonthlyData, getUserAvailableMonths, getUserMonthData, loadLocalMonthlyData } from '../data/firebaseDataLoader';
 import { analyzeByAgeCategoryAndOccurrenceType } from '../utils/analysisUtils';
 import { testOccurrences } from '../data/testData';
 import { RecurrenceAthleteModal } from '../components/dashboard/RecurrenceAthleteModal';
@@ -9,6 +10,7 @@ import { CategoryDetailModal } from '../components/dashboard/CategoryDetailModal
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
 
 const Analytics = () => {
+  const { user } = useAuth();
   const [loading, setLoading] = useState(true);
   const [monthlyData, setMonthlyData] = useState<any[]>([]);
   const [selectedMetric, setSelectedMetric] = useState("occurrences");
@@ -20,25 +22,53 @@ const Analytics = () => {
 
   useEffect(() => {
     const loadData = async () => {
+      if (!user) return;
+      
       try {
         setLoading(true);
-        const availableMonths = await getAvailableMonths();
-        const data = await Promise.all(
-          availableMonths.map(async (month: { month: string; year: number }) => {
-            const monthData = await getMonthData(month.month, month.year);
-            return { month: month.month, data: monthData };
-          })
-        );
+        
+        // Tenta carregar dados do Firebase primeiro
+        let availableMonths = await getUserAvailableMonths(user.uid);
+        let data: any[] = [];
+        
+        if (availableMonths.length > 0) {
+          // Se há dados no Firebase, usa eles
+          data = await Promise.all(
+            availableMonths.map(async (month: { month: string; year: number }) => {
+              const monthData = await getUserMonthData(user.uid, month.month, month.year);
+              return { month: month.month, data: monthData };
+            })
+          );
+        } else {
+          // Fallback para dados locais (para desenvolvimento/demonstração)
+          console.log('Nenhum dado encontrado no Firebase, usando dados locais para demonstração');
+          const localData = await loadLocalMonthlyData();
+          data = localData.map(monthData => ({
+            month: monthData.month,
+            data: monthData.data
+          }));
+        }
+        
         setMonthlyData(data);
       } catch (error) {
         console.error('Erro ao carregar dados:', error);
+        // Em caso de erro, tenta carregar dados locais
+        try {
+          const localData = await loadLocalMonthlyData();
+          setMonthlyData(localData.map(monthData => ({
+            month: monthData.month,
+            data: monthData.data
+          })));
+        } catch (localError) {
+          console.error('Erro ao carregar dados locais:', localError);
+        }
       } finally {
         setLoading(false);
       }
     };
 
     loadData();
-  }, []);
+  }, [user]);
 
   // Dados para timeline
   const timelineData = useMemo(() => {
@@ -221,8 +251,6 @@ const Analytics = () => {
     };
   }, [timelineData]);
 
-  // *** CORREÇÃO APLICADA AQUI ***
-  // A constante foi movida para dentro do componente, antes do return.
   const filteredRecurrenceAthletes = useMemo(() => {
     if (!selectedRecurrenceType) return [];
 
@@ -265,6 +293,11 @@ const Analytics = () => {
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-red-600 mb-2">Análises Comparativas</h1>
           <p className="text-gray-600 font-bold">Insights e tendências ao longo dos meses</p>
+          {user && (
+            <p className="text-sm text-gray-500 mt-2">
+              Dados de: {user.displayName || user.email}
+            </p>
+          )}
         </div>
 
         {/* Cards de Comparação */}
@@ -367,7 +400,7 @@ const Analytics = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           {/* Comparação por Categoria de Idade e Tipo de Ocorrência */}
           <div className="bg-white rounded-lg shadow p-6">
-            <h2 className="text-xl text-red-600 font-semibold mb-4">Comparação por Categoria e Tipo de Ocorrência</h2>
+            <h2 className="text-xl text-red-600 font-semibold mb-4">Comparação por Categoria e Tipo</h2>
             <div className="flex space-x-4 mb-4">
               <Select onValueChange={setSelectedAgeCategory}>
                 <SelectTrigger className="w-[180px]">
@@ -542,3 +575,4 @@ const Analytics = () => {
 };
 
 export default Analytics;
+
