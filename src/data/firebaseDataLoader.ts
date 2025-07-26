@@ -1,4 +1,4 @@
-import { collection, getDocs, query, where, orderBy } from 'firebase/firestore';
+import { collection, getDocs, query, where, orderBy, doc } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 import { AthleteOccurrence } from './athleteData';
 
@@ -8,12 +8,10 @@ export interface MonthlyData {
   data: AthleteOccurrence[];
 }
 
-// Função para carregar dados de um usuário específico do Firestore
 export const loadUserMonthlyData = async (userId: string): Promise<MonthlyData[]> => {
   try {
     const monthlyDataList: MonthlyData[] = [];
     
-    // Query para buscar todos os documentos do usuário
     const q = query(
       collection(db, 'occurrences'),
       where('userId', '==', userId),
@@ -23,14 +21,25 @@ export const loadUserMonthlyData = async (userId: string): Promise<MonthlyData[]
     
     const querySnapshot = await getDocs(q);
     
-    querySnapshot.forEach((doc) => {
-      const data = doc.data();
-      monthlyDataList.push({
-        month: data.month,
-        year: data.year,
-        data: data.occurrences || []
+    for (const monthDoc of querySnapshot.docs) {
+      const monthData = monthDoc.data();
+      const month = monthData.month;
+      const year = monthData.year;
+
+      const occurrencesSubcollectionRef = collection(monthDoc.ref, 'occurrences');
+      const occurrencesSnapshot = await getDocs(occurrencesSubcollectionRef);
+      
+      const occurrences: AthleteOccurrence[] = [];
+      occurrencesSnapshot.forEach((occurrenceDoc) => {
+        occurrences.push(occurrenceDoc.data() as AthleteOccurrence);
       });
-    });
+
+      monthlyDataList.push({
+        month,
+        year,
+        data: occurrences
+      });
+    }
 
     return monthlyDataList;
   } catch (error) {
@@ -39,7 +48,6 @@ export const loadUserMonthlyData = async (userId: string): Promise<MonthlyData[]
   }
 };
 
-// Função para consolidar todos os dados de um usuário em um array único
 export const getAllUserOccurrences = async (userId: string): Promise<AthleteOccurrence[]> => {
   const monthlyDataList = await loadUserMonthlyData(userId);
   const allOccurrences: AthleteOccurrence[] = [];
@@ -51,7 +59,6 @@ export const getAllUserOccurrences = async (userId: string): Promise<AthleteOccu
   return allOccurrences;
 };
 
-// Função para obter dados de um mês específico de um usuário
 export const getUserMonthData = async (userId: string, month: string, year: number): Promise<AthleteOccurrence[]> => {
   try {
     const q = query(
@@ -64,9 +71,15 @@ export const getUserMonthData = async (userId: string, month: string, year: numb
     const querySnapshot = await getDocs(q);
     
     if (!querySnapshot.empty) {
-      const doc = querySnapshot.docs[0];
-      const data = doc.data();
-      return data.occurrences || [];
+      const monthDoc = querySnapshot.docs[0];
+      const occurrencesSubcollectionRef = collection(monthDoc.ref, 'occurrences');
+      const occurrencesSnapshot = await getDocs(occurrencesSubcollectionRef);
+      
+      const occurrences: AthleteOccurrence[] = [];
+      occurrencesSnapshot.forEach((occurrenceDoc) => {
+        occurrences.push(occurrenceDoc.data() as AthleteOccurrence);
+      });
+      return occurrences;
     }
     
     return [];
@@ -76,7 +89,6 @@ export const getUserMonthData = async (userId: string, month: string, year: numb
   }
 };
 
-// Função para obter lista de meses disponíveis de um usuário
 export const getUserAvailableMonths = async (userId: string): Promise<{month: string, year: number}[]> => {
   const monthlyDataList = await loadUserMonthlyData(userId);
   
@@ -95,7 +107,6 @@ export const getUserAvailableMonths = async (userId: string): Promise<{month: st
     });
 };
 
-// Função de fallback para usar dados locais (para desenvolvimento/teste)
 export const loadLocalMonthlyData = async (): Promise<MonthlyData[]> => {
   const monthlyDataList: MonthlyData[] = [];
   
@@ -125,4 +136,5 @@ export const loadLocalMonthlyData = async (): Promise<MonthlyData[]> => {
 
   return monthlyDataList;
 };
+
 
