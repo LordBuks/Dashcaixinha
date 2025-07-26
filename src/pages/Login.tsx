@@ -1,19 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import { auth } from '@/lib/firebase';
-import { 
-  GoogleAuthProvider, 
-  signInWithPopup, 
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword 
-} from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Label } from '@/components/ui/label';
-import { Separator } from '@/components/ui/separator';
-import { AlertCircle, Mail, Lock, Chrome } from 'lucide-react';
 
 export default function LoginPage() {
   const { user, loading } = useAuth();
@@ -22,7 +11,6 @@ export default function LoginPage() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [isRegistering, setIsRegistering] = useState(false);
 
   useEffect(() => {
     if (!loading && user) {
@@ -30,45 +18,25 @@ export default function LoginPage() {
     }
   }, [user, loading, navigate]);
 
-  const handleGoogleSignIn = async () => {
-    const provider = new GoogleAuthProvider();
-    setIsLoading(true);
-    setError('');
-    
-    try {
-      await signInWithPopup(auth, provider);
-      navigate('/');
-    } catch (err: any) {
-      setError("Falha ao fazer login com o Google.");
-      console.error(err);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   const handleEmailAuth = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     setError('');
 
     try {
-      if (isRegistering) {
-        await createUserWithEmailAndPassword(auth, email, password);
-      } else {
-        await signInWithEmailAndPassword(auth, email, password);
-      }
+      await signInWithEmailAndPassword(auth, email, password);
       navigate('/');
     } catch (err: any) {
       if (err.code === 'auth/user-not-found') {
         setError('Usuário não encontrado.');
       } else if (err.code === 'auth/wrong-password') {
         setError('Senha incorreta.');
-      } else if (err.code === 'auth/email-already-in-use') {
-        setError('Este e-mail já está em uso.');
-      } else if (err.code === 'auth/weak-password') {
-        setError('A senha deve ter pelo menos 6 caracteres.');
+      } else if (err.code === 'auth/invalid-email') {
+        setError('Email inválido.');
+      } else if (err.code === 'auth/invalid-credential') {
+        setError('Credenciais inválidas.');
       } else {
-        setError(isRegistering ? 'Falha ao criar conta.' : 'Falha ao fazer login.');
+        setError('Falha ao fazer login.');
       }
       console.error(err);
     } finally {
@@ -88,100 +56,94 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
-      <Card className="w-full max-w-md">
-        <CardHeader className="text-center">
-          <CardTitle className="text-2xl font-bold text-red-600">
-            {isRegistering ? 'Criar Conta' : 'Login'}
-          </CardTitle>
-          <p className="text-gray-600">
-            {isRegistering 
-              ? 'Crie sua conta para acessar o dashboard' 
-              : 'Entre para acessar o dashboard'
-            }
-          </p>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <Button 
-            onClick={handleGoogleSignIn} 
-            disabled={isLoading}
-            className="w-full bg-white text-gray-700 border border-gray-300 hover:bg-gray-50"
-          >
-            <Chrome className="w-4 h-4 mr-2" />
-            Entrar com Google
-          </Button>
-
-          <div className="relative">
-            <Separator />
-            <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-2 text-sm text-gray-500">
-              ou
-            </span>
+    <div className="min-h-screen bg-gray-100 flex flex-col">
+      {/* Header com logo do Internacional */}
+      <div className="flex-1 flex flex-col items-center justify-center px-4">
+        <div className="w-full max-w-md">
+          {/* Logo do Internacional */}
+          <div className="text-center mb-8">
+            <img 
+              src="/internacional_logo.png" 
+              alt="Sport Club Internacional" 
+              className="w-16 h-16 mx-auto mb-4"
+            />
+            <h1 className="text-2xl font-bold text-red-600 mb-2">
+              Alojamento CTB
+            </h1>
+            <h2 className="text-lg font-semibold text-red-600 mb-8">
+              Login
+            </h2>
           </div>
 
-          <form onSubmit={handleEmailAuth} className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="email">E-mail</Label>
-              <div className="relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                <Input
+          {/* Formulário de Login */}
+          <div className="bg-white rounded-lg shadow-lg p-8">
+            <form onSubmit={handleEmailAuth} className="space-y-6">
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  Email:
+                </label>
+                <input
                   id="email"
                   type="email"
-                  placeholder="seu@email.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="pl-10"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
                   required
                 />
               </div>
-            </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="password">Senha</Label>
-              <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                <Input
+              <div>
+                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+                  Senha:
+                </label>
+                <input
                   id="password"
                   type="password"
-                  placeholder="••••••••"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="pl-10"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
                   required
                   minLength={6}
                 />
               </div>
-            </div>
 
-            {error && (
-              <div className="flex items-center space-x-2 text-red-600 text-sm">
-                <AlertCircle className="w-4 h-4" />
-                <span>{error}</span>
-              </div>
-            )}
+              {error && (
+                <div className="text-red-600 text-sm text-center">
+                  {error}
+                </div>
+              )}
 
-            <Button 
-              type="submit" 
-              disabled={isLoading}
-              className="w-full bg-red-600 hover:bg-red-700"
-            >
-              {isLoading ? 'Carregando...' : (isRegistering ? 'Criar Conta' : 'Entrar')}
-            </Button>
-          </form>
-
-          <div className="text-center">
-            <button
-              type="button"
-              onClick={() => setIsRegistering(!isRegistering)}
-              className="text-sm text-red-600 hover:underline"
-            >
-              {isRegistering 
-                ? 'Já tem uma conta? Faça login' 
-                : 'Não tem uma conta? Registre-se'
-              }
-            </button>
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="w-full bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed font-medium"
+              >
+                {isLoading ? 'Carregando...' : 'Entrar'}
+              </button>
+            </form>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="bg-white border-t border-gray-200 py-6">
+        <div className="max-w-md mx-auto text-center px-4">
+          <div className="mb-4">
+            <img 
+              src="/servico_social_logo.png" 
+              alt="Serviço Social" 
+              className="w-12 h-12 mx-auto mb-2"
+            />
+          </div>
+          <div className="text-sm text-gray-600 space-y-1">
+            <p className="font-medium">Sistema de Gestão de Atletas Alojados</p>
+            <p>Departamento de Serviço Social</p>
+          </div>
+          <div className="mt-4 text-xs text-gray-500">
+            © 2025 TechVamp2025. Todos os direitos reservados.
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
